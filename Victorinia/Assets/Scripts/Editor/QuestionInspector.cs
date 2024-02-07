@@ -1,4 +1,4 @@
-using UnityEditor;
+﻿using UnityEditor;
 using UnityEngine;
 using static Unity.Burst.Intrinsics.X86.Avx;
 
@@ -50,7 +50,38 @@ public class QuestionInspector : Editor
             EditorGUILayout.LabelField("Some answer text is empty");
         }
 
+
+        QuestionPreview();
+
+        
+        
+
         serializedObject.ApplyModifiedProperties();
     }
 
+
+
+    private void QuestionPreview()
+    {
+        EditorGUILayout.Space();
+        EditorGUILayout.Space();
+
+        EditorGUILayout.LabelField(_questionTextProperty.stringValue);
+        EditorGUILayout.Space();
+
+        for (int i = 0; i < _answerItemArrayProperty.arraySize; i++)
+        {
+            SerializedProperty answerItemProperty = _answerItemArrayProperty.GetArrayElementAtIndex(i);
+            bool isCorrect = answerItemProperty.FindPropertyRelative("_isCorrect").boolValue;
+
+            string answerText = answerItemProperty.FindPropertyRelative("_answerText").stringValue;
+            
+            EditorGUILayout.LabelField(" - " + answerText + ((isCorrect) ? "  ✓" : ""));
+            
+
+        }
+
+
+
+    }
 }
