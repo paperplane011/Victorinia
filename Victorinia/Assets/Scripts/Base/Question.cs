@@ -6,13 +6,17 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "Question")]
 public class Question : ScriptableObject
 {
+    [SerializeField] private QuestionDifficulty _questionDifficulty;
     [SerializeField] private string _questionText;
+    [SerializeField] private bool _isMultipleAnswers;
     [SerializeField] private AnswerItem[] _answerItemArray;
+    
 
 
     public string QuestionText { get { return _questionText; } }
     public AnswerItem[] AnswerItemArray { get { return _answerItemArray; } }
-
+    public bool IsMultipleAnswers { get { return _isMultipleAnswers; } }
+    public QuestionDifficulty QuestionDifficulty { get { return _questionDifficulty; } }
 
 
 
@@ -29,5 +33,13 @@ public class Question : ScriptableObject
 
 }
 
+
+[Serializable]
+public enum QuestionDifficulty
+{
+    Easy,
+    Normal,
+    Hard
+}
 
 
