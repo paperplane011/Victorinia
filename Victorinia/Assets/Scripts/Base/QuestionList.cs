@@ -18,7 +18,6 @@ public class QuestionList : ScriptableObject
 
     private const string QUESTION_SEARCH_FILTER = "t:Question";
 
-    public static Action OnListUpdate;
 
     [ContextMenu("Fill List")]
     public void FillList()
@@ -37,10 +36,7 @@ public class QuestionList : ScriptableObject
             {
                 _thisQuestionList.Add(question);
             }
-        }
-
-        OnListUpdate?.Invoke();
-        
+        }        
     }
 
     

@@ -14,7 +14,7 @@ public class QuestionInspector : Editor
 
     private void OnEnable()
     {
-        _answerItemArrayProperty = serializedObject.FindProperty("_answerItemArray");
+        _answerItemArrayProperty = serializedObject.FindProperty("_answerArray");
         _questionTextProperty = serializedObject.FindProperty("_questionText");
         _isMultipleAnswers = serializedObject.FindProperty("_isMultipleAnswers");
         _questionDifficulty = serializedObject.FindProperty("_questionDifficulty");

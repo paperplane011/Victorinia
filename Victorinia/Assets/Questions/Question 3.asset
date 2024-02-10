@@ -15,12 +15,8 @@ MonoBehaviour:
   _questionDifficulty: 2
   _questionText: "\u041A\u0442\u043E"
   _isMultipleAnswers: 1
-  _answerItemArray:
-  - _answerText: "\u0414\u0410"
+  _answerArray:
+  - _answerText: 
     _isCorrect: 0
-  - _answerText: "\u041D\u0415\u0422"
-    _isCorrect: 1
-  - _answerText: "\u041D\u0415\u0422"
-    _isCorrect: 1
-  - _answerText: dasd
-    _isCorrect: 1
+  - _answerText: 
+    _isCorrect: 0

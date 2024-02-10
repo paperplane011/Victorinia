@@ -15,12 +15,8 @@ MonoBehaviour:
   _questionDifficulty: 1
   _questionText: 4444444444
   _isMultipleAnswers: 0
-  _answerItemArray:
-  - _answerText: 2111111111111111111
-    _isCorrect: 1
-  - _answerText: dadasdasdad
+  _answerArray:
+  - _answerText: 
     _isCorrect: 0
-  - _answerText: "\u041D\u0415\u0422"
-    _isCorrect: 0
-  - _answerText: sdasasdasdasdasd
+  - _answerText: 
     _isCorrect: 0

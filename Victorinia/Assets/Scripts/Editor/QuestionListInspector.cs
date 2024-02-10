@@ -1,5 +1,6 @@
 using System;
 using UnityEditor;
+using UnityEngine;
 
 [CustomEditor(typeof(QuestionList))]
 public class QuestionListInspector : Editor
@@ -24,13 +25,11 @@ public class QuestionListInspector : Editor
         EditorGUILayout.PropertyField(_thisQuestionListDifficulty);
 
 
+
         EditorGUI.BeginDisabledGroup(true);
 
-
         EditorGUILayout.PropertyField(_thisQuestionList);
-        Repaint();
-
-
+      
         EditorGUI.EndDisabledGroup();
 
 
