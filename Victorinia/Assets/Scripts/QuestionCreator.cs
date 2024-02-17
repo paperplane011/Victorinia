@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -6,12 +7,11 @@ public class QuestionCreator : MonoBehaviour
 {
 
     private QuestionList _currentQuestionList;
-
     private List<GameObject> _answerButtonsGOList;
 
     [Header("Component hooks")]
-    [SerializeField] private GridLayoutGroup _answerButtonsGrid;
     [SerializeField] private GameObject _answerButtonsParentGO;
+    [SerializeField] private TMPro.TextMeshProUGUI _questionTextComp;
 
 
     private void Start()
@@ -31,11 +31,46 @@ public class QuestionCreator : MonoBehaviour
     private void OnEnable()
     {
         PlayerEventsInvoker.OnPlayerDifficultySelected += GameStartBehaviour;
+        PlayerEventsInvoker.OnAnswerPressed += AnswerPressedBehaviour;
     }
 
     private void OnDisable()
     {
         PlayerEventsInvoker.OnPlayerDifficultySelected -= GameStartBehaviour;
+        PlayerEventsInvoker.OnAnswerPressed -= AnswerPressedBehaviour;
+    }
+
+    private void AnswerPressedBehaviour(bool isCorrect)
+    {
+        if (isCorrect)
+        {
+            if(_currentQuestionList.ThisQuestionList.Count == 0)
+            {
+                PlayerEventsInvoker.OnGameEndWin?.Invoke();
+            }
+            else
+            {
+                CreateQuestion();
+            }
+        }
+        else
+        {
+            PlayerEventsInvoker.OnGameEndLose?.Invoke();
+        }
+    }
+
+
+    [ContextMenu("Game start")]
+    private void tempgameStart()
+    {
+        GameStartBehaviour(QuestionDifficulty.Easy);
+    }
+
+   
+    private void GameStartBehaviour(QuestionDifficulty questionDifficulty)
+    {
+        _currentQuestionList = Instantiate(GameAssets.Instance.GetQuestionListForDifficulty(questionDifficulty));
+        CreateQuestion();
     }
 
 
@@ -49,34 +84,29 @@ public class QuestionCreator : MonoBehaviour
 
 
 
-    private void GameStartBehaviour(QuestionDifficulty questionDifficulty)
-    {
-        _currentQuestionList = GameAssets.Instance.GetQuestionListForDifficulty(questionDifficulty);
-        CreateQuestion();
-    }
-
-
-
     [ContextMenu("Create")]
     public void CreateQuestion()
     {
-        _currentQuestionList = GameAssets.Instance.GetQuestionListForDifficulty(QuestionDifficulty.Easy);
-
         if (_currentQuestionList == null) return;
 
-        Question randomQuestion = _currentQuestionList.ThisQuestionList[Random.Range(0, _currentQuestionList.ThisQuestionList.Count)];
+        // Get question
+        int randomQuestionIndex = Random.Range(0, _currentQuestionList.ThisQuestionList.Count);
+        Question randomQuestion = _currentQuestionList.ThisQuestionList[randomQuestionIndex];
+        // Remove question
+        _currentQuestionList.ThisQuestionList.RemoveAt(randomQuestionIndex);
 
-        int numOfAnswers = randomQuestion.AnswerArray.Length;
+        // Set question text
+        _questionTextComp.text = randomQuestion.QuestionText;
 
+        // Set answers
         ClearAnswerButtons();
+        int numOfAnswers = randomQuestion.AnswerArray.Length;
 
         for (int i = 0; i < numOfAnswers; i++)
         {
             _answerButtonsGOList[i].SetActive(true);
+            _answerButtonsGOList[i].GetComponent<AnswerButton>().AssignAnswer(randomQuestion.AnswerArray[i]);
         }
-
-
-
     }
 
 

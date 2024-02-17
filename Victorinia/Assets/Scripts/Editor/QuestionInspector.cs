@@ -2,6 +2,7 @@
 using UnityEngine;
 
 [CustomEditor(typeof(Question))]
+[CanEditMultipleObjects]
 public class QuestionInspector : Editor
 {
     private const int MIN_NUM_OF_QUESTIONS = 2;

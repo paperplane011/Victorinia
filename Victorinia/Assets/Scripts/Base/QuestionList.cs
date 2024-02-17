@@ -13,7 +13,20 @@ public class QuestionList : ScriptableObject
     public QuestionDifficulty ThisQuestionListDifficulty { get { return _thisQuestionListDifficulty; } }
     public List<Question> ThisQuestionList { get { return _thisQuestionList; } }
 
+
     
+
+
+    private QuestionList(QuestionDifficulty thisQuestionListDifficulty, List<Question> thisQuestionList)
+    {
+        _thisQuestionListDifficulty = thisQuestionListDifficulty;
+        _thisQuestionList = thisQuestionList;
+    }
+
+
+
+
+
 #if UNITY_EDITOR
 
     private const string QUESTION_SEARCH_FILTER = "t:Question";

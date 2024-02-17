@@ -15,7 +15,6 @@ public class QuestionListInspector : Editor
     {
         _thisQuestionListDifficulty = serializedObject.FindProperty("_thisQuestionListDifficulty");
         _thisQuestionList = serializedObject.FindProperty("_thisQuestionList");
-
     }
 
  
@@ -24,16 +23,11 @@ public class QuestionListInspector : Editor
     {
         EditorGUILayout.PropertyField(_thisQuestionListDifficulty);
 
-
-
         EditorGUI.BeginDisabledGroup(true);
 
         EditorGUILayout.PropertyField(_thisQuestionList);
       
         EditorGUI.EndDisabledGroup();
-
-
-        
 
 
         serializedObject.ApplyModifiedProperties();
