@@ -1,7 +1,5 @@
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class QuestionCreator : MonoBehaviour
 {
@@ -69,7 +67,7 @@ public class QuestionCreator : MonoBehaviour
    
     private void GameStartBehaviour(QuestionDifficulty questionDifficulty)
     {
-        _currentQuestionList = Instantiate(GameAssets.Instance.GetQuestionListForDifficulty(questionDifficulty));
+        _currentQuestionList = Instantiate(GameAssets.Instance.GetQuestionListForDifficulty(questionDifficulty)); // copying obj
         CreateQuestion();
     }
 
@@ -92,7 +90,7 @@ public class QuestionCreator : MonoBehaviour
         // Get question
         int randomQuestionIndex = Random.Range(0, _currentQuestionList.ThisQuestionList.Count);
         Question randomQuestion = _currentQuestionList.ThisQuestionList[randomQuestionIndex];
-        // Remove question
+        // Remove used question
         _currentQuestionList.ThisQuestionList.RemoveAt(randomQuestionIndex);
 
         // Set question text

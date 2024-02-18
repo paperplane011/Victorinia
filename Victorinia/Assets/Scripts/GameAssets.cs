@@ -1,12 +1,10 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class GameAssets : MonoBehaviour
 {
+    #region SINGLETONE
     private static GameAssets _instance;
-
     public static GameAssets Instance
     {
         get
@@ -19,8 +17,10 @@ public class GameAssets : MonoBehaviour
 
         }
     }
+    #endregion 
 
 
+    [Header("Questions")]
     [SerializeField] private QuestionList[] _questionLists;
 
     public QuestionList GetQuestionListForDifficulty(QuestionDifficulty questionDifficulty)
@@ -36,6 +36,11 @@ public class GameAssets : MonoBehaviour
         throw new ArgumentException(nameof(questionDifficulty));
     }
 
+    
+    
 
+
+
+    
 
 }

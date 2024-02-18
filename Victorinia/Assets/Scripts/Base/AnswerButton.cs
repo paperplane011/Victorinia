@@ -5,8 +5,6 @@ using UnityEngine.UI;
 public class AnswerButton : MonoBehaviour
 {
 
-
-
     public bool IsCorrect { get; private set; }
 
     [Header("Component hooks")]
