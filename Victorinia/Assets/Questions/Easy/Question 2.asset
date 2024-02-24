@@ -18,5 +18,5 @@ MonoBehaviour:
   _answerArray:
   - _answerText: asdasdasdasdasd
     _isCorrect: 0
-  - _answerText: dasdadasdasdasd
+  - _answerText: correct
     _isCorrect: 1

@@ -30,12 +30,16 @@ public class QuestionCreator : MonoBehaviour
     {
         PlayerEventsInvoker.OnPlayerDifficultySelected += GameStartBehaviour;
         PlayerEventsInvoker.OnAnswerPressed += AnswerPressedBehaviour;
+
+        PlayerEventsInvoker.OnRestartPressed += RestartBehaviour;
     }
 
     private void OnDisable()
     {
         PlayerEventsInvoker.OnPlayerDifficultySelected -= GameStartBehaviour;
         PlayerEventsInvoker.OnAnswerPressed -= AnswerPressedBehaviour;
+
+        PlayerEventsInvoker.OnRestartPressed -= RestartBehaviour;
     }
 
     private void AnswerPressedBehaviour(bool isCorrect)
@@ -57,12 +61,12 @@ public class QuestionCreator : MonoBehaviour
         }
     }
 
-
-    [ContextMenu("Game start")]
-    private void tempgameStart()
+    private void RestartBehaviour()
     {
-        GameStartBehaviour(QuestionDifficulty.Easy);
+        GameStartBehaviour(_currentQuestionList.ThisQuestionListDifficulty);
     }
+
+   
 
    
     private void GameStartBehaviour(QuestionDifficulty questionDifficulty)

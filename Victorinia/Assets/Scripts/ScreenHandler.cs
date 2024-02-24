@@ -20,7 +20,7 @@ public class ScreenHandler : MonoBehaviour
 
 
     private GameScreen _currentScreen;
-    private readonly GameScreen STARTING_SCREEN = GameScreen.Title;
+    private readonly GameScreen STARTING_SCREEN = GameScreen.Select;
 
 
     private void Awake()
@@ -40,19 +40,31 @@ public class ScreenHandler : MonoBehaviour
 
     private void OnEnable()
     {
+        PlayerEventsInvoker.OnPlayerDifficultySelected += (QuestionDifficulty d) => ChangeScreenTo(GameScreen.Questions);
         PlayerEventsInvoker.OnGameEndLose += () => ChangeScreenTo(GameScreen.Lose);
         PlayerEventsInvoker.OnGameEndWin += () => ChangeScreenTo(GameScreen.Win);
+        PlayerEventsInvoker.OnToMainMenuPressed += () => ChangeScreenTo(GameScreen.Title);
+        PlayerEventsInvoker.OnRestartPressed += () => ChangeScreenTo(GameScreen.Questions);
+        PlayerEventsInvoker.OnToSelectMenuPressed += () => ChangeScreenTo(GameScreen.Select);
     }
 
     private void OnDisable()
     {
+        PlayerEventsInvoker.OnPlayerDifficultySelected -= (QuestionDifficulty d) => ChangeScreenTo(GameScreen.Questions);
         PlayerEventsInvoker.OnGameEndLose -= () => ChangeScreenTo(GameScreen.Lose);
         PlayerEventsInvoker.OnGameEndWin -= () => ChangeScreenTo(GameScreen.Win);
+
+        PlayerEventsInvoker.OnToMainMenuPressed -= () => ChangeScreenTo(GameScreen.Title);
+        PlayerEventsInvoker.OnRestartPressed -= () => ChangeScreenTo(GameScreen.Questions);
+        PlayerEventsInvoker.OnToSelectMenuPressed -= () => ChangeScreenTo(GameScreen.Select);
+
     }
 
 
     private void Start()
     {
+        HideAllScreens();
+
         ChangeScreenTo(STARTING_SCREEN);
         _currentScreen = STARTING_SCREEN;
     }
@@ -63,6 +75,14 @@ public class ScreenHandler : MonoBehaviour
         CanvasUtils.EnableCanvasGroup(_gameScreenCanvasGroupDictionary[newScreen]);
 
         _currentScreen = newScreen;
+    }
+
+    private void HideAllScreens()
+    {
+        foreach(var item in _gameScreenCanvasGroupArray)
+        {
+            CanvasUtils.DisableCanvasGroup(item.CanvasGroup);
+        }
     }
 
 }

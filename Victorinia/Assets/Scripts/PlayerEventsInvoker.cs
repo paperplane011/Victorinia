@@ -1,27 +1,68 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public static class PlayerEventsInvoker
 {
+    [Serializable]
+    public enum EventType
+    {
+        OnPlayerDifficultySelected,
+        OnAnswerPressed,
+        OnGameEndLose,
+        OnGameEndWin,
+        OnToMainMenuPressed,
+        OnRestartPressed,
+        OnToSelectMenuPressed
+    }
+
 
     public static Action<QuestionDifficulty> OnPlayerDifficultySelected;
-    public static Action<bool> OnAnswerPressed;
+    public static Action<bool> OnAnswerPressed; // Invoked by AnswerButton.cs
 
     public static Action OnGameEndLose;
     public static Action OnGameEndWin;
 
+    public static Action OnToMainMenuPressed;
+    public static Action OnRestartPressed;
+    public static Action OnToSelectMenuPressed;
 
-    private static QuestionDifficulty SelectedDifficulty { get; set; }
+    public static QuestionDifficulty SelectedDifficulty { get; set; }
 
 
 
-
-    public static void InvokeOnPlayerDifficultySelected()
+    public static void RaiseEvent(EventType eventType, params object[] args)
     {
-        OnPlayerDifficultySelected?.Invoke(SelectedDifficulty);
+        switch (eventType)
+        {
+            case EventType.OnPlayerDifficultySelected:
+                OnPlayerDifficultySelected?.Invoke(SelectedDifficulty);
+                break;
+            case EventType.OnAnswerPressed:
+                OnAnswerPressed?.Invoke((bool)args[0]);
+                break;
+            case EventType.OnGameEndLose:
+                OnGameEndLose?.Invoke();
+                break;
+            case EventType.OnGameEndWin:
+                OnGameEndWin?.Invoke();
+                break;
+            case EventType.OnToMainMenuPressed:
+                OnToMainMenuPressed?.Invoke();
+                break;
+            case EventType.OnRestartPressed:
+                OnRestartPressed?.Invoke();
+                break;
+            case EventType.OnToSelectMenuPressed:
+                OnToSelectMenuPressed?.Invoke();
+                break;
+
+            default:
+                Debug.LogWarning($"{eventType} can't be raised via button");
+                break;
+        }
     }
+
+
 
 
 

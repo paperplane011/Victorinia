@@ -16,13 +16,13 @@ MonoBehaviour:
   _questionText: 4444444444
   _isMultipleAnswers: 1
   _answerArray:
-  - _answerText: dsadadssss78768
+  - _answerText: correct
     _isCorrect: 1
   - _answerText: 786787767
     _isCorrect: 0
   - _answerText: 786787767
     _isCorrect: 0
-  - _answerText: 67667
+  - _answerText: correct
     _isCorrect: 1
   - _answerText: 676666
     _isCorrect: 0
