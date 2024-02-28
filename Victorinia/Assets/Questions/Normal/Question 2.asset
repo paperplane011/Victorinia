@@ -12,15 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e9ed965a40ca90c4aa805b264c4c2eb4, type: 3}
   m_Name: Question 2
   m_EditorClassIdentifier: 
-  _questionDifficulty: 0
+  _questionDifficulty: 1
   _questionText: "\u041A\u0442\u043E"
   _isMultipleAnswers: 0
   _answerArray:
   - _answerText: asdasdasdasdasd
     _isCorrect: 0
-  - _answerText: correct
-    _isCorrect: 1
-  - _answerText: correct
-    _isCorrect: 1
   - _answerText: correct
     _isCorrect: 1

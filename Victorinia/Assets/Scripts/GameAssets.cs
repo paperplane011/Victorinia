@@ -1,4 +1,5 @@
 using System;
+using Tweens;
 using UnityEngine;
 
 public class GameAssets : MonoBehaviour
@@ -23,6 +24,9 @@ public class GameAssets : MonoBehaviour
     [Header("Questions")]
     [SerializeField] private QuestionList[] _questionLists;
 
+    
+
+
     public QuestionList GetQuestionListForDifficulty(QuestionDifficulty questionDifficulty)
     {
         foreach(var questionList in _questionLists)
@@ -36,9 +40,10 @@ public class GameAssets : MonoBehaviour
         throw new ArgumentException(nameof(questionDifficulty));
     }
 
-    
-    
 
+
+
+    public SoundManager.SoundInfo[] SoundInfoArray;
 
 
     

@@ -18,7 +18,11 @@ MonoBehaviour:
   _answerArray:
   - _answerText: g4532432423423232
     _isCorrect: 0
-  - _answerText: hjjjjjjjjjjjjjjjjjjjjjj
-    _isCorrect: 0
+  - _answerText: correct
+    _isCorrect: 1
+  - _answerText: correct
+    _isCorrect: 1
+  - _answerText: correct
+    _isCorrect: 1
   - _answerText: correct
     _isCorrect: 1

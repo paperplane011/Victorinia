@@ -46,6 +46,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _questionLists:
   - {fileID: 11400000, guid: f16c5ac4599468943b3b839835317357, type: 2}
-  gameScreenCanvasGroupArray:
-  - _gameScreen: 1
-    _canvasGroup: {fileID: 0}
+  - {fileID: 11400000, guid: 6e259226ba8bc9146af2ecf3a436f156, type: 2}
+  - {fileID: 11400000, guid: d0609cd206b07e14c9c55e566994c65f, type: 2}
+  SoundInfoArray: []

@@ -1,3 +1,5 @@
+using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -5,7 +7,7 @@ public class QuestionCreator : MonoBehaviour
 {
 
     private QuestionList _currentQuestionList;
-    private List<GameObject> _answerButtonsGOList;
+    private GameObject[] _answerButtonsArray;
 
     [Header("Component hooks")]
     [SerializeField] private GameObject _answerButtonsParentGO;
@@ -14,12 +16,11 @@ public class QuestionCreator : MonoBehaviour
 
     private void Start()
     {
-        _answerButtonsGOList = new();
+        _answerButtonsArray = new GameObject[_answerButtonsParentGO.transform.childCount];
 
         for (int i = 0; i < _answerButtonsParentGO.transform.childCount; i++)
         {
-            _answerButtonsGOList.Add(_answerButtonsParentGO.transform.GetChild(i).gameObject);
-            
+            _answerButtonsArray[i] = (_answerButtonsParentGO.transform.GetChild(i).gameObject);
         }
 
         ClearAnswerButtons();
@@ -44,31 +45,13 @@ public class QuestionCreator : MonoBehaviour
 
     private void AnswerPressedBehaviour(bool isCorrect)
     {
-        if (isCorrect)
-        {
-            if(_currentQuestionList.ThisQuestionList.Count == 0)
-            {
-                PlayerEventsInvoker.OnGameEndWin?.Invoke();
-            }
-            else
-            {
-                CreateQuestion();
-            }
-        }
-        else
-        {
-            PlayerEventsInvoker.OnGameEndLose?.Invoke();
-        }
+        StartCoroutine(CheckForAnswerWithDelay(isCorrect));
+       
     }
-
     private void RestartBehaviour()
     {
         GameStartBehaviour(_currentQuestionList.ThisQuestionListDifficulty);
     }
-
-   
-
-   
     private void GameStartBehaviour(QuestionDifficulty questionDifficulty)
     {
         _currentQuestionList = Instantiate(GameAssets.Instance.GetQuestionListForDifficulty(questionDifficulty)); // copying obj
@@ -78,10 +61,15 @@ public class QuestionCreator : MonoBehaviour
 
     private void ClearAnswerButtons()
     {
-        foreach (var answerButtonGO in _answerButtonsGOList)
+        foreach (var answerButtonGO in _answerButtonsArray)
         {
             answerButtonGO.SetActive(false);
         }
+    }
+
+    private void ShuffleAnswerButtonsArray()
+    {
+        ArrayShuffler.Shuffle(new System.Random(), _answerButtonsArray);
     }
 
 
@@ -92,7 +80,7 @@ public class QuestionCreator : MonoBehaviour
         if (_currentQuestionList == null) return;
 
         // Get question
-        int randomQuestionIndex = Random.Range(0, _currentQuestionList.ThisQuestionList.Count);
+        int randomQuestionIndex = UnityEngine.Random.Range(0, _currentQuestionList.ThisQuestionList.Count);
         Question randomQuestion = _currentQuestionList.ThisQuestionList[randomQuestionIndex];
         // Remove used question
         _currentQuestionList.ThisQuestionList.RemoveAt(randomQuestionIndex);
@@ -101,16 +89,41 @@ public class QuestionCreator : MonoBehaviour
         _questionTextComp.text = randomQuestion.QuestionText;
 
         // Set answers
-        ClearAnswerButtons();
+        ClearAnswerButtons(); // disable all answers 
+        ShuffleAnswerButtonsArray(); // for random answer placement
+
         int numOfAnswers = randomQuestion.AnswerArray.Length;
 
         for (int i = 0; i < numOfAnswers; i++)
         {
-            _answerButtonsGOList[i].SetActive(true);
-            _answerButtonsGOList[i].GetComponent<AnswerButton>().AssignAnswer(randomQuestion.AnswerArray[i]);
+            _answerButtonsArray[i].SetActive(true);
+            _answerButtonsArray[i].GetComponent<AnswerButton>().AssignAnswer(randomQuestion.AnswerArray[i]);
         }
     }
 
 
+    IEnumerator CheckForAnswerWithDelay(bool isCorrect)
+    {
+        
 
+        if (isCorrect)
+        {
+            yield return new WaitForSeconds(0.4f);
+
+            if (_currentQuestionList.ThisQuestionList.Count == 0)
+            {
+                PlayerEventsInvoker.OnGameEndWin?.Invoke();
+            }
+            else
+            {
+                CreateQuestion();
+            }
+        }
+        else
+        {
+            yield return new WaitForSeconds(1f);
+
+            PlayerEventsInvoker.OnGameEndLose?.Invoke();
+        }
+    }
 }

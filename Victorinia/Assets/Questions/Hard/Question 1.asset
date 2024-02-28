@@ -10,17 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e9ed965a40ca90c4aa805b264c4c2eb4, type: 3}
-  m_Name: Question 2
+  m_Name: Question 1
   m_EditorClassIdentifier: 
-  _questionDifficulty: 0
-  _questionText: "\u041A\u0442\u043E"
+  _questionDifficulty: 2
+  _questionText: asdasd
   _isMultipleAnswers: 0
   _answerArray:
-  - _answerText: asdasdasdasdasd
+  - _answerText: sdfsdfsdfsdf
     _isCorrect: 0
-  - _answerText: correct
-    _isCorrect: 1
-  - _answerText: correct
-    _isCorrect: 1
   - _answerText: correct
     _isCorrect: 1

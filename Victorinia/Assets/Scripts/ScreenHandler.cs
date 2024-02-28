@@ -20,7 +20,7 @@ public class ScreenHandler : MonoBehaviour
 
 
     private GameScreen _currentScreen;
-    private readonly GameScreen STARTING_SCREEN = GameScreen.Select;
+    private readonly GameScreen STARTING_SCREEN = GameScreen.Title;
 
 
     private void Awake()

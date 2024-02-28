@@ -218,6 +218,13 @@
       },
       "url": "https://packages.unity.com"
     },
+    "nl.jeffreylanters.tweens": {
+      "version": "https://github.com/jeffreylanters/unity-tweens.git",
+      "depth": 0,
+      "source": "git",
+      "dependencies": {},
+      "hash": "dc97d84434a910834dcef025d7fd00a11102bb77"
+    },
     "com.unity.modules.ai": {
       "version": "1.0.0",
       "depth": 0,

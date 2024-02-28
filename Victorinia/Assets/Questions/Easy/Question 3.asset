@@ -18,9 +18,13 @@ MonoBehaviour:
   _answerArray:
   - _answerText: erfferfer
     _isCorrect: 0
-  - _answerText: referferfre
-    _isCorrect: 0
   - _answerText: correct
     _isCorrect: 1
-  - _answerText: 11313131323232
-    _isCorrect: 0
+  - _answerText: correct
+    _isCorrect: 1
+  - _answerText: correct
+    _isCorrect: 1
+  - _answerText: correct
+    _isCorrect: 1
+  - _answerText: correct
+    _isCorrect: 1
