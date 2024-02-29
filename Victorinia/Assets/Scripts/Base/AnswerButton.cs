@@ -1,5 +1,5 @@
-using System.Collections;
 using Tweens;
+using Tweens.Core;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -12,8 +12,8 @@ public class AnswerButton : MonoBehaviour
     [SerializeField] private TMPro.TextMeshProUGUI _textComponent;
     private Button _button;
 
-
-
+    private Vector3 _origScale;
+    private TweenInstance _zoomInTweenInstance;
 
     private void Awake()
     {
@@ -23,21 +23,23 @@ public class AnswerButton : MonoBehaviour
     private void OnEnable()
     {
         _button.onClick.AddListener(Clicked);
-        PlayerEventsInvoker.OnAnswerPressed += WrongAnswerBehaviour;
 
-        Vector3 currentScale = gameObject.transform.localScale;
+        _button.interactable = true;
+
+        PlayerEventsInvoker.OnAnswerPressed += AllAnswerBehaviour;
+
         Quaternion currentRotation = gameObject.transform.rotation;
 
         var AppearTween = new Tweens.LocalScaleTween
         {
-            from = currentScale * 0.55f,
-            to = currentScale,
+            from = _origScale * 0.55f,
+            to = _origScale,
             duration = 0.6f,
             easeType = EaseType.BounceOut
         };
 
 
-        float randomAngle = UnityEngine.Random.Range(2f, 4f);
+        float randomAngle = UnityEngine.Random.Range(1f, 3f);
         bool startLeft = UnityEngine.Random.value > 0.5f ? true : false;
 
         if (startLeft)
@@ -64,15 +66,36 @@ public class AnswerButton : MonoBehaviour
     private void OnDisable()
     {
         _button.onClick.RemoveAllListeners();
-        PlayerEventsInvoker.OnAnswerPressed -= WrongAnswerBehaviour;
+        PlayerEventsInvoker.OnAnswerPressed -= AllAnswerBehaviour;
     }
 
 
-
-
-    private void WrongAnswerBehaviour(bool isClickedAnswerCorrect)
+    private void Start()
     {
-        if (isClickedAnswerCorrect == true) return;
+        _origScale = transform.localScale;
+    }
+
+    // called for all buttons when answer clicked
+    private void AllAnswerBehaviour(bool isClickedAnswerCorrect)
+    {
+        _button.interactable = false;
+
+        if (isClickedAnswerCorrect == true)
+        {
+
+        }
+        else
+        {
+            AllWrongAnswerBehaviour();
+        }
+    }
+
+    // called for all buttons when wrong answer clicked
+    private void AllWrongAnswerBehaviour() 
+    {
+        _button.interactable = false;
+
+        if (IsCorrect) return; // correct answer stays on screen
 
         PositionYTween wrongAnswerGoDown = new PositionYTween
         {
@@ -92,7 +115,9 @@ public class AnswerButton : MonoBehaviour
         gameObject.AddTween(wrongAnswerGoUp);
     }
 
-    private void CorrectAnswerBehaviour()
+
+    
+    private void OneCorrectAnswerBehaviour()
     {
         PositionYTween corAnswerGoUp = new PositionYTween
         {
@@ -103,6 +128,39 @@ public class AnswerButton : MonoBehaviour
 
         gameObject.AddTween(corAnswerGoUp);
     }
+
+
+
+    public void PointerEnterBehaviour()
+    {
+        var ZoomIn = new Tweens.LocalScaleTween
+        {
+            to = _origScale * 1.2f,
+            duration = 0.3f,
+            easeType = EaseType.QuadOut,
+        };
+
+
+        _zoomInTweenInstance = gameObject.AddTween(ZoomIn);
+
+    }
+
+    public void PointerExitBehaviour()
+    {
+        _zoomInTweenInstance.Cancel();
+
+        var ZoomOut = new Tweens.LocalScaleTween
+        {
+            to = _origScale,
+            duration = 0.3f,
+            easeType = EaseType.QuadIn,
+
+        };
+
+        gameObject.AddTween(ZoomOut);
+        
+    }
+
 
     public void AssignAnswer(Answer answer)
     {
@@ -115,7 +173,7 @@ public class AnswerButton : MonoBehaviour
     {
         if (IsCorrect)
         {
-            CorrectAnswerBehaviour();
+            OneCorrectAnswerBehaviour();
             PlayerEventsInvoker.OnAnswerPressed?.Invoke(true);
         }
         else
@@ -124,7 +182,7 @@ public class AnswerButton : MonoBehaviour
         }
     }
 
-   
+
 
 
 

@@ -121,7 +121,7 @@ public class QuestionCreator : MonoBehaviour
         }
         else
         {
-            yield return new WaitForSeconds(1f);
+            yield return new WaitForSeconds(1.3f);
 
             PlayerEventsInvoker.OnGameEndLose?.Invoke();
         }
