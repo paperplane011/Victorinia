@@ -275,6 +275,8 @@ GameObject:
   - component: {fileID: 5159415407224722513}
   - component: {fileID: 8799484462017763196}
   - component: {fileID: 4396288189044281839}
+  - component: {fileID: 674191809698807793}
+  - component: {fileID: 2598296991875474393}
   m_Layer: 0
   m_Name: AnswerButton
   m_TagString: Untagged
@@ -354,3 +356,35 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 0.4
+--- !u!114 &674191809698807793
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6846151109486587092}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates: []
+--- !u!114 &2598296991875474393
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6846151109486587092}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 060267eb719bccf4c8d08279b8e2d68c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _appearTween: 1
+  _loopTween: 1
+  _scaleOnHover: 1
+  _appearDuration: 1
+  _maxLoopAngle: 2
+  _loopDuration: 1.2
+  _scaleAmount: 1.2

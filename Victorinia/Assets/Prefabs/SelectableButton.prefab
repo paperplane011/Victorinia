@@ -146,6 +146,8 @@ GameObject:
   - component: {fileID: 5372664395049974183}
   - component: {fileID: 5868276994850033452}
   - component: {fileID: 2452430547216097953}
+  - component: {fileID: 1364560436514801678}
+  - component: {fileID: 4618911461577000543}
   m_Layer: 0
   m_Name: SelectableButton
   m_TagString: Untagged
@@ -212,6 +214,38 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 0.5
+--- !u!114 &1364560436514801678
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2909707740463535104}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates: []
+--- !u!114 &4618911461577000543
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2909707740463535104}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 060267eb719bccf4c8d08279b8e2d68c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _appearTween: 1
+  _loopTween: 1
+  _scaleOnHover: 1
+  _appearDuration: 1
+  _maxLoopAngle: 1.05
+  _loopDuration: 2
+  _scaleAmount: 1.2
 --- !u!1 &8739417810746792476
 GameObject:
   m_ObjectHideFlags: 0

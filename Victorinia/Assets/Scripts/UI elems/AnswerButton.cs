@@ -12,9 +12,6 @@ public class AnswerButton : MonoBehaviour
     [SerializeField] private TMPro.TextMeshProUGUI _textComponent;
     private Button _button;
 
-    private Vector3 _origScale;
-    private TweenInstance _zoomInTweenInstance;
-
     private void Awake()
     {
         _button = GetComponentInChildren<Button>();
@@ -27,40 +24,6 @@ public class AnswerButton : MonoBehaviour
         _button.interactable = true;
 
         PlayerEventsInvoker.OnAnswerPressed += AllAnswerBehaviour;
-
-        Quaternion currentRotation = gameObject.transform.rotation;
-
-        var AppearTween = new Tweens.LocalScaleTween
-        {
-            from = _origScale * 0.55f,
-            to = _origScale,
-            duration = 0.6f,
-            easeType = EaseType.BounceOut
-        };
-
-
-        float randomAngle = UnityEngine.Random.Range(1f, 3f);
-        bool startLeft = UnityEngine.Random.value > 0.5f ? true : false;
-
-        if (startLeft)
-        {
-            randomAngle *= -1;
-        }
-
-        var LoopTween = new Tweens.RotationTween
-        {
-            isInfinite = true,
-            from = Quaternion.AngleAxis(-randomAngle, Vector3.forward),
-            to = Quaternion.AngleAxis(randomAngle, Vector3.forward),
-            easeType = EaseType.SineInOut,
-            usePingPong = true,
-            duration = 1f,
-
-        };
-
-
-        gameObject.AddTween(AppearTween);
-        gameObject.AddTween(LoopTween);
     }
 
     private void OnDisable()
@@ -70,10 +33,7 @@ public class AnswerButton : MonoBehaviour
     }
 
 
-    private void Start()
-    {
-        _origScale = transform.localScale;
-    }
+   
 
     // called for all buttons when answer clicked
     private void AllAnswerBehaviour(bool isClickedAnswerCorrect)
@@ -129,37 +89,6 @@ public class AnswerButton : MonoBehaviour
         gameObject.AddTween(corAnswerGoUp);
     }
 
-
-
-    public void PointerEnterBehaviour()
-    {
-        var ZoomIn = new Tweens.LocalScaleTween
-        {
-            to = _origScale * 1.2f,
-            duration = 0.3f,
-            easeType = EaseType.QuadOut,
-        };
-
-
-        _zoomInTweenInstance = gameObject.AddTween(ZoomIn);
-
-    }
-
-    public void PointerExitBehaviour()
-    {
-        _zoomInTweenInstance.Cancel();
-
-        var ZoomOut = new Tweens.LocalScaleTween
-        {
-            to = _origScale,
-            duration = 0.3f,
-            easeType = EaseType.QuadIn,
-
-        };
-
-        gameObject.AddTween(ZoomOut);
-        
-    }
 
 
     public void AssignAnswer(Answer answer)
