@@ -26,14 +26,14 @@ public class IdleButtonTween : MonoBehaviour
 
     private bool _canBeTweened;
 
-    private void Awake()
+    protected virtual void Awake()
     {
         _eventTrigger = GetComponent<EventTrigger>();
         _canBeTweened = true;
         _origScale = transform.localScale;
     }
 
-    private void Start()
+    protected virtual void Start()
     {
         if (_scaleOnHover) AddScaleOnHoverTween();
         if (_loopTween) AddLoopTween();
@@ -42,11 +42,12 @@ public class IdleButtonTween : MonoBehaviour
         // but visuals messes up a little bit
     }
 
-    private void OnEnable()
+    protected virtual void OnEnable()
     {
         transform.localScale = _origScale;
         if (_appearTween) AddAppearTween();
     }
+
 
     private void AddAppearTween()
     {

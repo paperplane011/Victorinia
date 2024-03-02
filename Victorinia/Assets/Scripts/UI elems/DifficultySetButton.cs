@@ -5,7 +5,9 @@ using UnityEngine.UI;
 [RequireComponent(typeof(Button))]
 public class DifficultySetButton : MonoBehaviour
 {
-    [SerializeField] private QuestionDifficulty _selectedDifficulty;
+    [SerializeField] private QuestionDifficulty _selectableDifficulty;
+
+    public QuestionDifficulty SelectableDifficulty { get { return _selectableDifficulty; } }
 
     private TextMeshProUGUI _text;
     private Button _button;
@@ -18,7 +20,7 @@ public class DifficultySetButton : MonoBehaviour
 
     private void Start()
     {
-        _text.text = _selectedDifficulty.ToString();
+        _text.text = _selectableDifficulty.ToString();
     }
 
     private void OnEnable()
@@ -33,7 +35,8 @@ public class DifficultySetButton : MonoBehaviour
 
     private void SetDifficulty()
     {
-        PlayerEventsInvoker.SelectedDifficulty = _selectedDifficulty;
+        PlayerEventsInvoker.SelectedDifficulty = _selectableDifficulty;
+        PlayerEventsInvoker.OnPlayerDifficultySelected?.Invoke(_selectableDifficulty);
     }
 
 }

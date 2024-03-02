@@ -223,6 +223,10 @@ PrefabInstance:
       propertyPath: _selectedDifficulty
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 8366448561025607141, guid: 3ee904b2e87ff374faf94f2d6e21ae78, type: 3}
+      propertyPath: _selectableDifficulty
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 2452529216379965519, guid: 3ee904b2e87ff374faf94f2d6e21ae78, type: 3}
     m_RemovedGameObjects: []
@@ -2169,7 +2173,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1767086506}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: cf77b136c5b52f74d955a4446075392f, type: 3}
   m_Name: 
@@ -2482,7 +2486,7 @@ MonoBehaviour:
   m_ChildAlignment: 0
   m_StartCorner: 0
   m_StartAxis: 0
-  m_CellSize: {x: 1100, y: 400}
+  m_CellSize: {x: 910, y: 400}
   m_Spacing: {x: 20, y: 20}
   m_Constraint: 2
   m_ConstraintCount: 4
@@ -2778,7 +2782,7 @@ CanvasGroup:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2068835940}
   m_Enabled: 1
-  m_Alpha: 0
+  m_Alpha: 1
   m_Interactable: 1
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
@@ -2881,7 +2885,7 @@ CanvasGroup:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2108115141}
   m_Enabled: 1
-  m_Alpha: 1
+  m_Alpha: 0
   m_Interactable: 1
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
@@ -2983,6 +2987,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5928324421074470312, guid: 3ee904b2e87ff374faf94f2d6e21ae78, type: 3}
       propertyPath: _selectedDifficulty
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8366448561025607141, guid: 3ee904b2e87ff374faf94f2d6e21ae78, type: 3}
+      propertyPath: _selectableDifficulty
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents:

@@ -15,8 +15,8 @@ public static class PlayerEventsInvoker
         OnToSelectMenuPressed
     }
 
-
     public static Action<QuestionDifficulty> OnPlayerDifficultySelected;
+    public static Action<QuestionDifficulty> OnPlayerDifficultySelectedFinally;
     public static Action<bool> OnAnswerPressed; // Invoked by AnswerButton.cs
 
     public static Action OnGameEndLose;
@@ -35,7 +35,7 @@ public static class PlayerEventsInvoker
         switch (eventType)
         {
             case EventType.OnPlayerDifficultySelected:
-                OnPlayerDifficultySelected?.Invoke(SelectedDifficulty);
+                OnPlayerDifficultySelectedFinally?.Invoke(SelectedDifficulty);
                 break;
             case EventType.OnAnswerPressed:
                 OnAnswerPressed?.Invoke((bool)args[0]);
