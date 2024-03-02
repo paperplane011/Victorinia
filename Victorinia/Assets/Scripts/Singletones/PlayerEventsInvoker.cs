@@ -12,7 +12,9 @@ public static class PlayerEventsInvoker
         OnGameEndWin,
         OnToMainMenuPressed,
         OnRestartPressed,
-        OnToSelectMenuPressed
+        OnToSelectMenuPressed,
+        OnToPauseMenuPressed,
+        OnToPauseMenuUnpressed
     }
 
     public static Action<QuestionDifficulty> OnPlayerDifficultySelected;
@@ -25,6 +27,11 @@ public static class PlayerEventsInvoker
     public static Action OnToMainMenuPressed;
     public static Action OnRestartPressed;
     public static Action OnToSelectMenuPressed;
+
+    public static Action OnToPauseMenuPressed;
+    public static Action OnToPauseMenuUnpressed;
+
+
 
     public static QuestionDifficulty SelectedDifficulty { get; set; }
 
@@ -55,9 +62,15 @@ public static class PlayerEventsInvoker
             case EventType.OnToSelectMenuPressed:
                 OnToSelectMenuPressed?.Invoke();
                 break;
+            case EventType.OnToPauseMenuPressed:
+                OnToPauseMenuPressed?.Invoke();
+                break;
+            case EventType.OnToPauseMenuUnpressed:
+                OnToPauseMenuUnpressed?.Invoke();
+                break;
 
             default:
-                Debug.LogWarning($"{eventType} can't be raised via button");
+                Debug.LogWarning($"{eventType} can't be raised via button. Or add event to player events invoker");
                 break;
         }
     }

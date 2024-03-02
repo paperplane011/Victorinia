@@ -9,23 +9,25 @@ public enum GameScreen
     Select,
     Questions,
     Lose,
-    Win
+    Win,
+    Pause
 }
 
 public class ScreenHandler : MonoBehaviour
 {
 
-    [SerializeField] private GameScreenCanvasGroup[] _gameScreenCanvasGroupArray;
-    private Dictionary<GameScreen, CanvasGroup> _gameScreenCanvasGroupDictionary;
+    [SerializeField] private GameScreenCanvasGroup[] _gameScreenCanvasGroupArray; // used to assign values in inspector
+    private Dictionary<GameScreen, CanvasGroup> _gameScreenCanvasGroupDictionary; // used for working purposes
 
-
-    private GameScreen _currentScreen;
+   
+    private Stack<GameScreen> _currentScreenStack;
     private readonly GameScreen STARTING_SCREEN = GameScreen.Title;
 
 
     private void Awake()
     {
         InitializeGameScreenCanvasGroupDictionary();
+        
     }
 
     private void InitializeGameScreenCanvasGroupDictionary()
@@ -46,6 +48,8 @@ public class ScreenHandler : MonoBehaviour
         PlayerEventsInvoker.OnToMainMenuPressed += () => ChangeScreenTo(GameScreen.Title);
         PlayerEventsInvoker.OnRestartPressed += () => ChangeScreenTo(GameScreen.Questions);
         PlayerEventsInvoker.OnToSelectMenuPressed += () => ChangeScreenTo(GameScreen.Select);
+        PlayerEventsInvoker.OnToPauseMenuPressed += () => ChangeScreenTo(GameScreen.Pause, true);
+        PlayerEventsInvoker.OnToPauseMenuUnpressed += () => HideCurrentScreen();
     }
 
     private void OnDisable()
@@ -58,6 +62,9 @@ public class ScreenHandler : MonoBehaviour
         PlayerEventsInvoker.OnRestartPressed -= () => ChangeScreenTo(GameScreen.Questions);
         PlayerEventsInvoker.OnToSelectMenuPressed -= () => ChangeScreenTo(GameScreen.Select);
 
+        PlayerEventsInvoker.OnToPauseMenuPressed -= () => ChangeScreenTo(GameScreen.Pause, true);
+        PlayerEventsInvoker.OnToPauseMenuUnpressed -= () => HideCurrentScreen();
+
     }
 
 
@@ -65,23 +72,37 @@ public class ScreenHandler : MonoBehaviour
     {
         HideAllScreens();
 
+        _currentScreenStack = new();
+
+        _currentScreenStack.Push(STARTING_SCREEN);
         ChangeScreenTo(STARTING_SCREEN);
-        _currentScreen = STARTING_SCREEN;
+        
     }
 
 
 
 
 
-    public void ChangeScreenTo(GameScreen newScreen)
+    public void ChangeScreenTo(GameScreen newScreen, bool isOverlap = false)
     {
-        CanvasUtils.DisableCanvasGroup(_gameScreenCanvasGroupDictionary[_currentScreen]);
+
+        if(!isOverlap)
+        {
+            HideAllScreens();            
+            _currentScreenStack.Pop();
+        }
+
         CanvasUtils.EnableCanvasGroup(_gameScreenCanvasGroupDictionary[newScreen]);
-
-        _currentScreen = newScreen;
-
-        BlockRaycastScreen.SetBlockRaycastStatus?.Invoke(false);
+        _currentScreenStack.Push(newScreen);
+        
     }
+
+    public void HideCurrentScreen()
+    {
+        CanvasUtils.DisableCanvasGroup(_gameScreenCanvasGroupDictionary[_currentScreenStack.Peek()]) ;
+        _currentScreenStack.Pop();
+    }
+
 
     private void HideAllScreens()
     {

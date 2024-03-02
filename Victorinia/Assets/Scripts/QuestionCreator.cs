@@ -100,7 +100,6 @@ public class QuestionCreator : MonoBehaviour
             _answerButtonsArray[i].GetComponent<AnswerButton>().AssignAnswer(randomQuestion.AnswerArray[i]);
         }
 
-        BlockRaycastScreen.SetBlockRaycastStatus?.Invoke(false);
     }
 
 
@@ -125,5 +124,7 @@ public class QuestionCreator : MonoBehaviour
 
             PlayerEventsInvoker.OnGameEndLose?.Invoke();
         }
+
+        BlockRaycastScreen.SetBlockRaycastStatus?.Invoke(false);
     }
 }
