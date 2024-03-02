@@ -26,5 +26,3 @@ MonoBehaviour:
     _isCorrect: 1
   - _answerText: correct
     _isCorrect: 1
-  - _answerText: correct
-    _isCorrect: 1

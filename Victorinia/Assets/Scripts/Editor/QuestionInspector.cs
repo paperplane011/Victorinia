@@ -6,7 +6,7 @@ using UnityEngine;
 public class QuestionInspector : Editor
 {
     private const int MIN_NUM_OF_QUESTIONS = 2;
-    private const int MAX_NUM_OF_QUESTIONS = 6;
+    private const int MAX_NUM_OF_QUESTIONS = 5;
 
     SerializedProperty _questionTextProperty;
     SerializedProperty _answerItemArrayProperty;

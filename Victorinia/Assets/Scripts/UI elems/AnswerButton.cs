@@ -69,6 +69,7 @@ public class AnswerButton : MonoBehaviour
             to = gameObject.transform.position.y + UnityEngine.Random.Range(120f, 250f),
             easeType = EaseType.CubicOut,
             duration = UnityEngine.Random.Range(0.1f, 0.25f),
+            onStart = (v) => BlockRaycastScreen.SetBlockRaycastStatus?.Invoke(true),
             onEnd = (v) => gameObject.AddTween(wrongAnswerGoDown)
         };
 
@@ -84,6 +85,9 @@ public class AnswerButton : MonoBehaviour
             to = gameObject.transform.position.y + UnityEngine.Random.Range(120f, 150f),
             easeType = EaseType.BackOut,
             duration = UnityEngine.Random.Range(0.3f, 0.4f),
+            onStart = (v) => BlockRaycastScreen.SetBlockRaycastStatus?.Invoke(true)
+           
+
         };
 
         gameObject.AddTween(corAnswerGoUp);

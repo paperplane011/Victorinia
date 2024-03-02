@@ -12,7 +12,7 @@ public class IdleButtonTween : MonoBehaviour
     [Range(0.01f, 10f)]
     [SerializeField] private float _appearDuration;
 
-    [Range(1, 10f)]
+    [SerializeField] private float _minLoopAngle;
     [SerializeField] private float _maxLoopAngle;
     [SerializeField] private float _loopDuration;
 
@@ -68,7 +68,7 @@ public class IdleButtonTween : MonoBehaviour
 
     private void AddLoopTween()
     {
-        float randomAngle = UnityEngine.Random.Range(1f, _maxLoopAngle);
+        float randomAngle = UnityEngine.Random.Range(_minLoopAngle, _maxLoopAngle);
         bool startLeft = UnityEngine.Random.value > 0.5f ? true : false;
 
         if (startLeft)

@@ -99,13 +99,13 @@ public class QuestionCreator : MonoBehaviour
             _answerButtonsArray[i].SetActive(true);
             _answerButtonsArray[i].GetComponent<AnswerButton>().AssignAnswer(randomQuestion.AnswerArray[i]);
         }
+
+        BlockRaycastScreen.SetBlockRaycastStatus?.Invoke(false);
     }
 
 
     IEnumerator CheckForAnswerWithDelay(bool isCorrect)
     {
-        
-
         if (isCorrect)
         {
             yield return new WaitForSeconds(0.4f);

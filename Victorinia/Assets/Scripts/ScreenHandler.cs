@@ -79,6 +79,8 @@ public class ScreenHandler : MonoBehaviour
         CanvasUtils.EnableCanvasGroup(_gameScreenCanvasGroupDictionary[newScreen]);
 
         _currentScreen = newScreen;
+
+        BlockRaycastScreen.SetBlockRaycastStatus?.Invoke(false);
     }
 
     private void HideAllScreens()
