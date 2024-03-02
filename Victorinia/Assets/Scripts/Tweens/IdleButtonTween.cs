@@ -1,6 +1,7 @@
 using Tweens;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using YG;
 
 [RequireComponent(typeof(EventTrigger))]
 public class IdleButtonTween : MonoBehaviour
@@ -35,7 +36,7 @@ public class IdleButtonTween : MonoBehaviour
 
     protected virtual void Start()
     {
-        if (_scaleOnHover) AddScaleOnHoverTween();
+        if (YandexGame.EnvironmentData.isDesktop && _scaleOnHover) AddScaleOnHoverTween();
         if (_loopTween) AddLoopTween();
 
         // can be optimised: disable tweens in OnDisable(), then enable in OnEnable()
