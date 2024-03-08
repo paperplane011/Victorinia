@@ -23,6 +23,7 @@ public class ScreenHandler : MonoBehaviour
     private Stack<GameScreen> _currentScreenStack;
     private readonly GameScreen STARTING_SCREEN = GameScreen.Title;
 
+    public static Action<GameScreen> OnMenuShowed;
 
     private void Awake()
     {
@@ -94,6 +95,8 @@ public class ScreenHandler : MonoBehaviour
 
         CanvasUtils.EnableCanvasGroup(_gameScreenCanvasGroupDictionary[newScreen]);
         _currentScreenStack.Push(newScreen);
+
+        OnMenuShowed?.Invoke(newScreen);
         
     }
 

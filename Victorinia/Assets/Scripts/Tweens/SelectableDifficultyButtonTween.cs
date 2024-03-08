@@ -4,7 +4,7 @@ using UnityEngine.UI;
 
 
 [RequireComponent(typeof(DifficultySetButton))]
-public class SelectableDifficultyButtonTween : IdleButtonTween
+public class SelectableDifficultyButtonTween : IdleTween
 {
     [SerializeField] private float _offsetX;
     [SerializeField] private float _selectDuration;

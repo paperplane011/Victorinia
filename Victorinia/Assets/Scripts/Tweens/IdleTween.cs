@@ -4,7 +4,7 @@ using UnityEngine.EventSystems;
 using YG;
 
 [RequireComponent(typeof(EventTrigger))]
-public class IdleButtonTween : MonoBehaviour
+public class IdleTween : MonoBehaviour
 {
     [SerializeField] private bool _appearTween = true;
     [SerializeField] private bool _loopTween = true;

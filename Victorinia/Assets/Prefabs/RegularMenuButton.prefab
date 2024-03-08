@@ -52,6 +52,7 @@ GameObject:
   - component: {fileID: 6262228827196482028}
   - component: {fileID: 2986301028969418028}
   - component: {fileID: 7563253890687269041}
+  - component: {fileID: 2404699964879675410}
   m_Layer: 5
   m_Name: Button
   m_TagString: Untagged
@@ -101,7 +102,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.8773585, g: 0.8773585, b: 0.8773585, a: 1}
+  m_Color: {r: 0.8509804, g: 0.7430248, b: 0.6399373, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -210,6 +211,24 @@ MonoBehaviour:
   _maxLoopAngle: 0
   _loopDuration: 0
   _scaleAmount: 1.1
+--- !u!114 &2404699964879675410
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2135694599542708707}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ac4b1978b665c6647a541c4dcf7302df, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _transDuration: 1
+  _mainMenuColor: {r: 0.794, g: 0.7545647, b: 0.55738807, a: 1}
+  _selectMenuColor: {r: 0.5913, g: 0.81, b: 0.60345, a: 1}
+  _questionsMenuColor: {r: 0.52785903, g: 0.801, b: 0.770651, a: 1}
+  _loseMenuColor: {r: 0.686, g: 0.349174, b: 0.44103572, a: 1}
+  _winMenuColor: {r: 0.766, g: 0.7462486, b: 0.288016, a: 1}
 --- !u!1 &7765093285226954095
 GameObject:
   m_ObjectHideFlags: 0
@@ -285,8 +304,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4278190080
-  m_fontColor: {r: 0, g: 0, b: 0, a: 1}
+    rgba: 4293980402
+  m_fontColor: {r: 0.948, g: 0.942634, b: 0.942634, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
