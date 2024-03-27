@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 3861307639275760813}
   - component: {fileID: 926410616582928863}
   m_Layer: 5
-  m_Name: Panel
+  m_Name: Panel kletki
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

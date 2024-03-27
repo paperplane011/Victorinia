@@ -88,18 +88,24 @@ public class QuestionCreator : MonoBehaviour
         // Set question text
         _questionTextComp.text = randomQuestion.QuestionText;
 
+
+        SetAnswersForQuestion(randomQuestion);
+    }
+
+
+    private void SetAnswersForQuestion(Question question)
+    {
         // Set answers
         ClearAnswerButtons(); // disable all answers 
         ShuffleAnswerButtonsArray(); // for random answer placement
 
-        int numOfAnswers = randomQuestion.AnswerArray.Length;
+        int numOfAnswers = question.AnswerArray.Length;
 
         for (int i = 0; i < numOfAnswers; i++)
         {
             _answerButtonsArray[i].SetActive(true);
-            _answerButtonsArray[i].GetComponent<AnswerButton>().AssignAnswer(randomQuestion.AnswerArray[i]);
+            _answerButtonsArray[i].GetComponent<AnswerButton>().AssignAnswer(question.AnswerArray[i]);
         }
-
     }
 
 
