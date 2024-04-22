@@ -29,18 +29,18 @@ public class QuestionCreator : MonoBehaviour
 
     private void OnEnable()
     {
-        PlayerEventsInvoker.OnPlayerDifficultySelectedFinally += GameStartBehaviour;
-        PlayerEventsInvoker.OnAnswerPressed += AnswerPressedBehaviour;
+        PlayerEventBus.OnPlayerDifficultySelectedFinally += GameStartBehaviour;
+        PlayerEventBus.OnAnswerPressed += AnswerPressedBehaviour;
 
-        PlayerEventsInvoker.OnRestartPressed += RestartBehaviour;
+        PlayerEventBus.OnRestartPressed += RestartBehaviour;
     }
 
     private void OnDisable()
     {
-        PlayerEventsInvoker.OnPlayerDifficultySelectedFinally -= GameStartBehaviour;
-        PlayerEventsInvoker.OnAnswerPressed -= AnswerPressedBehaviour;
+        PlayerEventBus.OnPlayerDifficultySelectedFinally -= GameStartBehaviour;
+        PlayerEventBus.OnAnswerPressed -= AnswerPressedBehaviour;
 
-        PlayerEventsInvoker.OnRestartPressed -= RestartBehaviour;
+        PlayerEventBus.OnRestartPressed -= RestartBehaviour;
     }
 
     private void AnswerPressedBehaviour(bool isCorrect)
@@ -117,7 +117,7 @@ public class QuestionCreator : MonoBehaviour
 
             if (_currentQuestionList.ThisQuestionList.Count == 0)
             {
-                PlayerEventsInvoker.OnGameEndWin?.Invoke();
+                PlayerEventBus.OnGameEndWin?.Invoke();
             }
             else
             {
@@ -128,7 +128,7 @@ public class QuestionCreator : MonoBehaviour
         {
             yield return new WaitForSeconds(1.3f);
 
-            PlayerEventsInvoker.OnGameEndLose?.Invoke();
+            PlayerEventBus.OnGameEndLose?.Invoke();
         }
 
         BlockRaycastScreen.SetBlockRaycastStatus?.Invoke(false);

@@ -5,7 +5,7 @@ using UnityEngine.UI;
 [RequireComponent(typeof(Button))]
 public class PlayerEventsInvokerButton : MonoBehaviour
 {
-    [SerializeField] private PlayerEventsInvoker.EventType _eventToInvoke;
+    [SerializeField] private PlayerEventBus.EventType _eventToInvoke;
     
     [SerializeField] private bool _boolArg;
 
@@ -33,11 +33,11 @@ public class PlayerEventsInvokerButton : MonoBehaviour
     {
         if (_hasArgs)
         {
-            PlayerEventsInvoker.RaiseEvent(_eventToInvoke, _boolArg);
+            PlayerEventBus.RaiseEvent(_eventToInvoke, _boolArg);
         }
         else
         {
-            PlayerEventsInvoker.RaiseEvent(_eventToInvoke);
+            PlayerEventBus.RaiseEvent(_eventToInvoke);
         }
     }
 

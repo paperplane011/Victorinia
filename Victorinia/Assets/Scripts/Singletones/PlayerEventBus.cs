@@ -1,8 +1,10 @@
 using System;
 using UnityEngine;
 
-public static class PlayerEventsInvoker
+public static class PlayerEventBus
 {
+    
+
     [Serializable]
     public enum EventType
     {
@@ -30,6 +32,8 @@ public static class PlayerEventsInvoker
 
     public static Action OnToPauseMenuPressed;
     public static Action OnToPauseMenuUnpressed;
+
+    
 
 
 

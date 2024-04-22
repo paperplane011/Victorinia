@@ -10,15 +10,19 @@ public class DifficultySetButton : MonoBehaviour
     public QuestionDifficulty SelectableDifficulty { get { return _selectableDifficulty; } }
 
     private Button _button;
+    private TextMeshProUGUI _textComp;
 
     private void Awake()
     {
         _button = GetComponent<Button>();
+        _textComp = GetComponentInChildren<TextMeshProUGUI>();
     }
 
     private void OnEnable()
     {
-        _button.onClick.AddListener(SetDifficulty);
+        _button.onClick.AddListener(Clicked);
+        _textComp.text = _selectableDifficulty.ToString();
+        
     }
 
     private void OnDisable()
@@ -26,10 +30,10 @@ public class DifficultySetButton : MonoBehaviour
         _button.onClick.RemoveAllListeners();
     }
 
-    private void SetDifficulty()
+    private void Clicked()
     {
-        PlayerEventsInvoker.SelectedDifficulty = _selectableDifficulty;
-        PlayerEventsInvoker.OnPlayerDifficultySelected?.Invoke(_selectableDifficulty);
+        PlayerEventBus.SelectedDifficulty = _selectableDifficulty;
+        PlayerEventBus.OnPlayerDifficultySelected?.Invoke(_selectableDifficulty);
     }
 
 }

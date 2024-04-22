@@ -22,7 +22,7 @@ public class PlayerEventsInvokerButtonInspector : Editor
     {
         EditorGUILayout.PropertyField(_eventToInvokeProperty);
 
-        if(_eventToInvokeProperty.enumValueIndex == (int)PlayerEventsInvoker.EventType.OnAnswerPressed)
+        if(_eventToInvokeProperty.enumValueIndex == (int)PlayerEventBus.EventType.OnAnswerPressed)
         {
             _hasArgsProperty.boolValue = true;
             EditorGUILayout.PropertyField(_boolArgProperty);   

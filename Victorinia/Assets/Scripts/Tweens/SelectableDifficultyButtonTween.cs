@@ -1,3 +1,4 @@
+using TMPro;
 using Tweens;
 using UnityEngine;
 using UnityEngine.UI;
@@ -26,8 +27,10 @@ public class SelectableDifficultyButtonTween : IdleTween
         base.Awake();
         _button = GetComponentInChildren<Button>();
         _difficultySetButton = GetComponent<DifficultySetButton>();
-        
+       
+
         _isButtonSelected = false;
+        
     }
 
 
@@ -36,13 +39,13 @@ public class SelectableDifficultyButtonTween : IdleTween
         base.OnEnable();
 
         _button.onClick.AddListener(ButtonClickedBehaviour);
-        PlayerEventsInvoker.OnPlayerDifficultySelected += OtherDifficultySelectedBehaviour;
+        PlayerEventBus.OnPlayerDifficultySelected += OtherDifficultySelectedBehaviour;
     }
 
     private void OnDisable()
     {
         _button.onClick.RemoveAllListeners();
-        PlayerEventsInvoker.OnPlayerDifficultySelected -= OtherDifficultySelectedBehaviour;
+        PlayerEventBus.OnPlayerDifficultySelected -= OtherDifficultySelectedBehaviour;
     }
 
     protected override void Start()

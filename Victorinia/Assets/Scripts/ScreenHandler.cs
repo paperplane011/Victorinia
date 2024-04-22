@@ -43,28 +43,28 @@ public class ScreenHandler : MonoBehaviour
 
     private void OnEnable()
     {
-        PlayerEventsInvoker.OnPlayerDifficultySelectedFinally += (QuestionDifficulty d) => ChangeScreenTo(GameScreen.Questions);
-        PlayerEventsInvoker.OnGameEndLose += () => ChangeScreenTo(GameScreen.Lose);
-        PlayerEventsInvoker.OnGameEndWin += () => ChangeScreenTo(GameScreen.Win);
-        PlayerEventsInvoker.OnToMainMenuPressed += () => ChangeScreenTo(GameScreen.Title);
-        PlayerEventsInvoker.OnRestartPressed += () => ChangeScreenTo(GameScreen.Questions);
-        PlayerEventsInvoker.OnToSelectMenuPressed += () => ChangeScreenTo(GameScreen.Select);
-        PlayerEventsInvoker.OnToPauseMenuPressed += () => ChangeScreenTo(GameScreen.Pause, true);
-        PlayerEventsInvoker.OnToPauseMenuUnpressed += () => HideCurrentScreen();
+        PlayerEventBus.OnPlayerDifficultySelectedFinally += (QuestionDifficulty d) => ChangeScreenTo(GameScreen.Questions);
+        PlayerEventBus.OnGameEndLose += () => ChangeScreenTo(GameScreen.Lose);
+        PlayerEventBus.OnGameEndWin += () => ChangeScreenTo(GameScreen.Win);
+        PlayerEventBus.OnToMainMenuPressed += () => ChangeScreenTo(GameScreen.Title);
+        PlayerEventBus.OnRestartPressed += () => ChangeScreenTo(GameScreen.Questions);
+        PlayerEventBus.OnToSelectMenuPressed += () => ChangeScreenTo(GameScreen.Select);
+        PlayerEventBus.OnToPauseMenuPressed += () => ChangeScreenTo(GameScreen.Pause, true);
+        PlayerEventBus.OnToPauseMenuUnpressed += () => HideCurrentScreen();
     }
 
     private void OnDisable()
     {
-        PlayerEventsInvoker.OnPlayerDifficultySelectedFinally -= (QuestionDifficulty d) => ChangeScreenTo(GameScreen.Questions);
-        PlayerEventsInvoker.OnGameEndLose -= () => ChangeScreenTo(GameScreen.Lose);
-        PlayerEventsInvoker.OnGameEndWin -= () => ChangeScreenTo(GameScreen.Win);
+        PlayerEventBus.OnPlayerDifficultySelectedFinally -= (QuestionDifficulty d) => ChangeScreenTo(GameScreen.Questions);
+        PlayerEventBus.OnGameEndLose -= () => ChangeScreenTo(GameScreen.Lose);
+        PlayerEventBus.OnGameEndWin -= () => ChangeScreenTo(GameScreen.Win);
 
-        PlayerEventsInvoker.OnToMainMenuPressed -= () => ChangeScreenTo(GameScreen.Title);
-        PlayerEventsInvoker.OnRestartPressed -= () => ChangeScreenTo(GameScreen.Questions);
-        PlayerEventsInvoker.OnToSelectMenuPressed -= () => ChangeScreenTo(GameScreen.Select);
+        PlayerEventBus.OnToMainMenuPressed -= () => ChangeScreenTo(GameScreen.Title);
+        PlayerEventBus.OnRestartPressed -= () => ChangeScreenTo(GameScreen.Questions);
+        PlayerEventBus.OnToSelectMenuPressed -= () => ChangeScreenTo(GameScreen.Select);
 
-        PlayerEventsInvoker.OnToPauseMenuPressed -= () => ChangeScreenTo(GameScreen.Pause, true);
-        PlayerEventsInvoker.OnToPauseMenuUnpressed -= () => HideCurrentScreen();
+        PlayerEventBus.OnToPauseMenuPressed -= () => ChangeScreenTo(GameScreen.Pause, true);
+        PlayerEventBus.OnToPauseMenuUnpressed -= () => HideCurrentScreen();
 
     }
 
@@ -79,10 +79,6 @@ public class ScreenHandler : MonoBehaviour
         ChangeScreenTo(STARTING_SCREEN);
         
     }
-
-
-
-
 
     public void ChangeScreenTo(GameScreen newScreen, bool isOverlap = false)
     {

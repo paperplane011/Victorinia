@@ -23,13 +23,13 @@ public class AnswerButton : MonoBehaviour
 
         _button.interactable = true;
 
-        PlayerEventsInvoker.OnAnswerPressed += AllAnswerBehaviour;
+        PlayerEventBus.OnAnswerPressed += AllAnswerBehaviour;
     }
 
     private void OnDisable()
     {
         _button.onClick.RemoveAllListeners();
-        PlayerEventsInvoker.OnAnswerPressed -= AllAnswerBehaviour;
+        PlayerEventBus.OnAnswerPressed -= AllAnswerBehaviour;
     }
 
 
@@ -107,11 +107,11 @@ public class AnswerButton : MonoBehaviour
         if (IsCorrect)
         {
             OneCorrectAnswerBehaviour();
-            PlayerEventsInvoker.OnAnswerPressed?.Invoke(true);
+            PlayerEventBus.OnAnswerPressed?.Invoke(true);
         }
         else
         {
-            PlayerEventsInvoker.OnAnswerPressed?.Invoke(false);
+            PlayerEventBus.OnAnswerPressed?.Invoke(false);
         }
     }
 
