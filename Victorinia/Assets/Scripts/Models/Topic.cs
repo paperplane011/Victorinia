@@ -6,11 +6,14 @@ using UnityEngine;
 public class Topic : ScriptableObject
 {
 
-    public readonly int MAX_NUM_OF_DIFFICULTIES = 3;
+    public static readonly int MAX_NUM_OF_DIFFICULTIES = 3;
 
 
     [SerializeField] private Sprite _previewSprite;
     public Sprite PreviewSprite { get { return _previewSprite; } }
+
+    [SerializeField] private string _caption;
+    public string Caption { get { return _caption; } }
 
 
     [SerializeField] private int _topicCost;
@@ -21,16 +24,20 @@ public class Topic : ScriptableObject
     public bool IsTopicLocked { get { return _isTopicLocked; } }
 
 
-    [SerializeField] private QuestionDifficultyQuestionListValue[] _questionListTuple;
-    public QuestionDifficultyQuestionListValue[] QuestionListTuple { get { return _questionListTuple; } }
+    [SerializeField] private QuestionDifficultyQuestionListValue[] _questionDifficultyToQuestionListArray;
+    public QuestionDifficultyQuestionListValue[] QuestionDifficultyToQuestionListArray { get { return _questionDifficultyToQuestionListArray; } }
 
 
-    [SerializeField] private QuestionDifficultyIntValue[] _difficultyRewardTuple;
-    public QuestionDifficultyIntValue[] DifficultyRewardTuple { get { return _difficultyRewardTuple; } }
+    [SerializeField] private QuestionDifficultyIntValue[] _questionDifficultyToRewardArray;
+    public QuestionDifficultyIntValue[] QuestionDifficultyToRewardArray { get { return _questionDifficultyToRewardArray; } }
 
 
-    [SerializeField] private QuestionDifficultyBoolValue[] _difficultyLockedStatusTuple;
-    public QuestionDifficultyBoolValue[] DifficultyLockedStatusTuple { get { return _difficultyLockedStatusTuple; } }
+    [SerializeField] private QuestionDifficultyBoolValue[] _questionDifficultyToLockedStatusArray;
+    public QuestionDifficultyBoolValue[] QuestionDifficultyToLockedStatusArray { get { return _questionDifficultyToLockedStatusArray; } }
+
+
+    [SerializeField] private QuestionDifficultyIntValue[] _questionDifficultyToCostArray;
+    public QuestionDifficultyIntValue[] QuestionDifficultyToCostArray { get { return _questionDifficultyToCostArray; } }
 
 
     [SerializeField] private QuestionDifficulty _currentlySelectedDifficulty;
@@ -39,22 +46,25 @@ public class Topic : ScriptableObject
 
     private void OnValidate()
     {
-        _questionListTuple = new QuestionDifficultyQuestionListValue[MAX_NUM_OF_DIFFICULTIES];
-        _difficultyRewardTuple = new QuestionDifficultyIntValue[MAX_NUM_OF_DIFFICULTIES];
-        _difficultyLockedStatusTuple = new QuestionDifficultyBoolValue[MAX_NUM_OF_DIFFICULTIES];
+        _questionDifficultyToQuestionListArray = new QuestionDifficultyQuestionListValue[MAX_NUM_OF_DIFFICULTIES];
+        _questionDifficultyToCostArray = new QuestionDifficultyIntValue[MAX_NUM_OF_DIFFICULTIES];
+        _questionDifficultyToRewardArray = new QuestionDifficultyIntValue[MAX_NUM_OF_DIFFICULTIES];
+        _questionDifficultyToLockedStatusArray = new QuestionDifficultyBoolValue[MAX_NUM_OF_DIFFICULTIES];
 
         QuestionDifficulty questionDifficultyIteration = 0;
 
         for(int i=0; i < MAX_NUM_OF_DIFFICULTIES; i++)
         {
-            _questionListTuple[i] = new();
-            _difficultyRewardTuple[i] = new();
-            _difficultyLockedStatusTuple[i] = new();
+            _questionDifficultyToQuestionListArray[i] = new();
+            _questionDifficultyToRewardArray[i] = new();
+            _questionDifficultyToCostArray[i] = new();
+            _questionDifficultyToLockedStatusArray[i] = new();
 
 
-            _questionListTuple[i].QuestionDifficulty = questionDifficultyIteration;
-            _difficultyRewardTuple[i].QuestionDifficulty = questionDifficultyIteration;
-            _difficultyLockedStatusTuple[i].QuestionDifficulty = questionDifficultyIteration;
+            _questionDifficultyToQuestionListArray[i].QuestionDifficulty = questionDifficultyIteration;
+            _questionDifficultyToRewardArray[i].QuestionDifficulty = questionDifficultyIteration;
+            _questionDifficultyToCostArray[i].QuestionDifficulty = questionDifficultyIteration;
+            _questionDifficultyToLockedStatusArray[i].QuestionDifficulty = questionDifficultyIteration;
 
             questionDifficultyIteration++;
         }
@@ -67,7 +77,7 @@ public class Topic : ScriptableObject
 
 
 
-
+// maybe there is no need for constructors below ?
 
 [Serializable]
 public class QuestionDifficultyQuestionListValue

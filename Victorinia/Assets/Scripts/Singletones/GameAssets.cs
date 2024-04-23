@@ -21,6 +21,8 @@ public class GameAssets : MonoBehaviour
     #endregion 
 
 
+    public const string TOPIC_VIEW_TAG = "TopicView";
+
     [Header("Questions")]
     [SerializeField] private QuestionList[] _questionLists;
 
@@ -41,10 +43,15 @@ public class GameAssets : MonoBehaviour
     }
 
 
+    public TopicView GetTopicView()
+    {
+        TopicView topicView = GameObject.FindGameObjectWithTag(TOPIC_VIEW_TAG).GetComponent<TopicView>();
+        return topicView;
+    }
+
 
 
     public SoundManager.SoundInfo[] SoundInfoArray;
-
 
     
 

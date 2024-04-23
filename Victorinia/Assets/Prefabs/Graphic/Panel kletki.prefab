@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 7661053860247703227}
   - component: {fileID: 3861307639275760813}
   - component: {fileID: 926410616582928863}
+  - component: {fileID: 4346919903350934886}
   m_Layer: 5
   m_Name: Panel kletki
   m_TagString: Untagged
@@ -77,6 +78,19 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 2.11
+--- !u!114 &4346919903350934886
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5192864506286387617}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 31a19414c41e5ae4aae2af33fee712f6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_ShowMaskGraphic: 1
 --- !u!1 &8073400975112076396
 GameObject:
   m_ObjectHideFlags: 0
@@ -89,6 +103,7 @@ GameObject:
   - component: {fileID: 6921422715942220647}
   - component: {fileID: 1649876721246764096}
   - component: {fileID: 1949271463246707830}
+  - component: {fileID: 4123699377813294060}
   m_Layer: 5
   m_Name: Kletki
   m_TagString: Untagged
@@ -137,7 +152,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.14528298, g: 1, b: 0.901982, a: 0.3254902}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.3254902}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -167,3 +182,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_ShowMaskGraphic: 1
+--- !u!114 &4123699377813294060
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8073400975112076396}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ac4b1978b665c6647a541c4dcf7302df, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _transDuration: 1
+  _doUnsubscribeOnDisable: 0
+  _mainMenuColor: {r: 0.794, g: 0.7545647, b: 0.55738807, a: 1}
+  _selectMenuColor: {r: 0.5913, g: 0.81, b: 0.60345, a: 1}
+  _questionsMenuColor: {r: 0.52785903, g: 0.801, b: 0.770651, a: 1}
+  _loseMenuColor: {r: 0.686, g: 0.349174, b: 0.44103572, a: 1}
+  _winMenuColor: {r: 0.766, g: 0.7462486, b: 0.288016, a: 1}

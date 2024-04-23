@@ -2,11 +2,12 @@ using UnityEngine;
 using UnityEngine.UI;
 
 [RequireComponent(typeof(Button))]
-public class TopicButton : MonoBehaviour
+public class TopicSelectButton : MonoBehaviour
 {
 
     [SerializeField] private Topic _topic;
 
+    private TopicView _topicView;
     private Button _thisButton;
 
     [Header("Component hooks")]
@@ -24,12 +25,17 @@ public class TopicButton : MonoBehaviour
         _thisButton.onClick.RemoveAllListeners();
     }
 
+    private void Awake()
+    {
+        _topicView = GameAssets.Instance.GetTopicView();
+    }
 
 
     private void Clicked()
     {
-
+        _topicView.SetTopicVisuals(_topic);
     }
+
 
 
 }
