@@ -10,10 +10,14 @@ public class TopicView : MonoBehaviour
     [SerializeField] private Image _previewImage;
 
     [SerializeField] private TextMeshProUGUI _captionTextComp;
-    [SerializeField] private TextMeshProUGUI _topicCostTextComp;
+    //[SerializeField] private TextMeshProUGUI _topicCostTextComp;
 
-    [SerializeField] private QuestionDifficultyToCostRewardValue[] _questionDifficultyToCostRewardTextCompArray;
-    [SerializeField] private QuestionDifficultyToCanvasGroupValue[] _questionDifficultyToDifficultyLockCanvasGroupArray;
+    [SerializeField] private ActionButton _actionButton;
+
+    //[SerializeField] private QuestionDifficultyToCostRewardValue[] _questionDifficultyToCostRewardTextCompArray;
+    //[SerializeField] private QuestionDifficultyToCanvasGroupValue[] _questionDifficultyToDifficultyLockCanvasGroupArray;
+
+
 
     [SerializeField] private CanvasGroup _topicLockCanvasGroup;
 
@@ -22,24 +26,24 @@ public class TopicView : MonoBehaviour
     {
         _previewImage.sprite = topic.PreviewSprite;
         _captionTextComp.text = topic.Caption;
-        _topicCostTextComp.text = topic.TopicCost.ToString();
+       // _topicCostTextComp.text = topic.TopicCost.ToString();
 
-        AssignDifficultiesCostAndReward(topic);
+        //AssignDifficultiesCostAndReward(topic);
 
         LockTopicIfNeeded(topic);
-        LockLockedDifficulties(topic);
+        //LockLockedDifficulties(topic);
     }
 
 
 
-    private void AssignDifficultiesCostAndReward(Topic topic)
-    {
-        for(int i=0; i<Topic.MAX_NUM_OF_DIFFICULTIES; i++)
-        {
-            _questionDifficultyToCostRewardTextCompArray[0].CostTextComp.text = topic.QuestionDifficultyToCostArray[0].IntValue.ToString();
-            _questionDifficultyToCostRewardTextCompArray[0].RewardTextComp.text = topic.QuestionDifficultyToRewardArray[0].IntValue.ToString();
-        }
-    }
+    //private void AssignDifficultiesCostAndReward(Topic topic)
+    //{
+    //    for (int i = 0; i < Topic.MAX_NUM_OF_DIFFICULTIES; i++)
+    //    {
+    //        _questionDifficultyToCostRewardTextCompArray[0].CostTextComp.text = topic.QuestionDifficultyToCostArray[0].IntValue.ToString();
+    //        _questionDifficultyToCostRewardTextCompArray[0].RewardTextComp.text = topic.QuestionDifficultyToRewardArray[0].IntValue.ToString();
+    //    }
+    //}
 
     private void LockTopicIfNeeded(Topic topic)
     {
@@ -53,40 +57,40 @@ public class TopicView : MonoBehaviour
         }
     }
 
-    private void LockLockedDifficulties(Topic topic)
-    {
-        for(int i=0; i<Topic.MAX_NUM_OF_DIFFICULTIES; i++)
-        {
-            if (topic.QuestionDifficultyToLockedStatusArray[i].BoolValue)
-            {
-                CanvasUtils.EnableCanvasGroup(_questionDifficultyToDifficultyLockCanvasGroupArray[i].CanvasGroup);
-            }
-            else
-            {
-                CanvasUtils.DisableCanvasGroup(_questionDifficultyToDifficultyLockCanvasGroupArray[i].CanvasGroup);
-            }
-        }
-    }
-    
+    //private void LockLockedDifficulties(Topic topic)
+    //{
+    //    for (int i = 0; i < Topic.MAX_NUM_OF_DIFFICULTIES; i++)
+    //    {
+    //        if (topic.QuestionDifficultyToLockedStatusArray[i].BoolValue)
+    //        {
+    //            CanvasUtils.EnableCanvasGroup(_questionDifficultyToDifficultyLockCanvasGroupArray[i].CanvasGroup);
+    //        }
+    //        else
+    //        {
+    //            CanvasUtils.DisableCanvasGroup(_questionDifficultyToDifficultyLockCanvasGroupArray[i].CanvasGroup);
+    //        }
+    //    }
+    //}
 
-    private void OnValidate()
-    {
-        _questionDifficultyToCostRewardTextCompArray = new QuestionDifficultyToCostRewardValue[Topic.MAX_NUM_OF_DIFFICULTIES];
-        _questionDifficultyToDifficultyLockCanvasGroupArray = new QuestionDifficultyToCanvasGroupValue[Topic.MAX_NUM_OF_DIFFICULTIES];
 
-        QuestionDifficulty questionDifficultyIteration = 0;
+    //private void OnValidate()
+    //{
+    //    _questionDifficultyToCostRewardTextCompArray = new QuestionDifficultyToCostRewardValue[Topic.MAX_NUM_OF_DIFFICULTIES];
+    //    _questionDifficultyToDifficultyLockCanvasGroupArray = new QuestionDifficultyToCanvasGroupValue[Topic.MAX_NUM_OF_DIFFICULTIES];
 
-        for (int i = 0; i < Topic.MAX_NUM_OF_DIFFICULTIES; i++)
-        {
-            _questionDifficultyToCostRewardTextCompArray[i] = new();
-            _questionDifficultyToDifficultyLockCanvasGroupArray[i] = new();
+    //    QuestionDifficulty questionDifficultyIteration = 0;
 
-            _questionDifficultyToCostRewardTextCompArray[i].QuestionDifficulty = questionDifficultyIteration;
-            _questionDifficultyToDifficultyLockCanvasGroupArray[i].QuestionDifficulty = questionDifficultyIteration;
+    //    for (int i = 0; i < Topic.MAX_NUM_OF_DIFFICULTIES; i++)
+    //    {
+    //        _questionDifficultyToCostRewardTextCompArray[i] = new();
+    //        _questionDifficultyToDifficultyLockCanvasGroupArray[i] = new();
 
-            questionDifficultyIteration++;
-        }
-    }
+    //        _questionDifficultyToCostRewardTextCompArray[i].QuestionDifficulty = questionDifficultyIteration;
+    //        _questionDifficultyToDifficultyLockCanvasGroupArray[i].QuestionDifficulty = questionDifficultyIteration;
+
+    //        questionDifficultyIteration++;
+    //    }
+    //}
 
     [Serializable]
     private class QuestionDifficultyToCostRewardValue

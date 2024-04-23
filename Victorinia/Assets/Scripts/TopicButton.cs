@@ -2,7 +2,7 @@ using UnityEngine;
 using UnityEngine.UI;
 
 [RequireComponent(typeof(Button))]
-public class TopicSelectButton : MonoBehaviour
+public class TopicButton : MonoBehaviour
 {
 
     [SerializeField] private Topic _topic;
@@ -28,6 +28,12 @@ public class TopicSelectButton : MonoBehaviour
     private void Awake()
     {
         _topicView = GameAssets.Instance.GetTopicView();
+        _thisButton = GetComponent<Button>();
+    }
+
+    private void Start()
+    {
+        _textComp.text = _topic.Caption;
     }
 
 
