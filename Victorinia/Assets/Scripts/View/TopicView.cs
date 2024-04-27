@@ -22,7 +22,8 @@ public class TopicView : MonoBehaviour
 
     [SerializeField] private CanvasGroup _topicLockCanvasGroup;
 
-    private void Awake()
+
+    private void Start()
     {
         _actionButton.SetDifficultyView(_difficultyView);
     }
@@ -35,6 +36,7 @@ public class TopicView : MonoBehaviour
 
         LockTopicIfNeeded(topic);
         _actionButton.SetTopic(topic);
+        
         
     }
 

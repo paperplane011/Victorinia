@@ -21,7 +21,7 @@ public static class PlayerEventBus
     }
 
     public static Action<QuestionDifficulty> OnDifficultySelected;
-    public static Action<QuestionDifficulty> OnPlayerDifficultySelectedFinally;
+    public static Action<QuestionDifficulty> OnStartGame;
     public static Action<bool> OnAnswerPressed; // Invoked by AnswerButton.cs
 
     public static Action OnGameEndLose;
@@ -49,7 +49,7 @@ public static class PlayerEventBus
         switch (eventType)
         {
             case EventType.OnDifficultySelected:
-                OnPlayerDifficultySelectedFinally?.Invoke(CurrentSelectedDifficulty);
+                OnStartGame?.Invoke(CurrentSelectedDifficulty);
                 break;
             case EventType.OnAnswerPressed:
                 OnAnswerPressed?.Invoke((bool)args[0]);

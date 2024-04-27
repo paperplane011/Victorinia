@@ -32,7 +32,7 @@ MonoBehaviour:
     IntValue: 0
   _questionDifficultyToLockedStatusArray:
   - QuestionDifficulty: 0
-    BoolValue: 0
+    BoolValue: 1
   - QuestionDifficulty: 1
     BoolValue: 0
   - QuestionDifficulty: 2

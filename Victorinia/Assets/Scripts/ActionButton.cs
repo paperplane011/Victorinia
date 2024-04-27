@@ -9,6 +9,8 @@ public class ActionButton : MonoBehaviour
     private Topic _topic;
     private DifficultyView _difficultyView;
 
+    private bool _isButtonLocked;
+
     private void Awake()
     {
         _thisButton = GetComponent<Button>();
@@ -39,7 +41,10 @@ public class ActionButton : MonoBehaviour
 
     private void Clicked()
     {
-
+        if (!_isButtonLocked)
+        {
+            PlayerEventBus.OnStartGame?.Invoke(_difficultyView.CurrentQuestionDifficulty);
+        }
     }
 
     public void SetDifficulty(QuestionDifficulty questionDifficulty)
@@ -47,10 +52,12 @@ public class ActionButton : MonoBehaviour
         if (IsDifficultyLocked(questionDifficulty))
         {
            _thisButton.image.color = Color.red;
+            _isButtonLocked = true;
         }
         else
         {
             _thisButton.image.color = Color.green;
+            _isButtonLocked = false;
         }
 
 

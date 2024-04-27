@@ -29,7 +29,7 @@ public class QuestionCreator : MonoBehaviour
 
     private void OnEnable()
     {
-        PlayerEventBus.OnPlayerDifficultySelectedFinally += GameStartBehaviour;
+        PlayerEventBus.OnStartGame += GameStartBehaviour;
         PlayerEventBus.OnAnswerPressed += AnswerPressedBehaviour;
 
         PlayerEventBus.OnRestartPressed += RestartBehaviour;
@@ -37,7 +37,7 @@ public class QuestionCreator : MonoBehaviour
 
     private void OnDisable()
     {
-        PlayerEventBus.OnPlayerDifficultySelectedFinally -= GameStartBehaviour;
+        PlayerEventBus.OnStartGame -= GameStartBehaviour;
         PlayerEventBus.OnAnswerPressed -= AnswerPressedBehaviour;
 
         PlayerEventBus.OnRestartPressed -= RestartBehaviour;
