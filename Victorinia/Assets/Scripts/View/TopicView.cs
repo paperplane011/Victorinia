@@ -13,6 +13,7 @@ public class TopicView : MonoBehaviour
     //[SerializeField] private TextMeshProUGUI _topicCostTextComp;
 
     [SerializeField] private ActionButton _actionButton;
+    [SerializeField] private DifficultyView _difficultyView;
 
     //[SerializeField] private QuestionDifficultyToCostRewardValue[] _questionDifficultyToCostRewardTextCompArray;
     //[SerializeField] private QuestionDifficultyToCanvasGroupValue[] _questionDifficultyToDifficultyLockCanvasGroupArray;
@@ -21,29 +22,23 @@ public class TopicView : MonoBehaviour
 
     [SerializeField] private CanvasGroup _topicLockCanvasGroup;
 
+    private void Awake()
+    {
+        _actionButton.SetDifficultyView(_difficultyView);
+    }
 
-    public void SetTopicVisuals(Topic topic)
+    public void SetTopic(Topic topic)
     {
         _previewImage.sprite = topic.PreviewSprite;
         _captionTextComp.text = topic.Caption;
-       // _topicCostTextComp.text = topic.TopicCost.ToString();
-
-        //AssignDifficultiesCostAndReward(topic);
+    
 
         LockTopicIfNeeded(topic);
-        //LockLockedDifficulties(topic);
+        _actionButton.SetTopic(topic);
+        
     }
 
 
-
-    //private void AssignDifficultiesCostAndReward(Topic topic)
-    //{
-    //    for (int i = 0; i < Topic.MAX_NUM_OF_DIFFICULTIES; i++)
-    //    {
-    //        _questionDifficultyToCostRewardTextCompArray[0].CostTextComp.text = topic.QuestionDifficultyToCostArray[0].IntValue.ToString();
-    //        _questionDifficultyToCostRewardTextCompArray[0].RewardTextComp.text = topic.QuestionDifficultyToRewardArray[0].IntValue.ToString();
-    //    }
-    //}
 
     private void LockTopicIfNeeded(Topic topic)
     {
@@ -57,20 +52,6 @@ public class TopicView : MonoBehaviour
         }
     }
 
-    //private void LockLockedDifficulties(Topic topic)
-    //{
-    //    for (int i = 0; i < Topic.MAX_NUM_OF_DIFFICULTIES; i++)
-    //    {
-    //        if (topic.QuestionDifficultyToLockedStatusArray[i].BoolValue)
-    //        {
-    //            CanvasUtils.EnableCanvasGroup(_questionDifficultyToDifficultyLockCanvasGroupArray[i].CanvasGroup);
-    //        }
-    //        else
-    //        {
-    //            CanvasUtils.DisableCanvasGroup(_questionDifficultyToDifficultyLockCanvasGroupArray[i].CanvasGroup);
-    //        }
-    //    }
-    //}
 
 
     //private void OnValidate()
@@ -100,13 +81,15 @@ public class TopicView : MonoBehaviour
         public TMPro.TextMeshProUGUI RewardTextComp;
     }
 
-    [Serializable]
-    private class QuestionDifficultyToCanvasGroupValue
-    {
-        public QuestionDifficulty QuestionDifficulty;
-        public CanvasGroup CanvasGroup;
-    }
+   
 
 }
 
+
+[Serializable]
+public class QuestionDifficultyToCanvasGroupValue
+{
+    public QuestionDifficulty QuestionDifficulty;
+    public CanvasGroup CanvasGroup;
+}
 

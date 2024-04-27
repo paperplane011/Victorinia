@@ -39,7 +39,8 @@ public class TopicButton : MonoBehaviour
 
     private void Clicked()
     {
-        _topicView.SetTopicVisuals(_topic);
+        _topicView.SetTopic(_topic);
+        PlayerEventBus.OnTopicViewSet?.Invoke();
     }
 
 

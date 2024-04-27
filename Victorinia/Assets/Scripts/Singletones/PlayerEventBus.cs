@@ -8,7 +8,7 @@ public static class PlayerEventBus
     [Serializable]
     public enum EventType
     {
-        OnPlayerDifficultySelected,
+        OnDifficultySelected,
         OnAnswerPressed,
         OnGameEndLose,
         OnGameEndWin,
@@ -16,10 +16,11 @@ public static class PlayerEventBus
         OnRestartPressed,
         OnToSelectMenuPressed,
         OnToPauseMenuPressed,
-        OnToPauseMenuUnpressed
+        OnToPauseMenuUnpressed,
+        OnTopicViewSet
     }
 
-    public static Action<QuestionDifficulty> OnPlayerDifficultySelected;
+    public static Action<QuestionDifficulty> OnDifficultySelected;
     public static Action<QuestionDifficulty> OnPlayerDifficultySelectedFinally;
     public static Action<bool> OnAnswerPressed; // Invoked by AnswerButton.cs
 
@@ -33,11 +34,13 @@ public static class PlayerEventBus
     public static Action OnToPauseMenuPressed;
     public static Action OnToPauseMenuUnpressed;
 
+    public static Action OnTopicViewSet;
+
     
 
 
 
-    public static QuestionDifficulty SelectedDifficulty { get; set; }
+    public static QuestionDifficulty CurrentSelectedDifficulty { get; private set; }
 
 
 
@@ -45,8 +48,8 @@ public static class PlayerEventBus
     {
         switch (eventType)
         {
-            case EventType.OnPlayerDifficultySelected:
-                OnPlayerDifficultySelectedFinally?.Invoke(SelectedDifficulty);
+            case EventType.OnDifficultySelected:
+                OnPlayerDifficultySelectedFinally?.Invoke(CurrentSelectedDifficulty);
                 break;
             case EventType.OnAnswerPressed:
                 OnAnswerPressed?.Invoke((bool)args[0]);

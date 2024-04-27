@@ -44,32 +44,40 @@ public class Topic : ScriptableObject
     public QuestionDifficulty CurrentlySelectedDifficulty { get { return _currentlySelectedDifficulty; } }
 
 
-    private void OnValidate()
-    {
-        _questionDifficultyToQuestionListArray = new QuestionDifficultyQuestionListValue[MAX_NUM_OF_DIFFICULTIES];
-        _questionDifficultyToCostArray = new QuestionDifficultyIntValue[MAX_NUM_OF_DIFFICULTIES];
-        _questionDifficultyToRewardArray = new QuestionDifficultyIntValue[MAX_NUM_OF_DIFFICULTIES];
-        _questionDifficultyToLockedStatusArray = new QuestionDifficultyBoolValue[MAX_NUM_OF_DIFFICULTIES];
+    //private void OnValidate()
+    //{
+       
 
-        QuestionDifficulty questionDifficultyIteration = 0;
+    //    _questionDifficultyToQuestionListArray = new QuestionDifficultyQuestionListValue[MAX_NUM_OF_DIFFICULTIES];
+    //    _questionDifficultyToCostArray = new QuestionDifficultyIntValue[MAX_NUM_OF_DIFFICULTIES];
+    //    _questionDifficultyToRewardArray = new QuestionDifficultyIntValue[MAX_NUM_OF_DIFFICULTIES];
+    //    _questionDifficultyToLockedStatusArray = new QuestionDifficultyBoolValue[MAX_NUM_OF_DIFFICULTIES];
 
-        for(int i=0; i < MAX_NUM_OF_DIFFICULTIES; i++)
-        {
-            _questionDifficultyToQuestionListArray[i] = new();
-            _questionDifficultyToRewardArray[i] = new();
-            _questionDifficultyToCostArray[i] = new();
-            _questionDifficultyToLockedStatusArray[i] = new();
+    //    QuestionDifficulty questionDifficultyIteration = 0;
+
+    //    for(int i=0; i < MAX_NUM_OF_DIFFICULTIES; i++)
+    //    {
+    //        _questionDifficultyToQuestionListArray[i] = new();
+    //        _questionDifficultyToRewardArray[i] = new();
+    //        _questionDifficultyToCostArray[i] = new();
+    //        _questionDifficultyToLockedStatusArray[i] = new();
 
 
-            _questionDifficultyToQuestionListArray[i].QuestionDifficulty = questionDifficultyIteration;
-            _questionDifficultyToRewardArray[i].QuestionDifficulty = questionDifficultyIteration;
-            _questionDifficultyToCostArray[i].QuestionDifficulty = questionDifficultyIteration;
-            _questionDifficultyToLockedStatusArray[i].QuestionDifficulty = questionDifficultyIteration;
+    //        _questionDifficultyToQuestionListArray[i].QuestionDifficulty = questionDifficultyIteration;
+    //        _questionDifficultyToRewardArray[i].QuestionDifficulty = questionDifficultyIteration;
+    //        _questionDifficultyToCostArray[i].QuestionDifficulty = questionDifficultyIteration;
+    //        _questionDifficultyToLockedStatusArray[i].QuestionDifficulty = questionDifficultyIteration;
 
-            questionDifficultyIteration++;
-        }
+    //        questionDifficultyIteration++;
+    //    }
 
-    }
+       
+        
+
+    //}
+
+    
+    
 
 
 }

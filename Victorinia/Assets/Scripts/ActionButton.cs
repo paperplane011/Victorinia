@@ -1,19 +1,72 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
-[RequireComponent(typeof(ActionCaption))]
+[RequireComponent(typeof(ActionCaption), typeof(Button))]
 public class ActionButton : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+
+    private Button _thisButton;
+    private Topic _topic;
+    private DifficultyView _difficultyView;
+
+    private void Awake()
     {
+        _thisButton = GetComponent<Button>();
+    }
+
+    private void OnEnable()
+    {
+        _thisButton.onClick.AddListener(Clicked);
+        PlayerEventBus.OnDifficultySelected += SetDifficulty;
         
     }
 
-    // Update is called once per frame
-    void Update()
+    private void OnDisable()
     {
-        
+        _thisButton.onClick.RemoveAllListeners();
+        PlayerEventBus.OnDifficultySelected -= SetDifficulty;
     }
+
+    public void SetTopic(Topic topic)
+    {
+        _topic = topic;
+    }
+
+    public void SetDifficultyView(DifficultyView difficultyView)
+    {
+        _difficultyView = difficultyView;
+    }
+
+    private void Clicked()
+    {
+
+    }
+
+    public void SetDifficulty(QuestionDifficulty questionDifficulty)
+    {
+        if (IsDifficultyLocked(questionDifficulty))
+        {
+           _thisButton.image.color = Color.red;
+        }
+        else
+        {
+            _thisButton.image.color = Color.green;
+        }
+
+
+    }
+
+    private bool IsDifficultyLocked(QuestionDifficulty questionDifficulty) 
+    {
+        foreach(var elem in _topic.QuestionDifficultyToLockedStatusArray)
+        {
+            if(elem.QuestionDifficulty == questionDifficulty)
+            {
+                return elem.BoolValue;
+            }
+        }
+
+        return false;
+    }
+
 }
