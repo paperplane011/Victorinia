@@ -1,12 +1,12 @@
-using System;
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class QuestionCreator : MonoBehaviour
 {
 
     private QuestionList _currentQuestionList;
+    private QuestionList _currentQuestionListCopy;
+
     private GameObject[] _answerButtonsArray;
 
     [Header("Component hooks")]
@@ -50,11 +50,13 @@ public class QuestionCreator : MonoBehaviour
     }
     private void RestartBehaviour()
     {
-        GameStartBehaviour(_currentQuestionList.ThisQuestionListDifficulty);
+        GameStartBehaviour(_currentQuestionListCopy);
     }
-    private void GameStartBehaviour(QuestionDifficulty questionDifficulty)
+    private void GameStartBehaviour(QuestionList questionList)
     {
-        _currentQuestionList = Instantiate(GameAssets.Instance.GetQuestionListForDifficulty(questionDifficulty)); // copying obj
+        _currentQuestionList = Instantiate(questionList); // copying obj
+
+        _currentQuestionListCopy = _currentQuestionList;
         CreateQuestion();
     }
 

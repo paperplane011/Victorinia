@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -43,7 +44,7 @@ public class ActionButton : MonoBehaviour
     {
         if (!_isButtonLocked)
         {
-            PlayerEventBus.OnStartGame?.Invoke(_difficultyView.CurrentQuestionDifficulty);
+            PlayerEventBus.OnStartGame?.Invoke(GetQuestionListForDifficulty(_difficultyView.CurrentQuestionDifficulty));
         }
     }
 
@@ -74,6 +75,20 @@ public class ActionButton : MonoBehaviour
         }
 
         return false;
+    }
+
+    private QuestionList GetQuestionListForDifficulty(QuestionDifficulty questionDifficulty)
+    {
+        foreach (var elem in _topic.QuestionDifficultyToQuestionListArray)
+        {
+            if (elem.QuestionDifficulty == questionDifficulty)
+            {
+                return elem.QuestionList;
+            }
+        }
+
+        throw new ArgumentException(questionDifficulty.ToString());
+       
     }
 
 }

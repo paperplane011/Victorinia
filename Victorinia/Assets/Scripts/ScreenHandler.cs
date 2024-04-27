@@ -43,7 +43,7 @@ public class ScreenHandler : MonoBehaviour
 
     private void OnEnable()
     {
-        PlayerEventBus.OnStartGame += (QuestionDifficulty d) => ChangeScreenTo(GameScreen.Questions);
+        PlayerEventBus.OnStartGame += (QuestionList l) => ChangeScreenTo(GameScreen.Questions);
         PlayerEventBus.OnGameEndLose += () => ChangeScreenTo(GameScreen.Lose);
         PlayerEventBus.OnGameEndWin += () => ChangeScreenTo(GameScreen.Win);
         PlayerEventBus.OnToMainMenuPressed += () => ChangeScreenTo(GameScreen.Title);
@@ -55,7 +55,7 @@ public class ScreenHandler : MonoBehaviour
 
     private void OnDisable()
     {
-        PlayerEventBus.OnStartGame -= (QuestionDifficulty d) => ChangeScreenTo(GameScreen.Questions);
+        PlayerEventBus.OnStartGame -= (QuestionList l) => ChangeScreenTo(GameScreen.Questions);
         PlayerEventBus.OnGameEndLose -= () => ChangeScreenTo(GameScreen.Lose);
         PlayerEventBus.OnGameEndWin -= () => ChangeScreenTo(GameScreen.Win);
 

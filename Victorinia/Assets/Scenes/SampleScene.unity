@@ -408,6 +408,10 @@ PrefabInstance:
       propertyPath: _topic
       value: 
       objectReference: {fileID: 11400000, guid: f542a57d639db524f856b0a1f0ee1ed7, type: 2}
+    - target: {fileID: 2469713043795137995, guid: a7eb113a330ca8a4884a1382c7caccd7, type: 3}
+      propertyPath: _isStartButton
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8906219776358675429, guid: a7eb113a330ca8a4884a1382c7caccd7, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -1248,6 +1252,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 369618119}
     - target: {fileID: 6489491281202733254, guid: fa7e9b8c7601fc74b94607436e84457f, type: 3}
+      propertyPath: _difficultyView
+      value: 
+      objectReference: {fileID: 853005132}
+    - target: {fileID: 6489491281202733254, guid: fa7e9b8c7601fc74b94607436e84457f, type: 3}
       propertyPath: _topicLockCanvasGroup
       value: 
       objectReference: {fileID: 1669280175}
@@ -1405,7 +1413,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9ef1e9a0ef92d9144aecdf134f757afe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _difficultyView: {fileID: 853005132}
 --- !u!114 &369618120
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1463,7 +1470,7 @@ MonoBehaviour:
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
   m_Interactable: 1
-  m_TargetGraphic: {fileID: 0}
+  m_TargetGraphic: {fileID: 369618124}
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []

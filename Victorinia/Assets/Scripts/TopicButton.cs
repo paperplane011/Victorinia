@@ -4,7 +4,7 @@ using UnityEngine.UI;
 [RequireComponent(typeof(Button))]
 public class TopicButton : MonoBehaviour
 {
-
+    [SerializeField] private bool _isStartButton; // start button immideatly shows on TopicView
     [SerializeField] private Topic _topic;
 
     private TopicView _topicView;
@@ -34,6 +34,12 @@ public class TopicButton : MonoBehaviour
     private void Start()
     {
         _textComp.text = _topic.Caption;
+
+        if (_isStartButton)
+        {
+            _topicView.SetTopic(_topic);
+        }
+
     }
 
 
