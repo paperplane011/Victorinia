@@ -2,7 +2,7 @@ using UnityEngine;
 using UnityEngine.UI;
 
 [RequireComponent(typeof(Button))]
-public class TopicButton : MonoBehaviour
+public class SelectTopicButton : MonoBehaviour
 {
     [SerializeField] private bool _isStartButton; // start button immideatly shows on TopicView
     [SerializeField] private Topic _topic;

@@ -35,6 +35,7 @@ public static class PlayerEventBus
     public static Action OnToPauseMenuUnpressed;
 
     public static Action OnTopicViewSet;
+    public static Action<int> OnMoneyChanged;
     
     public static void RaiseEvent(EventType eventType, params object[] args)
     {

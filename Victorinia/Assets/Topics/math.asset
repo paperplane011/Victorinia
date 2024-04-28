@@ -39,9 +39,9 @@ MonoBehaviour:
     BoolValue: 1
   _questionDifficultyToCostArray:
   - QuestionDifficulty: 0
-    IntValue: 0
+    IntValue: 10
   - QuestionDifficulty: 1
-    IntValue: 0
+    IntValue: 10
   - QuestionDifficulty: 2
-    IntValue: 0
+    IntValue: 10
   _currentlySelectedDifficulty: 0
