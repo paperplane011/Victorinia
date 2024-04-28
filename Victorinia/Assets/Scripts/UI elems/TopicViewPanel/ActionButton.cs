@@ -54,7 +54,7 @@ public class ActionButton : MonoBehaviour
     {
         if (_buttonState == ButtonState.play)
         {
-            PlayerEventBus.OnStartGame?.Invoke(_topic.GetQuestionListForDifficulty(_difficultyView.CurrentQuestionDifficulty));
+            PlayerEventBus.OnStartGame?.Invoke(_topic, _difficultyView.CurrentQuestionDifficulty);
         }
 
         if(_buttonState == ButtonState.buy)

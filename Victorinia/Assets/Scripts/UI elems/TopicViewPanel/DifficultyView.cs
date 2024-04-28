@@ -66,7 +66,6 @@ public class DifficultyView : MonoBehaviour
             {
                 CanvasUtils.EnableCanvasGroup(elem.CanvasGroup);
                 PlayerEventBus.OnDifficultySelected?.Invoke(questionDifficulty);
-                Debug.Log("event fired");
             }
             else
             {

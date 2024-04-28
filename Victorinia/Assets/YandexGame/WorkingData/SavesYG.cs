@@ -1,4 +1,6 @@
 ﻿
+using System.Collections.Generic;
+
 namespace YG
 {
     [System.Serializable]
@@ -13,12 +15,15 @@ namespace YG
 
 
         public int Money;
-        
+
+        public List<string> TopicSaveJSONList;
+
 
         // Вы можете выполнить какие то действия при загрузке сохранений
         public SavesYG()
         {
-            
+
+            TopicSaveJSONList = new();
         }
     }
 }

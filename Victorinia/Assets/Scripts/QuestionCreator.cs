@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using UnityEngine;
 
@@ -5,7 +6,10 @@ public class QuestionCreator : MonoBehaviour
 {
 
     private QuestionList _currentQuestionList;
-    private QuestionList _currentQuestionListCopy;
+
+
+    private Topic _currentTopic;
+    private QuestionDifficulty _currentQuestionDifficulty;
 
     private GameObject[] _answerButtonsArray;
 
@@ -46,17 +50,22 @@ public class QuestionCreator : MonoBehaviour
     private void AnswerPressedBehaviour(bool isCorrect)
     {
         StartCoroutine(CheckForAnswerWithDelay(isCorrect));
-       
+
     }
+
     private void RestartBehaviour()
     {
-        GameStartBehaviour(_currentQuestionListCopy);
+        GameStartBehaviour(_currentTopic,_currentQuestionDifficulty);
     }
-    private void GameStartBehaviour(QuestionList questionList)
-    {
-        _currentQuestionList = Instantiate(questionList); // copying obj
 
-        _currentQuestionListCopy = _currentQuestionList;
+
+    private void GameStartBehaviour(Topic topic, QuestionDifficulty questionDifficulty)
+    {
+        _currentQuestionList = Instantiate(topic.GetQuestionListForDifficulty(questionDifficulty)); // copying obj
+
+        _currentTopic = topic;
+        _currentQuestionDifficulty = questionDifficulty;
+
         CreateQuestion();
     }
 
@@ -117,8 +126,10 @@ public class QuestionCreator : MonoBehaviour
         {
             yield return new WaitForSeconds(0.4f);
 
-            if (_currentQuestionList.ThisQuestionList.Count == 0)
+            if (_currentQuestionList.ThisQuestionList.Count == 0) // win behaviour
             {
+                PlayerData.TryToChangeMoney(_currentTopic.GetRewardForDifficulty(_currentQuestionDifficulty));
+                _currentTopic.SetRewardToZero(_currentQuestionDifficulty);
                 PlayerEventBus.OnGameEndWin?.Invoke();
             }
             else
@@ -126,7 +137,7 @@ public class QuestionCreator : MonoBehaviour
                 CreateQuestion();
             }
         }
-        else
+        else // lose behaviour
         {
             yield return new WaitForSeconds(1.3f);
 

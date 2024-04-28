@@ -25,28 +25,12 @@ public class TopicView : MonoBehaviour
     public void SetTopic(Topic topic)
     {
         _previewImage.sprite = topic.PreviewSprite;
+
         _captionTextComp.text = topic.Caption;
-    
-
-        LockTopicIfNeeded(topic);
         _actionButton.SetTopic(topic);
-        
-        
     }
 
 
-
-    private void LockTopicIfNeeded(Topic topic)
-    {
-        if (topic.IsTopicLocked)
-        {
-            CanvasUtils.EnableCanvasGroup(_topicLockCanvasGroup);
-        }
-        else
-        {
-            CanvasUtils.DisableCanvasGroup(_topicLockCanvasGroup);
-        }
-    }
 
 
 
@@ -77,7 +61,7 @@ public class TopicView : MonoBehaviour
         public TMPro.TextMeshProUGUI RewardTextComp;
     }
 
-   
+
 
 }
 

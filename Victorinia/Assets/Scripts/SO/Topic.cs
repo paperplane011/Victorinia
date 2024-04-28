@@ -6,7 +6,11 @@ using UnityEngine;
 public class Topic : ScriptableObject
 {
 
+
+
     public static readonly int MAX_NUM_OF_DIFFICULTIES = 3;
+
+    public int ID;
 
 
     [SerializeField] private Sprite _previewSprite;
@@ -18,11 +22,6 @@ public class Topic : ScriptableObject
 
     [SerializeField] private int _topicCost;
     public int TopicCost { get { return _topicCost; } }
-
-
-    [SerializeField] private bool _isTopicLocked;
-    public bool IsTopicLocked { get { return _isTopicLocked; } }
-
 
     [SerializeField] private QuestionDifficultyQuestionListValue[] _questionDifficultyToQuestionListArray;
     public QuestionDifficultyQuestionListValue[] QuestionDifficultyToQuestionListArray { get { return _questionDifficultyToQuestionListArray; } }
@@ -117,16 +116,34 @@ public class Topic : ScriptableObject
         throw new ArgumentException(questionDifficulty.ToString());
     }
 
-    public void UnlockDifficulty(QuestionDifficulty questionDifficulty)
+    public void UnlockDifficulty(QuestionDifficulty questionDifficulty) // changes topic
     {
         foreach (var elem in QuestionDifficultyToLockedStatusArray)
         {
             if (elem.QuestionDifficulty == questionDifficulty)
             {
                 elem.BoolValue = false;
+                SaveTopic();
             }
         }
+
+        
+
     }
+
+    public void SetRewardToZero(QuestionDifficulty questionDifficulty) // changes topic
+    {
+        foreach (var elem in QuestionDifficultyToRewardArray)
+        {
+            if (elem.QuestionDifficulty == questionDifficulty)
+            {
+                elem.IntValue = 0;
+                SaveTopic();
+            }
+        }
+
+    }
+
 
     public int GetRewardForDifficulty(QuestionDifficulty questionDifficulty)
     {
@@ -141,6 +158,16 @@ public class Topic : ScriptableObject
         return 0;
     }
 
+
+    private void SaveTopic()
+    {
+        
+    }
+
+    public TopicSave ToTopicSave()
+    {
+        return new TopicSave(this);
+    }
 
 }
 

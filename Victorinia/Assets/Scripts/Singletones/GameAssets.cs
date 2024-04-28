@@ -1,5 +1,5 @@
-using System;
-using Tweens;
+using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 
 public class GameAssets : MonoBehaviour
@@ -22,37 +22,57 @@ public class GameAssets : MonoBehaviour
 
 
     public const string TOPIC_VIEW_TAG = "TopicView";
-
-    [Header("Questions")]
-    [SerializeField] private QuestionList[] _questionLists;
-
-    
+    private TopicView _topicView;
 
 
-    public QuestionList GetQuestionListForDifficulty(QuestionDifficulty questionDifficulty)
+    private void Start()
     {
-        foreach(var questionList in _questionLists)
-        {
-            if(questionList.ThisQuestionListDifficulty == questionDifficulty)
-            {
-                return questionList;
-            }
-        }
-
-        throw new ArgumentException(nameof(questionDifficulty));
+        _topicView = GameObject.FindGameObjectWithTag(TOPIC_VIEW_TAG).GetComponent<TopicView>();
     }
-
 
     public TopicView GetTopicView()
     {
-        TopicView topicView = GameObject.FindGameObjectWithTag(TOPIC_VIEW_TAG).GetComponent<TopicView>();
-        return topicView;
+        return _topicView;
     }
+
+    private List<string> _topicSaveJSONList; // initial data
+
+    public List<string> TopicSaveJSONList { get { return _topicSaveJSONList; } }
 
 
 
     public SoundManager.SoundInfo[] SoundInfoArray;
 
-    
+#if UNITY_EDITOR
+
+    private const string TOPIC_SEARCH_FILTER = "t:Topic";
+
+
+    [ContextMenu("Fill topics save")]
+    public void FillTopicsSave()
+    {
+        string[] allTopicsGUIDs = AssetDatabase.FindAssets(TOPIC_SEARCH_FILTER);
+
+        _topicSaveJSONList = new();
+        _topicSaveJSONList.Clear();
+
+        int i = 1;
+        foreach (var topicGUID in allTopicsGUIDs)
+        {
+            string topicPath = AssetDatabase.GUIDToAssetPath(topicGUID);
+            Debug.Log(topicPath);
+
+            Topic topic = AssetDatabase.LoadAssetAtPath<Topic>(topicPath);
+
+            topic.ID = i;
+            i++;
+
+            _topicSaveJSONList.Add(JsonUtility.ToJson(topic.ToTopicSave()));
+        }
+    }
+
+
+
+#endif
 
 }
