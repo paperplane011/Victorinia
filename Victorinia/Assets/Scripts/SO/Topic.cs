@@ -46,7 +46,7 @@ public class Topic : ScriptableObject
 
     //private void OnValidate()
     //{
-       
+
 
     //    _questionDifficultyToQuestionListArray = new QuestionDifficultyQuestionListValue[MAX_NUM_OF_DIFFICULTIES];
     //    _questionDifficultyToCostArray = new QuestionDifficultyIntValue[MAX_NUM_OF_DIFFICULTIES];
@@ -71,13 +71,75 @@ public class Topic : ScriptableObject
     //        questionDifficultyIteration++;
     //    }
 
-       
-        
+
+
 
     //}
 
-    
-    
+
+    public bool IsDifficultyLocked(QuestionDifficulty questionDifficulty)
+    {
+        foreach (var elem in QuestionDifficultyToLockedStatusArray)
+        {
+            if (elem.QuestionDifficulty == questionDifficulty)
+            {
+                return elem.BoolValue;
+            }
+        }
+
+        return false;
+    }
+
+    public QuestionList GetQuestionListForDifficulty(QuestionDifficulty questionDifficulty)
+    {
+        foreach (var elem in QuestionDifficultyToQuestionListArray)
+        {
+            if (elem.QuestionDifficulty == questionDifficulty)
+            {
+                return elem.QuestionList;
+            }
+        }
+
+        throw new ArgumentException(questionDifficulty.ToString());
+
+    }
+
+    public int GetCostForDifficulty(QuestionDifficulty questionDifficulty)
+    {
+        foreach (var elem in QuestionDifficultyToCostArray)
+        {
+            if (elem.QuestionDifficulty == questionDifficulty)
+            {
+                return elem.IntValue;
+            }
+        }
+
+        throw new ArgumentException(questionDifficulty.ToString());
+    }
+
+    public void UnlockDifficulty(QuestionDifficulty questionDifficulty)
+    {
+        foreach (var elem in QuestionDifficultyToLockedStatusArray)
+        {
+            if (elem.QuestionDifficulty == questionDifficulty)
+            {
+                elem.BoolValue = false;
+            }
+        }
+    }
+
+    public int GetRewardForDifficulty(QuestionDifficulty questionDifficulty)
+    {
+        foreach (var elem in QuestionDifficultyToRewardArray)
+        {
+            if (elem.QuestionDifficulty == questionDifficulty)
+            {
+                return elem.IntValue;
+            }
+        }
+
+        return 0;
+    }
 
 
 }

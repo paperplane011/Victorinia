@@ -1,18 +1,41 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class ActionCaption : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+
+    [SerializeField] private TMPro.TextMeshProUGUI _textComp;
+    [SerializeField] private string _costPrefix;
+    [SerializeField] private string _rewardPrefix;
+    [SerializeField] private string _noMoneyMessage;
+
+    public enum State
     {
-        
+        cost,
+        reward,
+        noMoney
     }
 
-    // Update is called once per frame
-    void Update()
+    public void ChangeToState(State state, int value)
     {
-        
+
+        switch (state)
+        {
+            case State.cost:
+                _textComp.text = _costPrefix + value.ToString();
+                break;
+            case State.reward:
+                _textComp.text = _rewardPrefix + value.ToString();
+                break;
+            case State.noMoney:
+                _textComp.text = _noMoneyMessage + value.ToString(); // value equals to money lacking 
+                break;
+        }
     }
+
+
+
+
+
+
+
 }

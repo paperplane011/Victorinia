@@ -2,7 +2,7 @@ using System;
 using UnityEngine;
 using UnityEngine.UI;
 
-[RequireComponent(typeof(ActionCaption), typeof(Button))]
+[RequireComponent(typeof(Button))]
 public class ActionButton : MonoBehaviour
 {
 
@@ -12,6 +12,7 @@ public class ActionButton : MonoBehaviour
         buy
     }
 
+    [SerializeField] private ActionCaption _actionCaption;
     [SerializeField] private CanvasGroup _buyButtonCG;
     [SerializeField] private CanvasGroup _playButtonCG;
 
@@ -29,14 +30,14 @@ public class ActionButton : MonoBehaviour
     private void OnEnable()
     {
         _thisButton.onClick.AddListener(Clicked);
-        PlayerEventBus.OnDifficultySelected += SetDifficulty;
+        PlayerEventBus.OnDifficultySelected += SetButtonStateBasedOnDifficulty;
         
     }
 
     private void OnDisable()
     {
         _thisButton.onClick.RemoveAllListeners();
-        PlayerEventBus.OnDifficultySelected -= SetDifficulty;
+        PlayerEventBus.OnDifficultySelected -= SetButtonStateBasedOnDifficulty;
     }
 
     public void SetTopic(Topic topic)
@@ -53,32 +54,37 @@ public class ActionButton : MonoBehaviour
     {
         if (_buttonState == ButtonState.play)
         {
-            PlayerEventBus.OnStartGame?.Invoke(GetQuestionListForDifficulty(_difficultyView.CurrentQuestionDifficulty));
+            PlayerEventBus.OnStartGame?.Invoke(_topic.GetQuestionListForDifficulty(_difficultyView.CurrentQuestionDifficulty));
         }
 
         if(_buttonState == ButtonState.buy)
         {
-            // buy
-            PlayerData.ChangeMoney(-GetCostForDifficulty(_difficultyView.CurrentQuestionDifficulty));
-
-            UnlockDifficulty(_difficultyView.CurrentQuestionDifficulty);
-            SetDifficulty(_difficultyView.CurrentQuestionDifficulty);
-            
+            if (PlayerData.TryToChangeMoney(-_topic.GetCostForDifficulty(_difficultyView.CurrentQuestionDifficulty)))
+            {
+                _topic.UnlockDifficulty(_difficultyView.CurrentQuestionDifficulty);
+                SetButtonStateBasedOnDifficulty(_difficultyView.CurrentQuestionDifficulty);
+            }
+            else // lacking money to buy
+            {
+                _actionCaption.ChangeToState(ActionCaption.State.noMoney, _topic.GetCostForDifficulty(_difficultyView.CurrentQuestionDifficulty) - PlayerData.Money);
+            }            
         }
 
     }
 
-    public void SetDifficulty(QuestionDifficulty questionDifficulty)
+    public void SetButtonStateBasedOnDifficulty(QuestionDifficulty questionDifficulty)
     {
-        if (IsDifficultyLocked(questionDifficulty))
+        if (_topic.IsDifficultyLocked(questionDifficulty))
         {
             _buttonState = ButtonState.buy;
+            _actionCaption.ChangeToState(ActionCaption.State.cost, _topic.GetCostForDifficulty(questionDifficulty));
             _thisButton.image.color = Color.red;
             
             SetBuyButton();
         }
         else
         {
+            _actionCaption.ChangeToState(ActionCaption.State.reward, _topic.GetRewardForDifficulty(questionDifficulty));
             _thisButton.image.color = Color.green;
             _buttonState = ButtonState.play;
             SetPlayButton();
@@ -88,56 +94,13 @@ public class ActionButton : MonoBehaviour
 
     }
 
-    private bool IsDifficultyLocked(QuestionDifficulty questionDifficulty) 
-    {
-        foreach(var elem in _topic.QuestionDifficultyToLockedStatusArray)
-        {
-            if(elem.QuestionDifficulty == questionDifficulty)
-            {
-                return elem.BoolValue;
-            }
-        }
+    
 
-        return false;
-    }
+    
 
-    private QuestionList GetQuestionListForDifficulty(QuestionDifficulty questionDifficulty)
-    {
-        foreach (var elem in _topic.QuestionDifficultyToQuestionListArray)
-        {
-            if (elem.QuestionDifficulty == questionDifficulty)
-            {
-                return elem.QuestionList;
-            }
-        }
+    
 
-        throw new ArgumentException(questionDifficulty.ToString());
-       
-    }
-
-    private int GetCostForDifficulty(QuestionDifficulty questionDifficulty)
-    {
-        foreach (var elem in _topic.QuestionDifficultyToCostArray)
-        {
-            if (elem.QuestionDifficulty == questionDifficulty)
-            {
-                return elem.IntValue;
-            }
-        }
-
-        throw new ArgumentException(questionDifficulty.ToString());
-    }
-
-    private void UnlockDifficulty(QuestionDifficulty questionDifficulty)
-    {
-        foreach (var elem in _topic.QuestionDifficultyToLockedStatusArray)
-        {
-            if (elem.QuestionDifficulty == questionDifficulty)
-            {
-                elem.BoolValue = false;
-            }
-        }
-    }
+    
 
 
     private void SetBuyButton()

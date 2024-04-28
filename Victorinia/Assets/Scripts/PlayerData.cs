@@ -13,10 +13,20 @@ public static class PlayerData
     }
 
 
-    public static void ChangeMoney(int value)
+    public static bool TryToChangeMoney(int value)
     {
-        _money += value;
+        if(_money + value > 0)
+        {
+            _money += value;
+            PlayerEventBus.OnMoneyChanged(_money);
+            return true;
+        }
+        else
+        {
+            return false;
+        }
 
-        PlayerEventBus.OnMoneyChanged(_money);
+
+        
     }
 }

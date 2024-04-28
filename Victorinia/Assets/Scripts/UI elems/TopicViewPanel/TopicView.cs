@@ -10,15 +10,9 @@ public class TopicView : MonoBehaviour
     [SerializeField] private Image _previewImage;
 
     [SerializeField] private TextMeshProUGUI _captionTextComp;
-    //[SerializeField] private TextMeshProUGUI _topicCostTextComp;
 
     [SerializeField] private ActionButton _actionButton;
     [SerializeField] private DifficultyView _difficultyView;
-
-    //[SerializeField] private QuestionDifficultyToCostRewardValue[] _questionDifficultyToCostRewardTextCompArray;
-    //[SerializeField] private QuestionDifficultyToCanvasGroupValue[] _questionDifficultyToDifficultyLockCanvasGroupArray;
-
-
 
     [SerializeField] private CanvasGroup _topicLockCanvasGroup;
 
