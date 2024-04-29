@@ -16,11 +16,9 @@ public class PlayerDataInitializer : MonoBehaviour
     }
 
     [ContextMenu("ResetProgress")]
-    private void ResetProgress()
+    public void ResetProgress()
     {
-        YandexGame.ResetSaveProgress();
-       
-        //PlayerData.ResetProgress();
+        PlayerData.ResetProgress();
     }
 
 

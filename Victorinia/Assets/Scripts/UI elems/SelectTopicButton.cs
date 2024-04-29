@@ -46,7 +46,7 @@ public class SelectTopicButton : MonoBehaviour
     private void Clicked()
     {
         _topicView.SetTopic(_topic);
-        PlayerEventBus.OnTopicViewSet?.Invoke();
+        PlayerEventBus.OnUpdateTopicViewVisuals?.Invoke();
     }
 
 

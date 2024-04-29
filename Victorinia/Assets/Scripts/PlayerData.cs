@@ -20,7 +20,7 @@ public static class PlayerData
         //_money = 100;
         // PlayerEventBus.OnMoneyChanged(_money);
 
-        PlayerEventBus.OnTopicSaved += SaveTopic;
+      
 
         InitializeData();
     }
@@ -43,7 +43,9 @@ public static class PlayerData
         }
 
         FillDictionary();
+
         PlayerEventBus.OnMoneyChanged?.Invoke(_money);
+        PlayerEventBus.OnUpdateTopicViewVisuals?.Invoke();
 
     }
 
@@ -81,8 +83,9 @@ public static class PlayerData
 
     public static void ResetProgress()
     {
-        
-        //InitializeData();
+        YandexGame.savesData.IsInitialized = false;
+        YandexGame.SaveProgress();
+        InitializeData();
     }
 
     private static void SaveDictionaryToSavesYG()
@@ -118,14 +121,7 @@ public static class PlayerData
         }
     }
 
-    public static void SaveTopic(Topic topic)
-    {
-
-        TopicSave newTopicSave = topic.ToTopicSave();
-        _idToTopicSaveDictionary[topic.ID] = newTopicSave;
-
-        SaveDictionaryToSavesYG();
-    }
+    
 
 
     public static void UnlockDifficulty(int ID, QuestionDifficulty questionDifficulty) // changes topic
@@ -156,6 +152,7 @@ public static class PlayerData
             if (elem.QuestionDifficulty == questionDifficulty)
             {
                 elem.IntValue = 0;
+                PlayerEventBus.OnUpdateTopicViewVisuals?.Invoke();
             }
         }
 

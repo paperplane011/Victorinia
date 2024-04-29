@@ -23,10 +23,12 @@ public static class PlayerEventBus
     public static Action<QuestionDifficulty> OnDifficultySelected;
     public static Action<Topic, QuestionDifficulty> OnStartGame;
     public static Action<bool> OnAnswerPressed; // Invoked by AnswerButton.cs
-    public static Action<QuestionDifficulty> OnDifficultyCleared;
 
-    public static Action<TopicSave> OnTopicChanged;
-    public static Action<Topic> OnTopicSaved;
+    public static Action OnUpdateTopicViewVisuals;
+    public static Action<int> OnMoneyChanged;
+
+
+
 
 
     public static Action OnGameEndLose;
@@ -39,8 +41,6 @@ public static class PlayerEventBus
     public static Action OnToPauseMenuPressed;
     public static Action OnToPauseMenuUnpressed;
 
-    public static Action OnTopicViewSet;
-    public static Action<int> OnMoneyChanged;
     
     public static void RaiseEvent(EventType eventType, params object[] args)
     {

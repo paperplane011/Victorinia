@@ -16,13 +16,13 @@ public class DifficultyView : MonoBehaviour
 
     private void OnEnable()
     {
-        PlayerEventBus.OnTopicViewSet += InvokeCurrentlySelectedDifficulty;
+        PlayerEventBus.OnUpdateTopicViewVisuals += InvokeCurrentlySelectedDifficulty;
     }
 
 
     private void OnDisable()
     {
-        PlayerEventBus.OnTopicViewSet -= InvokeCurrentlySelectedDifficulty;
+        PlayerEventBus.OnUpdateTopicViewVisuals -= InvokeCurrentlySelectedDifficulty;
     }
 
     public void GoRight()
