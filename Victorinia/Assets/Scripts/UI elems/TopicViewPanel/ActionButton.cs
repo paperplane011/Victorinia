@@ -12,8 +12,16 @@ public class ActionButton : MonoBehaviour
     }
 
     [SerializeField] private ActionCaption _actionCaption;
-    [SerializeField] private CanvasGroup _buyButtonCG;
-    [SerializeField] private CanvasGroup _playButtonCG;
+
+
+    [SerializeField] private Image _image;
+
+    [SerializeField] private Sprite _playButtonSprite;
+    [SerializeField] private Sprite _buyButtonSprite;
+
+    [SerializeField] private Color _playButtonColor;
+    [SerializeField] private Color _buyButtonColor;
+
 
     private Button _thisButton;
     private Topic _topic;
@@ -24,6 +32,7 @@ public class ActionButton : MonoBehaviour
     private void Awake()
     {
         _thisButton = GetComponent<Button>();
+        
     }
 
     private void OnEnable()
@@ -75,18 +84,13 @@ public class ActionButton : MonoBehaviour
     {
         if (_topic.IsDifficultyLocked(questionDifficulty))
         {
-            _buttonState = ButtonState.buy;
-            _actionCaption.ChangeToState(ActionCaption.State.cost, _topic.GetCostForDifficulty(questionDifficulty));
-            _thisButton.image.color = Color.red;
+            
 
-            SetBuyButton();
+            SetBuyButton(questionDifficulty);
         }
         else
         {
-            _actionCaption.ChangeToState(ActionCaption.State.reward, _topic.GetRewardForDifficulty(questionDifficulty));
-            _thisButton.image.color = Color.green;
-            _buttonState = ButtonState.play;
-            SetPlayButton();
+            SetPlayButton(questionDifficulty);
 
         }
 
@@ -102,17 +106,25 @@ public class ActionButton : MonoBehaviour
 
 
 
-    private void SetBuyButton()
+    private void SetBuyButton(QuestionDifficulty questionDifficulty)
     {
-        //CanvasUtils.EnableCanvasGroup(_buyButtonCG);
-        // action caption
+        _buttonState = ButtonState.buy;
+        _actionCaption.ChangeToState(ActionCaption.State.cost, _topic.GetCostForDifficulty(questionDifficulty));
+
+        _image.sprite = _buyButtonSprite;
+        _image.color = _buyButtonColor;
+        
     }
 
 
-    private void SetPlayButton()
+    private void SetPlayButton(QuestionDifficulty questionDifficulty)
     {
-        //CanvasUtils.EnableCanvasGroup(_playButtonCG);
+        _actionCaption.ChangeToState(ActionCaption.State.reward, _topic.GetRewardForDifficulty(questionDifficulty));
+        _buttonState = ButtonState.play;
 
+        _image.sprite = _playButtonSprite;
+        _image.color = _playButtonColor;
+        
     }
 
 }

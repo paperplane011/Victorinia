@@ -23,8 +23,9 @@ namespace YG
         // Вы можете выполнить какие то действия при загрузке сохранений
         public SavesYG()
         {
-
+            Money = 0;
             TopicSaveJSONList = new();
+            TopicSaveJSONList.Clear();
             IsInitialized = false;
         }
     }

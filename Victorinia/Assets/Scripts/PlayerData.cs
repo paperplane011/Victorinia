@@ -46,6 +46,7 @@ public static class PlayerData
 
         PlayerEventBus.OnMoneyChanged?.Invoke(_money);
         PlayerEventBus.OnUpdateTopicViewVisuals?.Invoke();
+        SaveDictionaryToSavesYG();
 
     }
 
@@ -84,6 +85,7 @@ public static class PlayerData
     public static void ResetProgress()
     {
         YandexGame.savesData.IsInitialized = false;
+        YandexGame.ResetSaveProgress();
         YandexGame.SaveProgress();
         InitializeData();
     }

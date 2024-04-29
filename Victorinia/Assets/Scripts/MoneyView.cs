@@ -24,7 +24,7 @@ public class MoneyView : MonoBehaviour
 
     private void UpdateView(int value)
     {
-        _textComp.text = _prefix + value.ToString();
+        _textComp.text = _prefix + value.ToString() + " M.";
     }
 
 
