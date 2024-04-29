@@ -1,5 +1,3 @@
-using System.Collections.Generic;
-using UnityEditor;
 using UnityEngine;
 
 public class GameAssets : MonoBehaviour
@@ -25,54 +23,29 @@ public class GameAssets : MonoBehaviour
     private TopicView _topicView;
 
 
-    private void Start()
-    {
-        _topicView = GameObject.FindGameObjectWithTag(TOPIC_VIEW_TAG).GetComponent<TopicView>();
-    }
 
     public TopicView GetTopicView()
     {
+        if (_topicView == null)
+        {
+            _topicView = GameObject.FindGameObjectWithTag(TOPIC_VIEW_TAG).GetComponent<TopicView>();
+        }
+
         return _topicView;
     }
 
-    private List<string> _topicSaveJSONList; // initial data
 
-    public List<string> TopicSaveJSONList { get { return _topicSaveJSONList; } }
+    [SerializeField] private TopicSaveToJsonAsset _topicSaveToJsonAsset;
 
+    public TopicSaveToJsonAsset TopicSaveToJsonAsset { get { return _topicSaveToJsonAsset; } }
 
 
     public SoundManager.SoundInfo[] SoundInfoArray;
 
-#if UNITY_EDITOR
-
-    private const string TOPIC_SEARCH_FILTER = "t:Topic";
-
-
-    [ContextMenu("Fill topics save")]
-    public void FillTopicsSave()
-    {
-        string[] allTopicsGUIDs = AssetDatabase.FindAssets(TOPIC_SEARCH_FILTER);
-
-        _topicSaveJSONList = new();
-        _topicSaveJSONList.Clear();
-
-        int i = 1;
-        foreach (var topicGUID in allTopicsGUIDs)
-        {
-            string topicPath = AssetDatabase.GUIDToAssetPath(topicGUID);
-            Debug.Log(topicPath);
-
-            Topic topic = AssetDatabase.LoadAssetAtPath<Topic>(topicPath);
-
-            topic.ID = i;
-            i++;
-
-            _topicSaveJSONList.Add(JsonUtility.ToJson(topic.ToTopicSave()));
-        }
-    }
 
 
 
-#endif
+
+
 
 }

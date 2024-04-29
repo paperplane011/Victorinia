@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 089d2d6ede606964485818bcb2fdb20f, type: 3}
   m_Name: math
   m_EditorClassIdentifier: 
-  ID: 0
+  ID: 1
   _previewSprite: {fileID: 21300000, guid: 086e7ea4a142df541b76c1872c2c9e75, type: 3}
   _caption: "\u041C\u0430\u0442\u0435\u043C\u0430\u0442\u0438\u043A\u0430"
   _topicCost: 0

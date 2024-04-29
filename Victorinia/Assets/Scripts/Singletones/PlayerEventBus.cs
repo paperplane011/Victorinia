@@ -26,6 +26,7 @@ public static class PlayerEventBus
     public static Action<QuestionDifficulty> OnDifficultyCleared;
 
     public static Action<TopicSave> OnTopicChanged;
+    public static Action<Topic> OnTopicSaved;
 
 
     public static Action OnGameEndLose;

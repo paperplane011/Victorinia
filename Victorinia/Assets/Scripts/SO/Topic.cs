@@ -20,8 +20,6 @@ public class Topic : ScriptableObject
     public string Caption { get { return _caption; } }
 
 
-    [SerializeField] private int _topicCost;
-    public int TopicCost { get { return _topicCost; } }
 
     [SerializeField] private QuestionDifficultyQuestionListValue[] _questionDifficultyToQuestionListArray;
     public QuestionDifficultyQuestionListValue[] QuestionDifficultyToQuestionListArray { get { return _questionDifficultyToQuestionListArray; } }
@@ -38,9 +36,6 @@ public class Topic : ScriptableObject
     [SerializeField] private QuestionDifficultyIntValue[] _questionDifficultyToCostArray;
     public QuestionDifficultyIntValue[] QuestionDifficultyToCostArray { get { return _questionDifficultyToCostArray; } }
 
-
-    [SerializeField] private QuestionDifficulty _currentlySelectedDifficulty;
-    public QuestionDifficulty CurrentlySelectedDifficulty { get { return _currentlySelectedDifficulty; } }
 
 
     //private void OnValidate()
@@ -78,15 +73,7 @@ public class Topic : ScriptableObject
 
     public bool IsDifficultyLocked(QuestionDifficulty questionDifficulty)
     {
-        foreach (var elem in QuestionDifficultyToLockedStatusArray)
-        {
-            if (elem.QuestionDifficulty == questionDifficulty)
-            {
-                return elem.BoolValue;
-            }
-        }
-
-        return false;
+        return PlayerData.IsTopicDifficultyLocked(ID, questionDifficulty);
     }
 
     public QuestionList GetQuestionListForDifficulty(QuestionDifficulty questionDifficulty)
@@ -116,53 +103,15 @@ public class Topic : ScriptableObject
         throw new ArgumentException(questionDifficulty.ToString());
     }
 
-    public void UnlockDifficulty(QuestionDifficulty questionDifficulty) // changes topic
-    {
-        foreach (var elem in QuestionDifficultyToLockedStatusArray)
-        {
-            if (elem.QuestionDifficulty == questionDifficulty)
-            {
-                elem.BoolValue = false;
-                SaveTopic();
-            }
-        }
-
-        
-
-    }
-
-    public void SetRewardToZero(QuestionDifficulty questionDifficulty) // changes topic
-    {
-        foreach (var elem in QuestionDifficultyToRewardArray)
-        {
-            if (elem.QuestionDifficulty == questionDifficulty)
-            {
-                elem.IntValue = 0;
-                SaveTopic();
-            }
-        }
-
-    }
 
 
     public int GetRewardForDifficulty(QuestionDifficulty questionDifficulty)
     {
-        foreach (var elem in QuestionDifficultyToRewardArray)
-        {
-            if (elem.QuestionDifficulty == questionDifficulty)
-            {
-                return elem.IntValue;
-            }
-        }
-
-        return 0;
+        return PlayerData.GetTopicRewardForDifficulty(ID, questionDifficulty);
     }
 
 
-    private void SaveTopic()
-    {
-        
-    }
+    
 
     public TopicSave ToTopicSave()
     {

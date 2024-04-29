@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -31,7 +30,7 @@ public class ActionButton : MonoBehaviour
     {
         _thisButton.onClick.AddListener(Clicked);
         PlayerEventBus.OnDifficultySelected += SetButtonStateBasedOnDifficulty;
-        
+
     }
 
     private void OnDisable()
@@ -57,17 +56,17 @@ public class ActionButton : MonoBehaviour
             PlayerEventBus.OnStartGame?.Invoke(_topic, _difficultyView.CurrentQuestionDifficulty);
         }
 
-        if(_buttonState == ButtonState.buy)
+        if (_buttonState == ButtonState.buy)
         {
             if (PlayerData.TryToChangeMoney(-_topic.GetCostForDifficulty(_difficultyView.CurrentQuestionDifficulty)))
             {
-                _topic.UnlockDifficulty(_difficultyView.CurrentQuestionDifficulty);
+                PlayerData.UnlockDifficulty(_topic.ID, _difficultyView.CurrentQuestionDifficulty);
                 SetButtonStateBasedOnDifficulty(_difficultyView.CurrentQuestionDifficulty);
             }
             else // lacking money to buy
             {
                 _actionCaption.ChangeToState(ActionCaption.State.noMoney, _topic.GetCostForDifficulty(_difficultyView.CurrentQuestionDifficulty) - PlayerData.Money);
-            }            
+            }
         }
 
     }
@@ -79,7 +78,7 @@ public class ActionButton : MonoBehaviour
             _buttonState = ButtonState.buy;
             _actionCaption.ChangeToState(ActionCaption.State.cost, _topic.GetCostForDifficulty(questionDifficulty));
             _thisButton.image.color = Color.red;
-            
+
             SetBuyButton();
         }
         else
@@ -88,19 +87,19 @@ public class ActionButton : MonoBehaviour
             _thisButton.image.color = Color.green;
             _buttonState = ButtonState.play;
             SetPlayButton();
-            
+
         }
 
 
     }
 
-    
 
-    
 
-    
 
-    
+
+
+
+
 
 
     private void SetBuyButton()

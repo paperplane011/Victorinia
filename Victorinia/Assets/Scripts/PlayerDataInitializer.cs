@@ -1,4 +1,5 @@
 using UnityEngine;
+using YG;
 
 public class PlayerDataInitializer : MonoBehaviour
 {
@@ -13,5 +14,14 @@ public class PlayerDataInitializer : MonoBehaviour
         }
 
     }
+
+    [ContextMenu("ResetProgress")]
+    private void ResetProgress()
+    {
+        YandexGame.ResetSaveProgress();
+       
+        //PlayerData.ResetProgress();
+    }
+
 
 }

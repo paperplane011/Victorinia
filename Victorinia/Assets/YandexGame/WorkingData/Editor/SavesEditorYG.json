@@ -1,0 +1,12 @@
+{
+    "idSave": 52,
+    "isFirstSession": false,
+    "language": "ru",
+    "promptDone": false,
+    "Money": 1944,
+    "IsInitialized": true,
+    "TopicSaveJSONList": [
+        "{\"ID\":1,\"QuestionDifficultyToRewardArray\":[{\"QuestionDifficulty\":0,\"IntValue\":100},{\"QuestionDifficulty\":1,\"IntValue\":20},{\"QuestionDifficulty\":2,\"IntValue\":3000}],\"QuestionDifficultyToLockedStatusArray\":[{\"QuestionDifficulty\":0,\"BoolValue\":false},{\"QuestionDifficulty\":1,\"BoolValue\":false},{\"QuestionDifficulty\":2,\"BoolValue\":false}]}",
+        "{\"ID\":2,\"QuestionDifficultyToRewardArray\":[{\"QuestionDifficulty\":0,\"IntValue\":30},{\"QuestionDifficulty\":1,\"IntValue\":0},{\"QuestionDifficulty\":2,\"IntValue\":0}],\"QuestionDifficultyToLockedStatusArray\":[{\"QuestionDifficulty\":0,\"BoolValue\":false},{\"QuestionDifficulty\":1,\"BoolValue\":false},{\"QuestionDifficulty\":2,\"BoolValue\":false}]}"
+    ]
+}

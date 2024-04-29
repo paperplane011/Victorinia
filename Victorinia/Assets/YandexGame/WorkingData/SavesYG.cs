@@ -15,6 +15,7 @@ namespace YG
 
 
         public int Money;
+        public bool IsInitialized;
 
         public List<string> TopicSaveJSONList;
 
@@ -24,6 +25,7 @@ namespace YG
         {
 
             TopicSaveJSONList = new();
+            IsInitialized = false;
         }
     }
 }
