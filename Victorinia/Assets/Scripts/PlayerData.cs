@@ -38,7 +38,7 @@ public static class PlayerData
 
         FillDictionary();
 
-        PlayerEventBus.OnMoneyChanged?.Invoke(_money);
+        PlayerEventBus.OnMoneyChanged?.Invoke(_money, 0);
         PlayerEventBus.OnUpdateTopicViewVisuals?.Invoke();
         SaveDictionaryToSavesYG();
 
@@ -102,9 +102,10 @@ public static class PlayerData
     {
         if (_money + value > 0)
         {
+
             _money += value;
 
-            PlayerEventBus.OnMoneyChanged(_money);
+            PlayerEventBus.OnMoneyChanged(_money, value);
 
             YandexGame.savesData.Money = _money;
             YandexGame.SaveProgress();

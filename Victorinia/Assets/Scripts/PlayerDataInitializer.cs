@@ -21,5 +21,17 @@ public class PlayerDataInitializer : MonoBehaviour
         PlayerData.ResetProgress();
     }
 
+    [ContextMenu("Add money")]
+    public void AddMoney()
+    {
+        PlayerData.TryToChangeMoney(20);
+    }
+
+
+    [ContextMenu("Substract money")]
+    public void SubstractMoney()
+    {
+        PlayerData.TryToChangeMoney(-20);
+    }
 
 }

@@ -25,8 +25,9 @@ public static class PlayerEventBus
     public static Action<bool> OnAnswerPressed; // Invoked by AnswerButton.cs
 
     public static Action OnUpdateTopicViewVisuals;
-    public static Action<int> OnMoneyChanged;
+    public static Action<int, int> OnMoneyChanged; // arg1: new balance, arg2: difference
 
+    public static Action<int> OnRewardSetted;
 
 
 

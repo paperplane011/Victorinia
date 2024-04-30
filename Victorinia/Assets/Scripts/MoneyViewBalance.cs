@@ -1,3 +1,4 @@
+using Tweens;
 using UnityEngine;
 
 public class MoneyViewBalance : MonoBehaviour
@@ -11,7 +12,7 @@ public class MoneyViewBalance : MonoBehaviour
     [SerializeField] private TMPro.TextMeshProUGUI _prefixTextComp;
     [SerializeField] private TMPro.TextMeshProUGUI _moneyTextComp;
 
-
+    
     protected virtual void OnEnable()
     {
         PlayerEventBus.OnMoneyChanged += UpdateView;
@@ -24,13 +25,24 @@ public class MoneyViewBalance : MonoBehaviour
 
     private void Start()
     {
-        _prefixTextComp.text = _prefix;
+        if(_prefixTextComp != null) _prefixTextComp.text = _prefix;
+    
+        
     }
 
 
-    private void UpdateView(int value)
+    protected void UpdateView(int newBalance, int difference)
     {
-        _moneyTextComp.text = value.ToString();
+        
+
+        _moneyTextComp.text = newBalance.ToString();
+    }
+
+
+    protected void UpdateView(int newBalance)
+    {
+        UpdateView(newBalance, 0);
+
     }
 
 

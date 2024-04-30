@@ -65,6 +65,7 @@ public class QuestionCreator : MonoBehaviour
 
         _currentTopic = topic;
         _currentQuestionDifficulty = questionDifficulty;
+        PlayerEventBus.OnRewardSetted?.Invoke(topic.GetRewardForDifficulty(questionDifficulty));
 
         CreateQuestion();
     }
@@ -128,8 +129,6 @@ public class QuestionCreator : MonoBehaviour
 
             if (_currentQuestionList.ThisQuestionList.Count == 0) // win behaviour
             {
-                PlayerData.TryToChangeMoney(_currentTopic.GetRewardForDifficulty(_currentQuestionDifficulty));
-
                 PlayerData.SetRewardToZero(_currentTopic.ID, _currentQuestionDifficulty);
 
                 PlayerEventBus.OnGameEndWin?.Invoke();
