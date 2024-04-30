@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using UnityEngine;
 using YG;
 
@@ -17,11 +16,6 @@ public static class PlayerData
 
     public static void Initialize()
     {
-        //_money = 100;
-        // PlayerEventBus.OnMoneyChanged(_money);
-
-      
-
         InitializeData();
     }
 
@@ -109,13 +103,13 @@ public static class PlayerData
         if (_money + value > 0)
         {
             _money += value;
+
             PlayerEventBus.OnMoneyChanged(_money);
 
             YandexGame.savesData.Money = _money;
             YandexGame.SaveProgress();
 
             return true;
-
         }
         else
         {

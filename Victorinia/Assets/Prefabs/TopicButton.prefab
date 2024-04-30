@@ -186,6 +186,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f9718e54ce7875c4f81f657a7e69dd1e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _isStartButton: 0
   _topic: {fileID: 0}
   _textComp: {fileID: 4524259113030755356}
 --- !u!1 &7765093285226954095

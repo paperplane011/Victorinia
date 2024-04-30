@@ -21,13 +21,13 @@ public class ActionCaption : MonoBehaviour
         switch (state)
         {
             case State.cost:
-                _textComp.text = _costPrefix + value.ToString() + " M.";
+                _textComp.text = _costPrefix + value.ToString();
                 break;
             case State.reward:
-                _textComp.text = _rewardPrefix + value.ToString() + " M.";
+                _textComp.text = _rewardPrefix + value.ToString();
                 break;
             case State.noMoney:
-                _textComp.text = _noMoneyMessage + value.ToString() + " M."; // value equals to money lacking 
+                _textComp.text = _noMoneyMessage + value.ToString(); // value equals to money lacking 
                 break;
         }
 

@@ -32,20 +32,20 @@ public class ActionButton : MonoBehaviour
     private void Awake()
     {
         _thisButton = GetComponent<Button>();
-        
+
     }
 
     private void OnEnable()
     {
         _thisButton.onClick.AddListener(Clicked);
-        PlayerEventBus.OnDifficultySelected += SetButtonStateBasedOnDifficulty;
+        PlayerEventBus.OnDifficultySelected += UpdateButtonBasedOnDifficulty;
 
     }
 
     private void OnDisable()
     {
         _thisButton.onClick.RemoveAllListeners();
-        PlayerEventBus.OnDifficultySelected -= SetButtonStateBasedOnDifficulty;
+        PlayerEventBus.OnDifficultySelected -= UpdateButtonBasedOnDifficulty;
     }
 
     public void SetTopic(Topic topic)
@@ -64,13 +64,12 @@ public class ActionButton : MonoBehaviour
         {
             PlayerEventBus.OnStartGame?.Invoke(_topic, _difficultyView.CurrentQuestionDifficulty);
         }
-
-        if (_buttonState == ButtonState.buy)
+        else if (_buttonState == ButtonState.buy)
         {
             if (PlayerData.TryToChangeMoney(-_topic.GetCostForDifficulty(_difficultyView.CurrentQuestionDifficulty)))
             {
                 PlayerData.UnlockDifficulty(_topic.ID, _difficultyView.CurrentQuestionDifficulty);
-                SetButtonStateBasedOnDifficulty(_difficultyView.CurrentQuestionDifficulty);
+                UpdateButtonBasedOnDifficulty(_difficultyView.CurrentQuestionDifficulty);
             }
             else // lacking money to buy
             {
@@ -80,12 +79,10 @@ public class ActionButton : MonoBehaviour
 
     }
 
-    public void SetButtonStateBasedOnDifficulty(QuestionDifficulty questionDifficulty)
+    public void UpdateButtonBasedOnDifficulty(QuestionDifficulty questionDifficulty)
     {
         if (_topic.IsDifficultyLocked(questionDifficulty))
         {
-            
-
             SetBuyButton(questionDifficulty);
         }
         else
@@ -94,16 +91,7 @@ public class ActionButton : MonoBehaviour
 
         }
 
-
     }
-
-
-
-
-
-
-
-
 
 
     private void SetBuyButton(QuestionDifficulty questionDifficulty)
@@ -113,7 +101,7 @@ public class ActionButton : MonoBehaviour
 
         _image.sprite = _buyButtonSprite;
         _image.color = _buyButtonColor;
-        
+
     }
 
 
@@ -124,7 +112,7 @@ public class ActionButton : MonoBehaviour
 
         _image.sprite = _playButtonSprite;
         _image.color = _playButtonColor;
-        
+
     }
 
 }
