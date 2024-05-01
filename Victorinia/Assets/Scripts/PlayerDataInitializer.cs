@@ -10,6 +10,7 @@ public class PlayerDataInitializer : MonoBehaviour
         if (!_isInitialized)
         {
             PlayerData.Initialize();
+            SoundManager.Initialize();
             _isInitialized = true;
         }
 

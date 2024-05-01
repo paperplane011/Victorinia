@@ -45,4 +45,67 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _topicSaveToJsonAsset: {fileID: 11400000, guid: 9677122732c17b84185aac31d0780a2b, type: 2}
-  SoundInfoArray: []
+  SoundInfoArray:
+  - Sound: 1
+    Clip: {fileID: 8300000, guid: b4ea395b9628e324b8398e596d8795e8, type: 3}
+    Volume: 0.29
+    Pitch: 1.3
+    IsRandomPitch: 0
+    PitchDelta: 0
+    IsPlayOnAwake: 0
+    IsLoop: 0
+    Tag: 
+  - Sound: 4
+    Clip: {fileID: 8300000, guid: b978ff9d4e5b30f46b0bfa37e6abde99, type: 3}
+    Volume: 0.1
+    Pitch: 1.3
+    IsRandomPitch: 0
+    PitchDelta: 0.1
+    IsPlayOnAwake: 0
+    IsLoop: 0
+    Tag: 
+  - Sound: 5
+    Clip: {fileID: 8300000, guid: a5d922c5f4c22c741b84f947a1e1f1b0, type: 3}
+    Volume: 0.1
+    Pitch: 1.3
+    IsRandomPitch: 1
+    PitchDelta: 0.1
+    IsPlayOnAwake: 0
+    IsLoop: 0
+    Tag: 
+  - Sound: 3
+    Clip: {fileID: 8300000, guid: fdf964a6139e67840bf1ed9db77ec4c4, type: 3}
+    Volume: 1
+    Pitch: 1
+    IsRandomPitch: 1
+    PitchDelta: 0.1
+    IsPlayOnAwake: 0
+    IsLoop: 0
+    Tag: 
+  - Sound: 8
+    Clip: {fileID: 8300000, guid: 27d7a263ab175384f81ebb5d8d779492, type: 3}
+    Volume: 0.42
+    Pitch: 1.2
+    IsRandomPitch: 0
+    PitchDelta: 0
+    IsPlayOnAwake: 0
+    IsLoop: 0
+    Tag: 
+  - Sound: 6
+    Clip: {fileID: 8300000, guid: 65ce23393f6eace4a91ae723abdd2631, type: 3}
+    Volume: 0.79
+    Pitch: 1
+    IsRandomPitch: 0
+    PitchDelta: 0
+    IsPlayOnAwake: 0
+    IsLoop: 0
+    Tag: 
+  - Sound: 7
+    Clip: {fileID: 8300000, guid: 98a839554610cbc428bb01ce5dad67ce, type: 3}
+    Volume: 0.76
+    Pitch: 1
+    IsRandomPitch: 0
+    PitchDelta: 0
+    IsPlayOnAwake: 0
+    IsLoop: 0
+    Tag: 

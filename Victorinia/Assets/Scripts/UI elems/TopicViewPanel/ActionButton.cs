@@ -62,6 +62,7 @@ public class ActionButton : MonoBehaviour
     {
         if (_buttonState == ButtonState.play)
         {
+            SoundManager.PlaySound(SoundManager.Sound.PlayButton);
             PlayerEventBus.OnStartGame?.Invoke(_topic, _difficultyView.CurrentQuestionDifficulty);
         }
         else if (_buttonState == ButtonState.buy)
@@ -73,6 +74,7 @@ public class ActionButton : MonoBehaviour
             }
             else // lacking money to buy
             {
+                SoundManager.PlaySound(SoundManager.Sound.CantBuy);
                 _actionCaption.ChangeToState(ActionCaption.State.noMoney, _topic.GetCostForDifficulty(_difficultyView.CurrentQuestionDifficulty) - PlayerData.Money);
             }
         }

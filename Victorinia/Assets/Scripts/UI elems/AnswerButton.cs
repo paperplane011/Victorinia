@@ -107,10 +107,13 @@ public class AnswerButton : MonoBehaviour
         if (IsCorrect)
         {
             OneCorrectAnswerBehaviour();
+            SoundManager.PlaySound(SoundManager.Sound.AnswerCorrect);
             PlayerEventBus.OnAnswerPressed?.Invoke(true);
         }
         else
         {
+
+            SoundManager.PlaySound(SoundManager.Sound.AnswerIncorrect);
             PlayerEventBus.OnAnswerPressed?.Invoke(false);
         }
     }

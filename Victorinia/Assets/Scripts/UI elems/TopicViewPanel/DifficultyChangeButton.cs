@@ -28,6 +28,8 @@ public class DifficultyChangeButton : MonoBehaviour
 
     private void Clicked()
     {
+        SoundManager.PlaySound(SoundManager.Sound.ClickSwitch);
+
         if (_isRightButton)
         {
             _difficultyView.GoRight();

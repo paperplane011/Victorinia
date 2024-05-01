@@ -45,6 +45,8 @@ public class SelectTopicButton : MonoBehaviour
 
     private void Clicked()
     {
+        SoundManager.PlaySound(SoundManager.Sound.Click);
+
         _topicView.SetTopic(_topic);
         PlayerEventBus.OnUpdateTopicViewVisuals?.Invoke();
     }

@@ -29,13 +29,14 @@ public static class SoundManager
     public enum Sound
     {
         None,
-        MainTheme,
-        CommonFruitClicked,
-        RareFruitClicked,
-        UltrarareFruitClicked,
-        CityAmbient,
-        SpaceAmbient,
-        NatureAmbient
+        Click,
+        WinEffect,
+        MoneyChange,
+        AnswerCorrect,
+        AnswerIncorrect,
+        ClickSwitch,
+        CantBuy,
+        PlayButton
 
     }
 

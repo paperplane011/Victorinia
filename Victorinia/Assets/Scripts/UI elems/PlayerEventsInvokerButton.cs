@@ -31,6 +31,8 @@ public class PlayerEventsInvokerButton : MonoBehaviour
 
     private void RaiseEvent()
     {
+        SoundManager.PlaySound(SoundManager.Sound.Click);
+
         if (_hasArgs)
         {
             PlayerEventBus.RaiseEvent(_eventToInvoke, _boolArg);

@@ -125,6 +125,7 @@ public class QuestionCreator : MonoBehaviour
     {
         if (isCorrect)
         {
+            
             yield return new WaitForSeconds(0.4f);
 
             if (_currentQuestionList.ThisQuestionList.Count == 0) // win behaviour
@@ -136,10 +137,12 @@ public class QuestionCreator : MonoBehaviour
             else
             {
                 CreateQuestion();
+               
             }
         }
         else // lose behaviour
         {
+            
             yield return new WaitForSeconds(1.3f);
 
             PlayerEventBus.OnGameEndLose?.Invoke();

@@ -8,7 +8,6 @@ public class BalanceChangeView : MonoBehaviour
     [SerializeField] private TMPro.TextMeshProUGUI _moneyChangeTextComp;
 
     private CanvasGroup _canvasGroup;
-    private float _origMoneyChangeYPos;
 
     private void Awake()
     {
@@ -18,8 +17,6 @@ public class BalanceChangeView : MonoBehaviour
     private void Start()
     {
         _canvasGroup.alpha = 0;
-        _origMoneyChangeYPos = transform.localPosition.y;
-
     }
 
     private void OnEnable()
@@ -34,6 +31,8 @@ public class BalanceChangeView : MonoBehaviour
 
     private void UpdateView(int newBalance, int difference)
     {
+        if (difference == 0) return;
+
         if (difference > 0)
         {
             _moneyChangeTextComp.color = Color.green;
@@ -43,7 +42,7 @@ public class BalanceChangeView : MonoBehaviour
             _moneyChangeTextComp.color = Color.red;
         }
 
-        _moneyChangeTextComp.text = ((difference > 0) ? "+" : "") + difference.ToString();
+        //_moneyChangeTextComp.text = ((difference > 0) ? "+" : "") + difference.ToString();
 
         AddCountdownTween(difference);
 
@@ -61,7 +60,7 @@ public class BalanceChangeView : MonoBehaviour
             duration = MoneyViewBalance.COUNTUP_DURATION,
             onStart = (i) => _canvasGroup.alpha = 1,
             onEnd = (i) => _canvasGroup.alpha = 0,
-            onUpdate = (t, v) => _moneyChangeTextComp.text = ((int)v).ToString(),
+            onUpdate = (t, v) => _moneyChangeTextComp.text = ((difference > 0) ? "+" : "") + ((int)v).ToString(),
             easeType = EaseType.ExpoOut
         };
 

@@ -104,6 +104,7 @@ public static class PlayerData
         {
 
             _money += value;
+            SoundManager.PlaySound(SoundManager.Sound.MoneyChange);
 
             PlayerEventBus.OnMoneyChanged(_money, value);
 
