@@ -28,17 +28,19 @@ public class RewardButton : MonoBehaviour
     {
         _button.onClick.AddListener(Clicked);
         PlayerEventBus.OnRewardSetted += SetRewardBehaviour;
+        PlayerEventBus.OnRewardGotten += RewardGottenBehaviour;
     }
 
     private void OnDisable()
     {
         _button.onClick.RemoveAllListeners();
         PlayerEventBus.OnRewardSetted -= SetRewardBehaviour;
+        PlayerEventBus.OnRewardGotten -= RewardGottenBehaviour;
     }
 
     private void Start()
     {
-        _canGetReward = true;
+        
         CanvasUtils.DisableCanvasGroup(_continueButtonCanvasGroup);
         CanvasUtils.EnableCanvasGroup(_rewardCanvasGroup);
     }
@@ -56,8 +58,6 @@ public class RewardButton : MonoBehaviour
 
         _baseReward = reward;
 
-        _canGetReward = true;
-        _button.interactable = true;
         CanvasUtils.DisableCanvasGroup(_continueButtonCanvasGroup);
 
         if (_isDoubleReward) _textComp.text = (_baseReward * 2).ToString();
@@ -66,8 +66,7 @@ public class RewardButton : MonoBehaviour
 
     private void Clicked()
     {
-        if (!_canGetReward) return;
-
+       
 
 
         if (_isDoubleReward)
@@ -81,13 +80,19 @@ public class RewardButton : MonoBehaviour
             PlayerData.TryToChangeMoney(_baseReward);
         }
 
-        _canGetReward = false;
-        _button.interactable = false;
 
-        CanvasUtils.EnableCanvasGroup(_continueButtonCanvasGroup);
-        
+        PlayerEventBus.OnRewardGotten?.Invoke();
+
     }
 
+
+    private void RewardGottenBehaviour()
+    {
+        
+
+        CanvasUtils.EnableCanvasGroup(_continueButtonCanvasGroup);
+        CanvasUtils.DisableCanvasGroup(_rewardCanvasGroup);
+    }
 
 
 

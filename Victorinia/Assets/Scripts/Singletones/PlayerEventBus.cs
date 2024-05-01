@@ -28,7 +28,7 @@ public static class PlayerEventBus
     public static Action<int, int> OnMoneyChanged; // arg1: new balance, arg2: difference
 
     public static Action<int> OnRewardSetted;
-
+    public static Action OnRewardGotten;
 
 
 

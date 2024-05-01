@@ -45,27 +45,27 @@ public class BalanceChangeView : MonoBehaviour
 
         _moneyChangeTextComp.text = ((difference > 0) ? "+" : "") + difference.ToString();
 
-        AddAppearTween();
+        AddCountdownTween(difference);
 
 
     }
 
 
-    private void AddAppearTween()
+    private void AddCountdownTween(int difference)
     {
 
-        var AppearTween = new Tweens.LocalPositionYTween
+        var CountdownTween = new Tweens.FloatTween
         {
-            from = _origMoneyChangeYPos,
-            to = _origMoneyChangeYPos + 40,
-            duration = 1f,
-            easeType = Tweens.EaseType.SineInOut,
+            from = difference,
+            to = 0,
+            duration = MoneyViewBalance.COUNTUP_DURATION,
             onStart = (i) => _canvasGroup.alpha = 1,
             onEnd = (i) => _canvasGroup.alpha = 0,
-            onUpdate = (i, v) => Debug.Log(v.ToString())
+            onUpdate = (t, v) => _moneyChangeTextComp.text = ((int)v).ToString(),
+            easeType = EaseType.SineInOut
         };
 
-        gameObject.AddTween(AppearTween);
+        gameObject.AddTween(CountdownTween);
     }
 
 }
