@@ -62,7 +62,7 @@ public class BalanceChangeView : MonoBehaviour
             onStart = (i) => _canvasGroup.alpha = 1,
             onEnd = (i) => _canvasGroup.alpha = 0,
             onUpdate = (t, v) => _moneyChangeTextComp.text = ((int)v).ToString(),
-            easeType = EaseType.SineInOut
+            easeType = EaseType.ExpoOut
         };
 
         gameObject.AddTween(CountdownTween);

@@ -4,7 +4,7 @@ using UnityEngine;
 public class MoneyViewBalance : MonoBehaviour
 {
 
-    public static readonly float COUNTUP_DURATION = 1f;
+    public static readonly float COUNTUP_DURATION = 0.7f;
 
 
     [SerializeField] private string _prefix;
@@ -51,7 +51,7 @@ public class MoneyViewBalance : MonoBehaviour
             to = newBalance,
             duration = COUNTUP_DURATION,
             onUpdate = (t, v) => _moneyTextComp.text = ((int) v).ToString(),
-            easeType = EaseType.SineInOut
+            easeType = EaseType.ExpoOut
         };
 
         gameObject.AddTween(CountupTween);
