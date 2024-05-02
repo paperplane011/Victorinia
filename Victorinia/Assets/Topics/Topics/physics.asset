@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 089d2d6ede606964485818bcb2fdb20f, type: 3}
   m_Name: physics
   m_EditorClassIdentifier: 
-  ID: 2
+  ID: 3
   _previewSprite: {fileID: 21300000, guid: 5d03a8eadf9615b448a8a733ce7a02e7, type: 3}
   _caption: "\u0424\u0438\u0437\u0438\u043A\u0430"
   _questionDifficultyToQuestionListArray:
@@ -28,7 +28,7 @@ MonoBehaviour:
   - QuestionDifficulty: 1
     IntValue: 5000
   - QuestionDifficulty: 2
-    IntValue: 20
+    IntValue: 3000
   _questionDifficultyToLockedStatusArray:
   - QuestionDifficulty: 0
     BoolValue: 1

@@ -4,7 +4,7 @@ using UnityEngine;
 public class MoneyViewBalance : MonoBehaviour
 {
 
-    public static readonly float COUNTUP_DURATION = 0.7f;
+    public static readonly float COUNTUP_DURATION = 1.4f;
 
 
     [SerializeField] private string _prefix;

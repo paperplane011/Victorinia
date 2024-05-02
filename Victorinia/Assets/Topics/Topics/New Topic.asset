@@ -12,10 +12,34 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 089d2d6ede606964485818bcb2fdb20f, type: 3}
   m_Name: New Topic
   m_EditorClassIdentifier: 
-  ID: 0
+  ID: 2
   _previewSprite: {fileID: 0}
   _caption: 
-  _questionDifficultyToQuestionListArray: []
-  _questionDifficultyToRewardArray: []
-  _questionDifficultyToLockedStatusArray: []
-  _questionDifficultyToCostArray: []
+  _questionDifficultyToQuestionListArray:
+  - QuestionDifficulty: 0
+    QuestionList: {fileID: 0}
+  - QuestionDifficulty: 1
+    QuestionList: {fileID: 0}
+  - QuestionDifficulty: 2
+    QuestionList: {fileID: 0}
+  _questionDifficultyToRewardArray:
+  - QuestionDifficulty: 0
+    IntValue: 0
+  - QuestionDifficulty: 1
+    IntValue: 0
+  - QuestionDifficulty: 2
+    IntValue: 3000
+  _questionDifficultyToLockedStatusArray:
+  - QuestionDifficulty: 0
+    BoolValue: 0
+  - QuestionDifficulty: 1
+    BoolValue: 0
+  - QuestionDifficulty: 2
+    BoolValue: 0
+  _questionDifficultyToCostArray:
+  - QuestionDifficulty: 0
+    IntValue: 0
+  - QuestionDifficulty: 1
+    IntValue: 0
+  - QuestionDifficulty: 2
+    IntValue: 0

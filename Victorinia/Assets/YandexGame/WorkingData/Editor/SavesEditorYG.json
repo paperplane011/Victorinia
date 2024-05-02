@@ -1,12 +1,13 @@
 {
-    "idSave": 18,
+    "idSave": 5,
     "isFirstSession": false,
     "language": "ru",
     "promptDone": false,
-    "Money": 1924,
+    "Money": 5000,
     "IsInitialized": true,
     "TopicSaveJSONList": [
-        "{\"ID\":1,\"QuestionDifficultyToRewardArray\":[{\"QuestionDifficulty\":0,\"IntValue\":100},{\"QuestionDifficulty\":1,\"IntValue\":20},{\"QuestionDifficulty\":2,\"IntValue\":3000}],\"QuestionDifficultyToLockedStatusArray\":[{\"QuestionDifficulty\":0,\"BoolValue\":false},{\"QuestionDifficulty\":1,\"BoolValue\":false},{\"QuestionDifficulty\":2,\"BoolValue\":false}]}",
-        "{\"ID\":2,\"QuestionDifficultyToRewardArray\":[{\"QuestionDifficulty\":0,\"IntValue\":30},{\"QuestionDifficulty\":1,\"IntValue\":0},{\"QuestionDifficulty\":2,\"IntValue\":20}],\"QuestionDifficultyToLockedStatusArray\":[{\"QuestionDifficulty\":0,\"BoolValue\":false},{\"QuestionDifficulty\":1,\"BoolValue\":false},{\"QuestionDifficulty\":2,\"BoolValue\":false}]}"
+        "{\"ID\":1,\"QuestionDifficultyToRewardArray\":[{\"QuestionDifficulty\":0,\"IntValue\":100},{\"QuestionDifficulty\":1,\"IntValue\":20},{\"QuestionDifficulty\":2,\"IntValue\":3000}],\"QuestionDifficultyToLockedStatusArray\":[{\"QuestionDifficulty\":0,\"BoolValue\":true},{\"QuestionDifficulty\":1,\"BoolValue\":true},{\"QuestionDifficulty\":2,\"BoolValue\":true}]}",
+        "{\"ID\":2,\"QuestionDifficultyToRewardArray\":[{\"QuestionDifficulty\":0,\"IntValue\":0},{\"QuestionDifficulty\":1,\"IntValue\":0},{\"QuestionDifficulty\":2,\"IntValue\":3000}],\"QuestionDifficultyToLockedStatusArray\":[{\"QuestionDifficulty\":0,\"BoolValue\":false},{\"QuestionDifficulty\":1,\"BoolValue\":false},{\"QuestionDifficulty\":2,\"BoolValue\":false}]}",
+        "{\"ID\":3,\"QuestionDifficultyToRewardArray\":[{\"QuestionDifficulty\":0,\"IntValue\":30},{\"QuestionDifficulty\":1,\"IntValue\":0},{\"QuestionDifficulty\":2,\"IntValue\":3000}],\"QuestionDifficultyToLockedStatusArray\":[{\"QuestionDifficulty\":0,\"BoolValue\":true},{\"QuestionDifficulty\":1,\"BoolValue\":false},{\"QuestionDifficulty\":2,\"BoolValue\":true}]}"
     ]
 }

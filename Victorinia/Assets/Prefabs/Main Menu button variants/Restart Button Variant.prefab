@@ -12,6 +12,26 @@ PrefabInstance:
       propertyPath: m_Name
       value: Restart Button Variant
       objectReference: {fileID: 0}
+    - target: {fileID: 3209543307029825560, guid: 67b4feb2a573e944cb268f013acdafba, type: 3}
+      propertyPath: m_Type
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3209543307029825560, guid: 67b4feb2a573e944cb268f013acdafba, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 10cda123f3f36ac4fa9bf0e93fd30df7, type: 3}
+    - target: {fileID: 3520741955323248025, guid: 67b4feb2a573e944cb268f013acdafba, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 400
+      objectReference: {fileID: 0}
+    - target: {fileID: 3520741955323248025, guid: 67b4feb2a573e944cb268f013acdafba, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 400
+      objectReference: {fileID: 0}
+    - target: {fileID: 3520741955323248025, guid: 67b4feb2a573e944cb268f013acdafba, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 149
+      objectReference: {fileID: 0}
     - target: {fileID: 4524259113030755356, guid: 67b4feb2a573e944cb268f013acdafba, type: 3}
       propertyPath: m_text
       value: "\u041D\u0430\u0447\u0430\u0442\u044C \u0437\u0430\u043D\u043E\u0432\u043E"
@@ -90,11 +110,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8906219776358675429, guid: 67b4feb2a573e944cb268f013acdafba, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 972
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8906219776358675429, guid: 67b4feb2a573e944cb268f013acdafba, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -287.29
+      value: -377.4
       objectReference: {fileID: 0}
     - target: {fileID: 8906219776358675429, guid: 67b4feb2a573e944cb268f013acdafba, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -109,7 +129,8 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 7765093285226954095, guid: 67b4feb2a573e944cb268f013acdafba, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 67b4feb2a573e944cb268f013acdafba, type: 3}
