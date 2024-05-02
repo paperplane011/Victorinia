@@ -1,7 +1,6 @@
-using System.Collections;
-using System.Collections.Generic;
+
 using UnityEditor;
-using UnityEngine;
+
 
 [CustomEditor(typeof(PlayerEventsInvokerButton))]
 [CanEditMultipleObjects]
@@ -22,10 +21,10 @@ public class PlayerEventsInvokerButtonInspector : Editor
     {
         EditorGUILayout.PropertyField(_eventToInvokeProperty);
 
-        if(_eventToInvokeProperty.enumValueIndex == (int)PlayerEventBus.EventType.OnAnswerPressed)
+        if (_eventToInvokeProperty.enumValueIndex == (int)PlayerEventBus.EventType.OnAnswerPressed)
         {
             _hasArgsProperty.boolValue = true;
-            EditorGUILayout.PropertyField(_boolArgProperty);   
+            EditorGUILayout.PropertyField(_boolArgProperty);
         }
         else
         {
