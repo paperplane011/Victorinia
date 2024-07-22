@@ -11,6 +11,7 @@ public class QuestionList : ScriptableObject
 
 
     public QuestionDifficulty ThisQuestionListDifficulty { get { return _thisQuestionListDifficulty; } }
+    public string TagToFill;
     public List<Question> ThisQuestionList { get { return _thisQuestionList; } }
 
 
@@ -18,8 +19,10 @@ public class QuestionList : ScriptableObject
 
 #if UNITY_EDITOR
 
-    private const string QUESTION_SEARCH_FILTER = "t:Question";
+    // ƒобавл€ет вопросы с сложностью ThisQuestionListDifficulty и тегом TagToFill в этот QuestionList
 
+    private const string QUESTION_SEARCH_FILTER = "t:Question";
+    
 
     [ContextMenu("Fill List")]
     public void FillList()
@@ -34,7 +37,7 @@ public class QuestionList : ScriptableObject
 
             Question question = AssetDatabase.LoadAssetAtPath<Question>(questionPath);
 
-            if(question.QuestionDifficulty == _thisQuestionListDifficulty)
+            if(question.Tag == TagToFill && question.QuestionDifficulty == _thisQuestionListDifficulty)
             {
                 _thisQuestionList.Add(question);
             }

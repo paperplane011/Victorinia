@@ -10,23 +10,23 @@ public class QuestionInspector : Editor
 
     SerializedProperty _questionTextProperty;
     SerializedProperty _answerItemArrayProperty;
-    SerializedProperty _isMultipleAnswers;
     SerializedProperty _questionDifficulty;
+    SerializedProperty _tag;
 
     private void OnEnable()
     {
         _answerItemArrayProperty = serializedObject.FindProperty("_answerArray");
         _questionTextProperty = serializedObject.FindProperty("_questionText");
-        _isMultipleAnswers = serializedObject.FindProperty("_isMultipleAnswers");
         _questionDifficulty = serializedObject.FindProperty("_questionDifficulty");
+        _tag = serializedObject.FindProperty("_tag");
 
     }
 
     public override void OnInspectorGUI()
     {
         EditorGUILayout.PropertyField(_questionDifficulty);
+        EditorGUILayout.PropertyField(_tag);
         EditorGUILayout.PropertyField(_questionTextProperty);
-        EditorGUILayout.PropertyField(_isMultipleAnswers);
         EditorGUILayout.PropertyField(_answerItemArrayProperty);
         
 
@@ -49,14 +49,7 @@ public class QuestionInspector : Editor
         }
 
 
-        if(_isMultipleAnswers.boolValue)
-        {
-            EditorGUILayout.LabelField("MULTIPLE ANSWERS ENABLED");
-        }
-        else
-        {
-            EditorGUILayout.LabelField("MULTIPLE ANSWERS DISABLED");
-        }
+       
 
 
         EditorGUILayout.LabelField($"Num of correct answers: {correctAnswersNum}");
@@ -64,7 +57,7 @@ public class QuestionInspector : Editor
         
 
 
-        EditorGUILayout.LabelField($"CheckCorrectness: {CheckCorrectness(_isMultipleAnswers.boolValue, correctAnswersNum)}");
+        
 
         if (isAnyAnswerEmpty)
         {
@@ -103,14 +96,5 @@ public class QuestionInspector : Editor
     }
 
 
-    private bool CheckCorrectness(bool isMultipleAnswers, int numOfCorrectAnsws)
-    {
-        if (numOfCorrectAnsws == 0) return false;
-
-        if (isMultipleAnswers && numOfCorrectAnsws == 1) return false;
-
-        if (!isMultipleAnswers && numOfCorrectAnsws > 1) return false;
-
-        return true;
-    }
+    
 }

@@ -4,6 +4,7 @@ using UnityEditor;
 [CanEditMultipleObjects]
 public class TopicInspector : Editor
 {
+    SerializedProperty _tag;
 
     SerializedProperty _previewSpriteProperty;
     SerializedProperty _captionProperty;
@@ -17,6 +18,9 @@ public class TopicInspector : Editor
 
     private void OnEnable()
     {
+        _tag = serializedObject.FindProperty("_tag");
+
+
         _previewSpriteProperty = serializedObject.FindProperty("_previewSprite");
         _captionProperty = serializedObject.FindProperty("_caption");
 
@@ -30,6 +34,8 @@ public class TopicInspector : Editor
 
     public override void OnInspectorGUI()
     {
+        EditorGUILayout.PropertyField(_tag);
+
         EditorGUILayout.PropertyField(_previewSpriteProperty);
         EditorGUILayout.PropertyField(_captionProperty);
 

@@ -39,6 +39,7 @@ public class TopicSaveToJsonAsset : ScriptableObject
 
             Topic topic = AssetDatabase.LoadAssetAtPath<Topic>(topicPath);
 
+            topic.FillTopic();
             topic.ID = i;
             i++;
 

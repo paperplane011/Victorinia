@@ -1,4 +1,5 @@
 using System;
+using UnityEditor;
 using UnityEngine;
 
 
@@ -11,6 +12,8 @@ public class Topic : ScriptableObject
     public static readonly int MAX_NUM_OF_DIFFICULTIES = 3;
 
     public int ID;
+    
+    [SerializeField] private string _tag;
 
 
     [SerializeField] private Sprite _previewSprite;
@@ -36,6 +39,54 @@ public class Topic : ScriptableObject
     [SerializeField] private QuestionDifficultyIntValue[] _questionDifficultyToCostArray;
     public QuestionDifficultyIntValue[] QuestionDifficultyToCostArray { get { return _questionDifficultyToCostArray; } }
 
+#if UNITY_EDITOR
+
+    private const string QUESTION_LIST_SEARCH_FILTER = "t:QuestionList";
+
+    [ContextMenu("Fill Topic")]
+    public void FillTopic()
+    {
+
+        string[] allQuestionListGUIDs = AssetDatabase.FindAssets(QUESTION_LIST_SEARCH_FILTER);
+
+        foreach (var questionListGUID in allQuestionListGUIDs)
+        {
+            string questionListPath = AssetDatabase.GUIDToAssetPath(questionListGUID);
+
+            QuestionList questionList = AssetDatabase.LoadAssetAtPath<QuestionList>(questionListPath);
+
+            questionList.FillList();
+            
+            if (questionList.TagToFill == _tag)
+            {
+               
+                switch (questionList.ThisQuestionListDifficulty)
+                {
+                    case QuestionDifficulty.Easy:
+                        _questionDifficultyToQuestionListArray[0] = new QuestionDifficultyQuestionListValue();
+                        _questionDifficultyToQuestionListArray[0].QuestionDifficulty = QuestionDifficulty.Easy;
+                        _questionDifficultyToQuestionListArray[0].QuestionList = questionList;
+                        break;
+                    case QuestionDifficulty.Normal:
+                        _questionDifficultyToQuestionListArray[0] = new QuestionDifficultyQuestionListValue();
+                        _questionDifficultyToQuestionListArray[0].QuestionDifficulty = QuestionDifficulty.Normal;
+                        _questionDifficultyToQuestionListArray[0].QuestionList = questionList;
+                        break;
+                    case QuestionDifficulty.Hard:
+                        _questionDifficultyToQuestionListArray[0] = new QuestionDifficultyQuestionListValue();
+                        _questionDifficultyToQuestionListArray[0].QuestionDifficulty = QuestionDifficulty.Hard;
+                        _questionDifficultyToQuestionListArray[0].QuestionList = questionList;
+                        break;
+                };
+
+
+            }
+        }
+
+    }
+
+
+#endif
 
 
     //private void OnValidate()
