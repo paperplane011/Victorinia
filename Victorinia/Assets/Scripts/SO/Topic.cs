@@ -68,14 +68,14 @@ public class Topic : ScriptableObject
                         _questionDifficultyToQuestionListArray[0].QuestionList = questionList;
                         break;
                     case QuestionDifficulty.Normal:
-                        _questionDifficultyToQuestionListArray[0] = new QuestionDifficultyQuestionListValue();
-                        _questionDifficultyToQuestionListArray[0].QuestionDifficulty = QuestionDifficulty.Normal;
-                        _questionDifficultyToQuestionListArray[0].QuestionList = questionList;
+                        _questionDifficultyToQuestionListArray[1] = new QuestionDifficultyQuestionListValue();
+                        _questionDifficultyToQuestionListArray[1].QuestionDifficulty = QuestionDifficulty.Normal;
+                        _questionDifficultyToQuestionListArray[1].QuestionList = questionList;
                         break;
                     case QuestionDifficulty.Hard:
-                        _questionDifficultyToQuestionListArray[0] = new QuestionDifficultyQuestionListValue();
-                        _questionDifficultyToQuestionListArray[0].QuestionDifficulty = QuestionDifficulty.Hard;
-                        _questionDifficultyToQuestionListArray[0].QuestionList = questionList;
+                        _questionDifficultyToQuestionListArray[2] = new QuestionDifficultyQuestionListValue();
+                        _questionDifficultyToQuestionListArray[2].QuestionDifficulty = QuestionDifficulty.Hard;
+                        _questionDifficultyToQuestionListArray[2].QuestionList = questionList;
                         break;
                 };
 

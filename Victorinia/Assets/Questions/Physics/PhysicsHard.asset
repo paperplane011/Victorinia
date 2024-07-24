@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 75b9e6f792fb00046812804b223e3e4a, type: 3}
+  m_Name: PhysicsHard
+  m_EditorClassIdentifier: 
+  _thisQuestionListDifficulty: 2
+  _thisQuestionList:
+  - {fileID: 11400000, guid: 502a5718e14dc93439e4499f5e3e9b3c, type: 2}
+  - {fileID: 11400000, guid: 211bb81e8e57af9488979f1ba47d6fbd, type: 2}
+  - {fileID: 11400000, guid: 1fd043b1ece00bc44908009d7d0086e5, type: 2}
+  - {fileID: 11400000, guid: 543fb4fa245dd93488deab8cdc3e162f, type: 2}
+  - {fileID: 11400000, guid: a6ca1130b438c5446914e97014c667cb, type: 2}
+  - {fileID: 11400000, guid: b756bb4644cb7704690616bdefe04aa7, type: 2}
+  - {fileID: 11400000, guid: 9aa72ed991ad62f459b53b3306b4838c, type: 2}
+  - {fileID: 11400000, guid: 32ab49588c9357a4d847442e215da05e, type: 2}
+  - {fileID: 11400000, guid: 379cea0dd2eeaa44e8b1e6c97a5964e0, type: 2}
+  - {fileID: 11400000, guid: 30569699f703fe14d843639826c9e4ac, type: 2}
+  - {fileID: 11400000, guid: 4af0c6e56b1f7bd4386eef67c3520547, type: 2}
+  - {fileID: 11400000, guid: d1324dccc4ed0894fb5f9bde845f8f5d, type: 2}
+  TagToFill: Physics
