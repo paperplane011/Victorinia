@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 089d2d6ede606964485818bcb2fdb20f, type: 3}
   m_Name: Physics
   m_EditorClassIdentifier: 
-  ID: 1
+  ID: 2
   _tag: Physics
   _previewSprite: {fileID: 21300000, guid: df42e39d710305342bf3bf639b77412d, type: 3}
   _caption: "\u0424\u0438\u0437\u0438\u043A\u0430"
@@ -32,7 +32,7 @@ MonoBehaviour:
     IntValue: 300
   _questionDifficultyToLockedStatusArray:
   - QuestionDifficulty: 0
-    BoolValue: 1
+    BoolValue: 0
   - QuestionDifficulty: 1
     BoolValue: 1
   - QuestionDifficulty: 2
