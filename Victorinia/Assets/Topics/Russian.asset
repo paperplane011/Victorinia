@@ -12,17 +12,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 089d2d6ede606964485818bcb2fdb20f, type: 3}
   m_Name: Russian
   m_EditorClassIdentifier: 
-  ID: 6
+  ID: 7
   _tag: Russian
   _previewSprite: {fileID: 0}
-  _caption: 
+  _caption: "\u0420\u0443\u0441\u0441\u043A\u0438\u0439 \u044F\u0437\u044B\u043A"
   _questionDifficultyToQuestionListArray:
   - QuestionDifficulty: 0
-    QuestionList: {fileID: 0}
+    QuestionList: {fileID: 11400000, guid: 468d0b09d90c3504c93e565afe502df1, type: 2}
   - QuestionDifficulty: 1
-    QuestionList: {fileID: 0}
+    QuestionList: {fileID: 11400000, guid: 203df84cfd94df94e848b0ccdd5a61d1, type: 2}
   - QuestionDifficulty: 2
-    QuestionList: {fileID: 0}
+    QuestionList: {fileID: 11400000, guid: 9bfae18d8442b324cac0f7b333f259e3, type: 2}
   _questionDifficultyToRewardArray:
   - QuestionDifficulty: 0
     IntValue: 0
