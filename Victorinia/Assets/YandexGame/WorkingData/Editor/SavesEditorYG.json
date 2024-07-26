@@ -1,12 +1,17 @@
 {
-    "idSave": 17,
+    "idSave": 5,
     "isFirstSession": false,
     "language": "ru",
     "promptDone": false,
-    "Money": 660,
+    "Money": 0,
     "IsInitialized": true,
     "TopicSaveJSONList": [
-        "{\"ID\":1,\"QuestionDifficultyToRewardArray\":[{\"QuestionDifficulty\":0,\"IntValue\":100},{\"QuestionDifficulty\":1,\"IntValue\":0},{\"QuestionDifficulty\":2,\"IntValue\":0}],\"QuestionDifficultyToLockedStatusArray\":[{\"QuestionDifficulty\":0,\"BoolValue\":false},{\"QuestionDifficulty\":1,\"BoolValue\":false},{\"QuestionDifficulty\":2,\"BoolValue\":false}]}",
-        "{\"ID\":2,\"QuestionDifficultyToRewardArray\":[{\"QuestionDifficulty\":0,\"IntValue\":0},{\"QuestionDifficulty\":1,\"IntValue\":200},{\"QuestionDifficulty\":2,\"IntValue\":300}],\"QuestionDifficultyToLockedStatusArray\":[{\"QuestionDifficulty\":0,\"BoolValue\":false},{\"QuestionDifficulty\":1,\"BoolValue\":false},{\"QuestionDifficulty\":2,\"BoolValue\":false}]}"
+        "{\"ID\":1,\"QuestionDifficultyToRewardArray\":[{\"QuestionDifficulty\":0,\"IntValue\":0},{\"QuestionDifficulty\":1,\"IntValue\":0},{\"QuestionDifficulty\":2,\"IntValue\":0}],\"QuestionDifficultyToLockedStatusArray\":[{\"QuestionDifficulty\":0,\"BoolValue\":false},{\"QuestionDifficulty\":1,\"BoolValue\":false},{\"QuestionDifficulty\":2,\"BoolValue\":false}]}",
+        "{\"ID\":2,\"QuestionDifficultyToRewardArray\":[{\"QuestionDifficulty\":0,\"IntValue\":0},{\"QuestionDifficulty\":1,\"IntValue\":0},{\"QuestionDifficulty\":2,\"IntValue\":0}],\"QuestionDifficultyToLockedStatusArray\":[{\"QuestionDifficulty\":0,\"BoolValue\":false},{\"QuestionDifficulty\":1,\"BoolValue\":false},{\"QuestionDifficulty\":2,\"BoolValue\":false}]}",
+        "{\"ID\":3,\"QuestionDifficultyToRewardArray\":[{\"QuestionDifficulty\":0,\"IntValue\":100},{\"QuestionDifficulty\":1,\"IntValue\":200},{\"QuestionDifficulty\":2,\"IntValue\":300}],\"QuestionDifficultyToLockedStatusArray\":[{\"QuestionDifficulty\":0,\"BoolValue\":false},{\"QuestionDifficulty\":1,\"BoolValue\":true},{\"QuestionDifficulty\":2,\"BoolValue\":true}]}",
+        "{\"ID\":4,\"QuestionDifficultyToRewardArray\":[{\"QuestionDifficulty\":0,\"IntValue\":0},{\"QuestionDifficulty\":1,\"IntValue\":0},{\"QuestionDifficulty\":2,\"IntValue\":0}],\"QuestionDifficultyToLockedStatusArray\":[{\"QuestionDifficulty\":0,\"BoolValue\":false},{\"QuestionDifficulty\":1,\"BoolValue\":false},{\"QuestionDifficulty\":2,\"BoolValue\":false}]}",
+        "{\"ID\":5,\"QuestionDifficultyToRewardArray\":[{\"QuestionDifficulty\":0,\"IntValue\":0},{\"QuestionDifficulty\":1,\"IntValue\":0},{\"QuestionDifficulty\":2,\"IntValue\":0}],\"QuestionDifficultyToLockedStatusArray\":[{\"QuestionDifficulty\":0,\"BoolValue\":false},{\"QuestionDifficulty\":1,\"BoolValue\":false},{\"QuestionDifficulty\":2,\"BoolValue\":false}]}",
+        "{\"ID\":6,\"QuestionDifficultyToRewardArray\":[{\"QuestionDifficulty\":0,\"IntValue\":100},{\"QuestionDifficulty\":1,\"IntValue\":200},{\"QuestionDifficulty\":2,\"IntValue\":300}],\"QuestionDifficultyToLockedStatusArray\":[{\"QuestionDifficulty\":0,\"BoolValue\":false},{\"QuestionDifficulty\":1,\"BoolValue\":true},{\"QuestionDifficulty\":2,\"BoolValue\":true}]}",
+        "{\"ID\":7,\"QuestionDifficultyToRewardArray\":[{\"QuestionDifficulty\":0,\"IntValue\":0},{\"QuestionDifficulty\":1,\"IntValue\":0},{\"QuestionDifficulty\":2,\"IntValue\":0}],\"QuestionDifficultyToLockedStatusArray\":[{\"QuestionDifficulty\":0,\"BoolValue\":false},{\"QuestionDifficulty\":1,\"BoolValue\":false},{\"QuestionDifficulty\":2,\"BoolValue\":false}]}"
     ]
 }
