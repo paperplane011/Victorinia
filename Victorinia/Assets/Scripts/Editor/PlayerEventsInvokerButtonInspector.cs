@@ -1,6 +1,6 @@
-
+#if UNITY_EDITOR
 using UnityEditor;
-
+#endif
 
 [CustomEditor(typeof(PlayerEventsInvokerButton))]
 [CanEditMultipleObjects]

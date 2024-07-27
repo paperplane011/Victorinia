@@ -1,6 +1,7 @@
-using System;
+
+#if UNITY_EDITOR
 using UnityEditor;
-using UnityEngine;
+#endif
 
 [CustomEditor(typeof(QuestionList))]
 public class QuestionListInspector : Editor

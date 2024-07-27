@@ -1,6 +1,8 @@
 using System.Collections.Generic;
 using System;
+#if UNITY_EDITOR
 using UnityEditor;
+#endif
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "QuestionList")]
