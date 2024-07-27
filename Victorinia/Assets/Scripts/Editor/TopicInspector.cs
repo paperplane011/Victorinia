@@ -13,6 +13,7 @@ public class TopicInspector : Editor
     SerializedProperty _questionDifficultyToRewardArrayProperty;
 
     SerializedProperty _questionDifficultyToLockedStatusArrayProperty;
+    SerializedProperty _questionDifficultyToCompletedStatusArrayProperty;
     SerializedProperty _questionDifficultyToCostArrayProperty;
 
 
@@ -28,6 +29,8 @@ public class TopicInspector : Editor
         _questionDifficultyToRewardArrayProperty = serializedObject.FindProperty("_questionDifficultyToRewardArray");
 
         _questionDifficultyToLockedStatusArrayProperty = serializedObject.FindProperty("_questionDifficultyToLockedStatusArray");
+        _questionDifficultyToCompletedStatusArrayProperty = serializedObject.FindProperty("_questionDifficultyToCompletedStatusArray");
+
         _questionDifficultyToCostArrayProperty = serializedObject.FindProperty("_questionDifficultyToCostArray");
     }
 
@@ -43,6 +46,7 @@ public class TopicInspector : Editor
         EditorGUILayout.PropertyField(_questionDifficultyToRewardArrayProperty);
 
         EditorGUILayout.PropertyField(_questionDifficultyToLockedStatusArrayProperty);
+        EditorGUILayout.PropertyField(_questionDifficultyToCompletedStatusArrayProperty);
         EditorGUILayout.PropertyField(_questionDifficultyToCostArrayProperty);
 
 
@@ -50,6 +54,7 @@ public class TopicInspector : Editor
         _questionDifficultyToRewardArrayProperty.arraySize = Topic.MAX_NUM_OF_DIFFICULTIES;
 
         _questionDifficultyToLockedStatusArrayProperty.arraySize = Topic.MAX_NUM_OF_DIFFICULTIES;
+        _questionDifficultyToCompletedStatusArrayProperty.arraySize = Topic.MAX_NUM_OF_DIFFICULTIES;
         _questionDifficultyToCostArrayProperty.arraySize = Topic.MAX_NUM_OF_DIFFICULTIES;
 
 
@@ -62,6 +67,7 @@ public class TopicInspector : Editor
             _questionDifficultyToRewardArrayProperty.GetArrayElementAtIndex(i).FindPropertyRelative("QuestionDifficulty").enumValueIndex = (int)nextDif;
 
             _questionDifficultyToLockedStatusArrayProperty.GetArrayElementAtIndex(i).FindPropertyRelative("QuestionDifficulty").enumValueIndex = (int)nextDif;
+            _questionDifficultyToCompletedStatusArrayProperty.GetArrayElementAtIndex(i).FindPropertyRelative("QuestionDifficulty").enumValueIndex = (int)nextDif;
             _questionDifficultyToCostArrayProperty.GetArrayElementAtIndex(i).FindPropertyRelative("QuestionDifficulty").enumValueIndex = (int)nextDif;
 
 

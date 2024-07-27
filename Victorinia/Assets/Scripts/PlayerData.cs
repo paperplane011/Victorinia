@@ -98,6 +98,15 @@ public static class PlayerData
     }
 
 
+    public static void ShowInfo()
+    {
+        foreach(var elem in _idToTopicSaveDictionary)
+        {
+            Debug.Log(elem.Key + ":\nEasy completed: " + PlayerData.IsTopicDifficultyCompleted(elem.Key, QuestionDifficulty.Easy) + "\nNormal completed: " + PlayerData.IsTopicDifficultyCompleted(elem.Key, QuestionDifficulty.Normal) + "\nHard completed: " + PlayerData.IsTopicDifficultyCompleted(elem.Key, QuestionDifficulty.Hard));
+        }
+    }
+
+
     public static bool TryToChangeMoney(int value)
     {
         if (_money + value > 0)
@@ -122,9 +131,9 @@ public static class PlayerData
     
 
 
-    public static void UnlockDifficulty(int ID, QuestionDifficulty questionDifficulty) // changes topic
+    public static void UnlockDifficulty(int topicID, QuestionDifficulty questionDifficulty) // changes topic
     {
-        TopicSave topicSave = _idToTopicSaveDictionary[ID];
+        TopicSave topicSave = _idToTopicSaveDictionary[topicID];
         
 
         foreach(var elem in topicSave.QuestionDifficultyToLockedStatusArray)
@@ -140,9 +149,9 @@ public static class PlayerData
 
     }
 
-    public static void SetRewardToZero(int ID, QuestionDifficulty questionDifficulty) // changes topic
+    public static void SetRewardToZero(int topicID, QuestionDifficulty questionDifficulty) // changes topic
     {
-        TopicSave topicSave = _idToTopicSaveDictionary[ID];
+        TopicSave topicSave = _idToTopicSaveDictionary[topicID];
 
 
         foreach (var elem in topicSave.QuestionDifficultyToRewardArray)
@@ -157,6 +166,38 @@ public static class PlayerData
         SaveDictionaryToSavesYG();
 
     }
+
+    public static void SetDifficultyAsCompleted(int topicID, QuestionDifficulty questionDifficulty)
+    {
+        TopicSave topicSave = _idToTopicSaveDictionary[topicID];
+
+        foreach(var elem in topicSave.QuestionDifficultyToCompletedStatusArray)
+        {
+            if(elem.QuestionDifficulty == questionDifficulty)
+            {
+                elem.BoolValue = true;
+            }
+        }
+
+        SaveDictionaryToSavesYG();
+
+    }
+
+    public static bool IsTopicDifficultyCompleted(int topicID, QuestionDifficulty questionDifficulty)
+    {
+        TopicSave topicSave = _idToTopicSaveDictionary[topicID];
+
+        foreach (var elem in topicSave.QuestionDifficultyToCompletedStatusArray)
+        {
+            if (elem.QuestionDifficulty == questionDifficulty)
+            {
+                return elem.BoolValue;
+            }
+        }
+
+        throw new ArgumentException();
+    }
+
 
     public static bool IsTopicDifficultyLocked(int topicID, QuestionDifficulty questionDifficulty)
     {
@@ -173,6 +214,8 @@ public static class PlayerData
         throw new ArgumentException();
 
     }
+
+
 
 
     public static int GetTopicRewardForDifficulty(int topicID, QuestionDifficulty questionDifficulty)

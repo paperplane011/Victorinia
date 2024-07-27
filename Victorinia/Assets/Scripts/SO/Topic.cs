@@ -35,6 +35,10 @@ public class Topic : ScriptableObject
     [SerializeField] private QuestionDifficultyBoolValue[] _questionDifficultyToLockedStatusArray;
     public QuestionDifficultyBoolValue[] QuestionDifficultyToLockedStatusArray { get { return _questionDifficultyToLockedStatusArray; } }
 
+    [SerializeField] private QuestionDifficultyBoolValue[] _questionDifficultyToCompletedStatusArray;
+    public QuestionDifficultyBoolValue[] QuestionDifficultyToCompletedStatusArray { get { return _questionDifficultyToCompletedStatusArray; } }
+
+
 
     [SerializeField] private QuestionDifficultyIntValue[] _questionDifficultyToCostArray;
     public QuestionDifficultyIntValue[] QuestionDifficultyToCostArray { get { return _questionDifficultyToCostArray; } }
@@ -213,6 +217,7 @@ public class QuestionDifficultyBoolValue
     public QuestionDifficultyBoolValue()
     {
         QuestionDifficulty = QuestionDifficulty.Easy;
+        BoolValue = false;
 
     }
 }

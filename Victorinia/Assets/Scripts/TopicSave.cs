@@ -8,12 +8,19 @@ public class TopicSave
 
     public QuestionDifficultyBoolValue[] QuestionDifficultyToLockedStatusArray;
 
+    public QuestionDifficultyBoolValue[] QuestionDifficultyToCompletedStatusArray;
+
 
     public TopicSave(Topic topic)
     {
         ID = topic.ID;
         QuestionDifficultyToRewardArray = topic.QuestionDifficultyToRewardArray;
+        
         QuestionDifficultyToLockedStatusArray = topic.QuestionDifficultyToLockedStatusArray;
+
+        QuestionDifficultyToCompletedStatusArray = topic.QuestionDifficultyToCompletedStatusArray;
+
+
 
     }
 

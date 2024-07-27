@@ -35,4 +35,10 @@ public class PlayerDataInitializer : MonoBehaviour
         PlayerData.TryToChangeMoney(-20);
     }
 
+    [ContextMenu("Show Info")]
+    public void ShowInfo()
+    {
+        PlayerData.ShowInfo();
+    }
+
 }

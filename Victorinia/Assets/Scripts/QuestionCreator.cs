@@ -131,6 +131,7 @@ public class QuestionCreator : MonoBehaviour
             if (_currentQuestionList.ThisQuestionList.Count == 0) // win behaviour
             {
                 PlayerData.SetRewardToZero(_currentTopic.ID, _currentQuestionDifficulty);
+                PlayerData.SetDifficultyAsCompleted(_currentTopic.ID, _currentQuestionDifficulty);
 
                 PlayerEventBus.OnGameEndWin?.Invoke();
             }

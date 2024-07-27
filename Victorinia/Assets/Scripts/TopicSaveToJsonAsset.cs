@@ -41,6 +41,7 @@ public class TopicSaveToJsonAsset : ScriptableObject
 
             topic.FillTopic();
             topic.ID = i;
+            Debug.Log("ID: " + i + ". Topic: " + topic.Caption);
             i++;
 
             _topicSaveJSONList.Add(JsonUtility.ToJson(topic.ToTopicSave()));
