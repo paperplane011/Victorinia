@@ -14,7 +14,16 @@ public class GameScreenColorTween : MonoBehaviour
     [Header("Colors")]
     [SerializeField] private Color _mainMenuColor;
     [SerializeField] private Color _selectMenuColor;
-    [SerializeField] private Color _questionsMenuColor;
+
+    [SerializeField] private Color _questionsMenuColor1;
+    [SerializeField] private Color _questionsMenuColor2;
+    [SerializeField] private Color _questionsMenuColor3;
+    [SerializeField] private Color _questionsMenuColor4;
+    [SerializeField] private Color _questionsMenuColor5;
+    [SerializeField] private Color _questionsMenuColor6;
+    [SerializeField] private Color _questionsMenuColor7;
+
+
     [SerializeField] private Color _loseMenuColor;
     [SerializeField] private Color _winMenuColor;
 
@@ -71,11 +80,32 @@ public class GameScreenColorTween : MonoBehaviour
                 color = _winMenuColor;
                 break;
             case GameScreen.Questions:
-                color = _questionsMenuColor;
+                color = GetRandomQuestionsMenuColor();
                 break;
         }
 
         return color;
+    }
+
+    private Color GetRandomQuestionsMenuColor()
+    {
+        Random.InitState(Time.frameCount); 
+        int num = Random.Range(1, 8);
+
+        switch (num)
+        {
+            case 1: return _questionsMenuColor1;
+            case 2: return _questionsMenuColor2;
+            case 3: return _questionsMenuColor3;
+            case 4: return _questionsMenuColor4;
+            case 5: return _questionsMenuColor5;
+            case 6: return _questionsMenuColor6;
+            case 7: return _questionsMenuColor7;
+            default: return _questionsMenuColor1;
+        }
+
+
+
     }
 
 

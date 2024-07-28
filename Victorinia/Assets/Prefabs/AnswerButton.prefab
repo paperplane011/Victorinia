@@ -358,8 +358,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _transDuration: 1
   _doUnsubscribeOnDisable: 0
-  _mainMenuColor: {r: 0.794, g: 0.7545647, b: 0.55738807, a: 1}
-  _selectMenuColor: {r: 0.5913, g: 0.81, b: 0.60345, a: 1}
-  _questionsMenuColor: {r: 0.52785903, g: 0.801, b: 0.770651, a: 1}
-  _loseMenuColor: {r: 0.686, g: 0.349174, b: 0.44103572, a: 1}
-  _winMenuColor: {r: 0.766, g: 0.7462486, b: 0.288016, a: 1}
+  _mainMenuColor: {r: 0.8509804, g: 0.827451, b: 0.70980394, a: 1}
+  _selectMenuColor: {r: 0.8509804, g: 0.827451, b: 0.70980394, a: 1}
+  _questionsMenuColor1: {r: 0.70980394, g: 0.76556647, b: 0.8509804, a: 1}
+  _questionsMenuColor2: {r: 0.7100028, g: 0.70980394, b: 0.8509804, a: 1}
+  _questionsMenuColor3: {r: 0.7971264, g: 0.70980394, b: 0.8509804, a: 1}
+  _questionsMenuColor4: {r: 0.8509804, g: 0.70980394, b: 0.77310556, a: 1}
+  _questionsMenuColor5: {r: 0.8509804, g: 0.7719601, b: 0.70980394, a: 1}
+  _questionsMenuColor6: {r: 0.821112, g: 0.8509804, b: 0.70980394, a: 1}
+  _questionsMenuColor7: {r: 0.73248523, g: 0.8509804, b: 0.70980394, a: 1}
+  _loseMenuColor: {r: 0.75686276, g: 0.45490196, b: 0.5372549, a: 1}
+  _winMenuColor: {r: 0.85882354, g: 0.8392157, b: 0.38431373, a: 1}
