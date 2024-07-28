@@ -6,7 +6,8 @@ public class TopicToDifficultyCaption : MonoBehaviour
 
     [SerializeField] private TMPro.TextMeshProUGUI _textComp;
     [SerializeField] private string _prefix;
-    [SerializeField] private string _postfix;
+    [SerializeField] private string _uncompletedPostfix;
+    [SerializeField] private string _completedPostfix;
 
 
     private void OnEnable()
@@ -22,7 +23,7 @@ public class TopicToDifficultyCaption : MonoBehaviour
 
     private void UpdateText(Topic topic, QuestionDifficulty questionDifficulty)
     {
-        _textComp.text = _prefix + $"{topic.Caption} ({GetStringForQuestionDifficulty(questionDifficulty)})" + _postfix;
+        _textComp.text = _prefix + $"{topic.Caption} ({GetStringForQuestionDifficulty(questionDifficulty)})" + ((topic.IsDifficultyCompleted(questionDifficulty) || topic.GetRewardForDifficulty(questionDifficulty) == 0) ? _completedPostfix : _uncompletedPostfix);
     }
 
 
