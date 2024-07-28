@@ -198,6 +198,22 @@ public static class PlayerData
         throw new ArgumentException();
     }
 
+    public static int GetNumOfCompletedDifficultiesOfTopic(int topicID)
+    {
+        TopicSave topicSave = _idToTopicSaveDictionary[topicID];
+
+        int num = 0;
+        
+        for(int i=0; i< Topic.MAX_NUM_OF_DIFFICULTIES; i++)
+        {
+            if (topicSave.QuestionDifficultyToCompletedStatusArray[i].BoolValue)
+            {
+                num++;
+            }
+        }
+        return num;
+    }
+
 
     public static bool IsTopicDifficultyLocked(int topicID, QuestionDifficulty questionDifficulty)
     {

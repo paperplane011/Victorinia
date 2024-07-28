@@ -1,3 +1,4 @@
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -11,18 +12,22 @@ public class SelectTopicButton : MonoBehaviour
     private Button _thisButton;
 
     [Header("Component hooks")]
-    [SerializeField] private TMPro.TextMeshProUGUI _textComp;
+    [SerializeField] private TMPro.TextMeshProUGUI _captionTextComp;
+    [SerializeField] private TMPro.TextMeshProUGUI _completedTextComp;
 
 
 
     private void OnEnable()
     {
         _thisButton.onClick.AddListener(Clicked);
+
+        PlayerEventBus.OnToSelectMenuPressed += UpdateCompletedText;
     }
 
     private void OnDisable()
     {
         _thisButton.onClick.RemoveAllListeners();
+        PlayerEventBus.OnToSelectMenuPressed -= UpdateCompletedText;
     }
 
     private void Awake()
@@ -33,7 +38,7 @@ public class SelectTopicButton : MonoBehaviour
 
     private void Start()
     {
-        _textComp.text = _topic.Caption;
+        _captionTextComp.text = _topic.Caption;
 
         if (_isStartButton)
         {
@@ -42,6 +47,8 @@ public class SelectTopicButton : MonoBehaviour
 
     }
 
+    
+
 
     private void Clicked()
     {
@@ -49,9 +56,15 @@ public class SelectTopicButton : MonoBehaviour
 
         _topicView.SetTopic(_topic);
         PlayerEventBus.OnUpdateTopicViewVisuals?.Invoke();
+    }
 
 
-        
+    private void UpdateCompletedText()
+    {
+
+        _completedTextComp.text = PlayerData.GetNumOfCompletedDifficultiesOfTopic(_topic.ID) + "/3";
+
+
     }
 
 
