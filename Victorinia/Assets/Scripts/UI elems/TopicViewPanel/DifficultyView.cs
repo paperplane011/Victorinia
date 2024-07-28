@@ -2,6 +2,9 @@ using UnityEngine;
 
 public class DifficultyView : MonoBehaviour
 {
+
+
+
     [SerializeField] private QuestionDifficultyToCanvasGroupValue[] _difficultyToCGArray;
 
     private QuestionDifficulty _currentQuestionDifficulty;

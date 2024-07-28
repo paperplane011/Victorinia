@@ -165,6 +165,11 @@ public class Topic : ScriptableObject
         return PlayerData.GetTopicRewardForDifficulty(ID, questionDifficulty);
     }
 
+    public bool IsDifficultyCompleted(QuestionDifficulty questionDifficulty)
+    {
+        return PlayerData.IsTopicDifficultyCompleted(ID, questionDifficulty);
+
+    }
 
     
 
