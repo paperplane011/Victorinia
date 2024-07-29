@@ -133,6 +133,8 @@ public class QuestionCreator : MonoBehaviour
                 PlayerData.SetRewardToZero(_currentTopic.ID, _currentQuestionDifficulty);
                 PlayerData.SetDifficultyAsCompleted(_currentTopic.ID, _currentQuestionDifficulty);
 
+                SoundManager.PlaySound(SoundManager.Sound.WinEffect);
+
                 PlayerEventBus.OnGameEndWin?.Invoke();
             }
             else

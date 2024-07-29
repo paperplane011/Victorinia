@@ -118,3 +118,12 @@ MonoBehaviour:
     IsPlayOnAwake: 1
     IsLoop: 1
     Tag: 
+  - Sound: 2
+    Clip: {fileID: 8300000, guid: cbfaf802c03327048890aef75eebfd8f, type: 3}
+    Volume: 1
+    Pitch: 1
+    IsRandomPitch: 0
+    PitchDelta: 0.1
+    IsPlayOnAwake: 0
+    IsLoop: 0
+    Tag: 
