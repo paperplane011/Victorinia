@@ -1743,6 +1743,7 @@ GameObject:
   - component: {fileID: 519420031}
   - component: {fileID: 519420029}
   - component: {fileID: 519420033}
+  - component: {fileID: 519420034}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -1834,6 +1835,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4c82d1da30344994cbd08ad1345b4095, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &519420034
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 519420028}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 245a25d55c29bbf4cb262174477e0a0c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &555807362
@@ -3023,17 +3036,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _transDuration: 1
   _doUnsubscribeOnDisable: 1
-  _mainMenuColor: {r: 0.7, g: 0.68064517, b: 0.58387095, a: 1}
-  _selectMenuColor: {r: 0.7, g: 0.68064517, b: 0.58387095, a: 1}
-  _questionsMenuColor1: {r: 0.58387095, g: 0.62903225, b: 0.7, a: 1}
-  _questionsMenuColor2: {r: 0.58387095, g: 0.58387095, b: 0.7, a: 1}
-  _questionsMenuColor3: {r: 0.6548387, g: 0.58387095, b: 0.7, a: 1}
-  _questionsMenuColor4: {r: 0.7, g: 0.58387095, b: 0.63548386, a: 1}
-  _questionsMenuColor5: {r: 0.7, g: 0.63548386, b: 0.58387095, a: 1}
-  _questionsMenuColor6: {r: 0.67419356, g: 0.7, b: 0.58387095, a: 1}
-  _questionsMenuColor7: {r: 0.6032258, g: 0.7, b: 0.58387095, a: 1}
-  _loseMenuColor: {r: 0.7, g: 0.42072538, b: 0.49689123, a: 1}
-  _winMenuColor: {r: 0.7, g: 0.6840183, b: 0.31324202, a: 1}
+  _mainMenuColor: {r: 0.8509804, g: 0.827451, b: 0.70980394, a: 1}
+  _selectMenuColor: {r: 0.8509804, g: 0.827451, b: 0.70980394, a: 1}
+  _questionsMenuColor1: {r: 0.5421659, g: 0.5841014, b: 0.65, a: 1}
+  _questionsMenuColor2: {r: 0.5421659, g: 0.5421659, b: 0.65, a: 1}
+  _questionsMenuColor3: {r: 0.6080645, g: 0.5421659, b: 0.65, a: 1}
+  _questionsMenuColor4: {r: 0.65, g: 0.5421659, b: 0.5900922, a: 1}
+  _questionsMenuColor5: {r: 0.65, g: 0.5421659, b: 0.5571429, a: 1}
+  _questionsMenuColor6: {r: 0.5601382, g: 0.5421659, b: 0.65, a: 1}
+  _questionsMenuColor7: {r: 0.65, g: 0.5421659, b: 0.6380184, a: 1}
+  _loseMenuColor: {r: 0.75686276, g: 0.45490196, b: 0.5372549, a: 1}
+  _winMenuColor: {r: 0.85882354, g: 0.8392157, b: 0.38431373, a: 1}
 --- !u!1001 &1032462078
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7514,11 +7527,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4123699377813294060, guid: 0383e678006447242aad947523646ec6, type: 3}
       propertyPath: _questionsMenuColor1.g
-      value: 0.66896516
+      value: 0.6949673
       objectReference: {fileID: 0}
     - target: {fileID: 4123699377813294060, guid: 0383e678006447242aad947523646ec6, type: 3}
       propertyPath: _questionsMenuColor1.r
-      value: 0.55313724
+      value: 0.59568626
       objectReference: {fileID: 0}
     - target: {fileID: 4123699377813294060, guid: 0383e678006447242aad947523646ec6, type: 3}
       propertyPath: _questionsMenuColor2.a
@@ -7530,11 +7543,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4123699377813294060, guid: 0383e678006447242aad947523646ec6, type: 3}
       propertyPath: _questionsMenuColor2.g
-      value: 0.55313724
+      value: 0.59568626
       objectReference: {fileID: 0}
     - target: {fileID: 4123699377813294060, guid: 0383e678006447242aad947523646ec6, type: 3}
       propertyPath: _questionsMenuColor2.r
-      value: 0.55313724
+      value: 0.59568626
       objectReference: {fileID: 0}
     - target: {fileID: 4123699377813294060, guid: 0383e678006447242aad947523646ec6, type: 3}
       propertyPath: _questionsMenuColor3.a
@@ -7546,11 +7559,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4123699377813294060, guid: 0383e678006447242aad947523646ec6, type: 3}
       propertyPath: _questionsMenuColor3.g
-      value: 0.55313724
+      value: 0.59568626
       objectReference: {fileID: 0}
     - target: {fileID: 4123699377813294060, guid: 0383e678006447242aad947523646ec6, type: 3}
       propertyPath: _questionsMenuColor3.r
-      value: 0.73515254
+      value: 0.7516994
       objectReference: {fileID: 0}
     - target: {fileID: 4123699377813294060, guid: 0383e678006447242aad947523646ec6, type: 3}
       propertyPath: _questionsMenuColor4.a
@@ -7558,11 +7571,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4123699377813294060, guid: 0383e678006447242aad947523646ec6, type: 3}
       propertyPath: _questionsMenuColor4.b
-      value: 0.68551207
+      value: 0.7091504
       objectReference: {fileID: 0}
     - target: {fileID: 4123699377813294060, guid: 0383e678006447242aad947523646ec6, type: 3}
       propertyPath: _questionsMenuColor4.g
-      value: 0.55313724
+      value: 0.59568626
       objectReference: {fileID: 0}
     - target: {fileID: 4123699377813294060, guid: 0383e678006447242aad947523646ec6, type: 3}
       propertyPath: _questionsMenuColor4.r
@@ -7574,11 +7587,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4123699377813294060, guid: 0383e678006447242aad947523646ec6, type: 3}
       propertyPath: _questionsMenuColor5.b
-      value: 0.55313724
+      value: 0.63114387
       objectReference: {fileID: 0}
     - target: {fileID: 4123699377813294060, guid: 0383e678006447242aad947523646ec6, type: 3}
       propertyPath: _questionsMenuColor5.g
-      value: 0.685512
+      value: 0.59568626
       objectReference: {fileID: 0}
     - target: {fileID: 4123699377813294060, guid: 0383e678006447242aad947523646ec6, type: 3}
       propertyPath: _questionsMenuColor5.r
@@ -7590,15 +7603,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4123699377813294060, guid: 0383e678006447242aad947523646ec6, type: 3}
       propertyPath: _questionsMenuColor6.b
-      value: 0.55313724
-      objectReference: {fileID: 0}
-    - target: {fileID: 4123699377813294060, guid: 0383e678006447242aad947523646ec6, type: 3}
-      propertyPath: _questionsMenuColor6.g
       value: 0.8509804
       objectReference: {fileID: 0}
     - target: {fileID: 4123699377813294060, guid: 0383e678006447242aad947523646ec6, type: 3}
+      propertyPath: _questionsMenuColor6.g
+      value: 0.59568626
+      objectReference: {fileID: 0}
+    - target: {fileID: 4123699377813294060, guid: 0383e678006447242aad947523646ec6, type: 3}
       propertyPath: _questionsMenuColor6.r
-      value: 0.784793
+      value: 0.6382353
       objectReference: {fileID: 0}
     - target: {fileID: 4123699377813294060, guid: 0383e678006447242aad947523646ec6, type: 3}
       propertyPath: _questionsMenuColor7.a
@@ -7606,15 +7619,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4123699377813294060, guid: 0383e678006447242aad947523646ec6, type: 3}
       propertyPath: _questionsMenuColor7.b
-      value: 0.55313724
+      value: 0.8226145
       objectReference: {fileID: 0}
     - target: {fileID: 4123699377813294060, guid: 0383e678006447242aad947523646ec6, type: 3}
       propertyPath: _questionsMenuColor7.g
-      value: 0.8509804
+      value: 0.59568626
       objectReference: {fileID: 0}
     - target: {fileID: 4123699377813294060, guid: 0383e678006447242aad947523646ec6, type: 3}
       propertyPath: _questionsMenuColor7.r
-      value: 0.60277784
+      value: 0.8509804
       objectReference: {fileID: 0}
     - target: {fileID: 4123699377813294060, guid: 0383e678006447242aad947523646ec6, type: 3}
       propertyPath: _doUnsubscribeOnDisable

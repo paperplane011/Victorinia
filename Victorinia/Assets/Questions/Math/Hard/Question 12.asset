@@ -16,15 +16,15 @@ MonoBehaviour:
   _tag: Math
   _questionText: "\u041A\u0430\u043A\u043E\u0435 \u0438\u0437 \u0441\u043B\u0435\u0434\u0443\u044E\u0449\u0438\u0445
     \u0447\u0438\u0441\u0435\u043B \u044F\u0432\u043B\u044F\u0435\u0442\u0441\u044F
-    \u043A\u043E\u043C\u043F\u043B\u0435\u043A\u0441\u043D\u044B\u043C?"
+    \u0438\u0440\u0440\u0430\u0446\u0438\u043E\u043D\u0430\u043B\u044C\u043D\u044B\u043C?"
   _answerArray:
-  - _answerText: 2+3i
-    _isCorrect: 1
-  - _answerText: -5
+  - _answerText: 3,14
+    _isCorrect: 0
+  - _answerText: -90
     _isCorrect: 0
   - _answerText: 0
     _isCorrect: 0
   - _answerText: 3/4
     _isCorrect: 0
-  - _answerText: "\u041A\u043E\u0440\u0435\u043D\u044C \u0438\u0437 3"
-    _isCorrect: 0
+  - _answerText: "\u041A\u043E\u0440\u0435\u043D\u044C \u0438\u0437 2"
+    _isCorrect: 1

@@ -25,18 +25,18 @@ MonoBehaviour:
     QuestionList: {fileID: 11400000, guid: 761138245a3b0174bafd49005458cdcb, type: 2}
   _questionDifficultyToRewardArray:
   - QuestionDifficulty: 0
-    IntValue: 0
+    IntValue: 150
   - QuestionDifficulty: 1
-    IntValue: 0
+    IntValue: 300
   - QuestionDifficulty: 2
-    IntValue: 0
+    IntValue: 520
   _questionDifficultyToLockedStatusArray:
   - QuestionDifficulty: 0
     BoolValue: 0
   - QuestionDifficulty: 1
-    BoolValue: 0
+    BoolValue: 1
   - QuestionDifficulty: 2
-    BoolValue: 0
+    BoolValue: 1
   _questionDifficultyToCompletedStatusArray:
   - QuestionDifficulty: 0
     BoolValue: 0
@@ -48,6 +48,6 @@ MonoBehaviour:
   - QuestionDifficulty: 0
     IntValue: 0
   - QuestionDifficulty: 1
-    IntValue: 0
+    IntValue: 100
   - QuestionDifficulty: 2
-    IntValue: 0
+    IntValue: 450

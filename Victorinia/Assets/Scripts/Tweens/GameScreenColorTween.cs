@@ -32,14 +32,14 @@ public class GameScreenColorTween : MonoBehaviour
     private void Awake()
     {
         _image = GetComponent<Image>();
-        ScreenHandler.OnMenuShowed += TweenToColorCorrespondingToGameScreen;
+        MenusHandler.OnMenuShowed += TweenToColorCorrespondingToGameScreen;
     }
 
 
     private void OnDisable()
     {
         if(_doUnsubscribeOnDisable)
-        ScreenHandler.OnMenuShowed -= TweenToColorCorrespondingToGameScreen;
+        MenusHandler.OnMenuShowed -= TweenToColorCorrespondingToGameScreen;
     }
 
 

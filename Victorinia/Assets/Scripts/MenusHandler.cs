@@ -13,7 +13,7 @@ public enum GameScreen
     Pause
 }
 
-public class ScreenHandler : MonoBehaviour
+public class MenusHandler : MonoBehaviour
 {
 
     [SerializeField] private GameScreenCanvasGroup[] _gameScreenCanvasGroupArray; // used to assign values in inspector

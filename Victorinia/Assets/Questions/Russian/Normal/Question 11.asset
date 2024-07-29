@@ -20,7 +20,7 @@ MonoBehaviour:
   _answerArray:
   - _answerText: "\u041F\u043E\u0448\u0435\u043B \u043B\u0438 \u0434\u043E\u0436\u0434\u044C?"
     _isCorrect: 0
-  - _answerText: "\u041F\u043E\u0448\u0435\u043B\u044C \u0434\u043E\u0436\u0434\u044C."
+  - _answerText: "\u041F\u043E\u0448\u0435\u043B \u0434\u043E\u0436\u0434\u044C."
     _isCorrect: 1
   - _answerText: "\u041A\u0430\u043A \u043F\u043E\u0448\u0435\u043B \u0434\u043E\u0436\u0434\u044C!"
     _isCorrect: 0

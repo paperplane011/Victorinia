@@ -1,3 +1,4 @@
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -46,6 +47,8 @@ public class ActionButton : MonoBehaviour
     {
         _thisButton.onClick.AddListener(Clicked);
         PlayerEventBus.OnDifficultySelected += UpdateButtonBasedOnDifficulty;
+        PlayerEventBus.OnToSelectMenuPressed += () => UpdateButtonBasedOnDifficulty(_difficultyView.CurrentQuestionDifficulty);
+        
 
     }
 
@@ -53,6 +56,7 @@ public class ActionButton : MonoBehaviour
     {
         _thisButton.onClick.RemoveAllListeners();
         PlayerEventBus.OnDifficultySelected -= UpdateButtonBasedOnDifficulty;
+        PlayerEventBus.OnToSelectMenuPressed -= () => UpdateButtonBasedOnDifficulty(_difficultyView.CurrentQuestionDifficulty);
     }
 
     public void SetTopic(Topic topic)

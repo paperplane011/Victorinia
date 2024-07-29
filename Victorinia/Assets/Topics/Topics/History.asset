@@ -25,11 +25,11 @@ MonoBehaviour:
     QuestionList: {fileID: 11400000, guid: 10be5151b59d63d4f8b0f4512a9c65b3, type: 2}
   _questionDifficultyToRewardArray:
   - QuestionDifficulty: 0
-    IntValue: 100
+    IntValue: 170
   - QuestionDifficulty: 1
-    IntValue: 200
+    IntValue: 250
   - QuestionDifficulty: 2
-    IntValue: 300
+    IntValue: 440
   _questionDifficultyToLockedStatusArray:
   - QuestionDifficulty: 0
     BoolValue: 0
@@ -48,6 +48,6 @@ MonoBehaviour:
   - QuestionDifficulty: 0
     IntValue: 0
   - QuestionDifficulty: 1
-    IntValue: 30
+    IntValue: 170
   - QuestionDifficulty: 2
-    IntValue: 90
+    IntValue: 300
