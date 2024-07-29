@@ -36,7 +36,8 @@ public static class SoundManager
         AnswerIncorrect,
         ClickSwitch,
         CantBuy,
-        PlayButton
+        PlayButton,
+        BackgroundMusic
 
     }
 
@@ -191,6 +192,7 @@ public static class SoundManager
     {
         audioSource.volume = soundInfo.Volume;
 
+      
         if (soundInfo.IsRandomPitch)
         {
             audioSource.pitch = UnityEngine.Random.Range(soundInfo.Pitch - soundInfo.PitchDelta, soundInfo.Pitch + soundInfo.PitchDelta);

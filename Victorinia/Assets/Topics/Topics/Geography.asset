@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ID: 2
   _tag: Geography
-  _previewSprite: {fileID: 0}
+  _previewSprite: {fileID: 21300000, guid: 31db6e36226d7154db02c65079191289, type: 3}
   _caption: "\u0413\u0435\u043E\u0433\u0440\u0430\u0444\u0438\u044F"
   _questionDifficultyToQuestionListArray:
   - QuestionDifficulty: 0

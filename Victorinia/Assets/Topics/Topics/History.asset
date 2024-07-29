@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ID: 3
   _tag: History
-  _previewSprite: {fileID: 21300000, guid: 086e7ea4a142df541b76c1872c2c9e75, type: 3}
+  _previewSprite: {fileID: 21300000, guid: a6484e2931a108742bb136e5365fff66, type: 3}
   _caption: "\u0418\u0441\u0442\u043E\u0440\u0438\u044F"
   _questionDifficultyToQuestionListArray:
   - QuestionDifficulty: 0

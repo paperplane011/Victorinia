@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ID: 5
   _tag: Math
-  _previewSprite: {fileID: 0}
+  _previewSprite: {fileID: 21300000, guid: 86579347819659e45b9470d2a07635cf, type: 3}
   _caption: "\u041C\u0430\u0442\u0435\u043C\u0430\u0442\u0438\u043A\u0430"
   _questionDifficultyToQuestionListArray:
   - QuestionDifficulty: 0
