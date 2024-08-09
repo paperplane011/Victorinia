@@ -11,7 +11,7 @@ public class Topic : ScriptableObject
 
     public static readonly int MAX_NUM_OF_DIFFICULTIES = 3;
 
-    public int ID;
+    [SerializeField] public int ID;
     
     [SerializeField] private string _tag;
 

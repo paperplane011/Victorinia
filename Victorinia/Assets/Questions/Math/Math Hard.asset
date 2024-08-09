@@ -13,5 +13,15 @@ MonoBehaviour:
   m_Name: Math Hard
   m_EditorClassIdentifier: 
   _thisQuestionListDifficulty: 2
-  _thisQuestionList: []
+  _thisQuestionList:
+  - {fileID: 11400000, guid: d9d5aa8cf9c50de4f8bbd7b652de319a, type: 2}
+  - {fileID: 11400000, guid: 469feca09f1c20748b119cf4800f1ff8, type: 2}
+  - {fileID: 11400000, guid: aeea1097731b6174ba7741544f869516, type: 2}
+  - {fileID: 11400000, guid: 0e1befd7d982e7a4385957e84f41e244, type: 2}
+  - {fileID: 11400000, guid: 3753fe261e442d6449e22d37cc81338c, type: 2}
+  - {fileID: 11400000, guid: a8d8c07b41b5aea45a678699f27ed274, type: 2}
+  - {fileID: 11400000, guid: 3de16e1e63cac5443a6de25d845cf17f, type: 2}
+  - {fileID: 11400000, guid: 6d9c0c7a532aec54a9cd9a949a583462, type: 2}
+  - {fileID: 11400000, guid: acf06a12eed008548ab920a6b1fd7d6d, type: 2}
+  - {fileID: 11400000, guid: d107c473022df884fb40a570168e6e25, type: 2}
   TagToFill: Math

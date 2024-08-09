@@ -33,6 +33,8 @@ public class PlayerEventsInvokerButtonInspector : Editor
 
 
         serializedObject.ApplyModifiedProperties();
+        EditorUtility.SetDirty(target);
+        
     }
 
 }

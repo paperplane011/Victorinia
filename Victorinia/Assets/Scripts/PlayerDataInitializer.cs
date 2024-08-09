@@ -1,18 +1,19 @@
 using UnityEngine;
-using YG;
 
 public class PlayerDataInitializer : MonoBehaviour
 {
-    private static bool _isInitialized = false;
+
+
+    private void Awake()
+    {
+        SoundManager.Initialize();
+    }
+
 
     private void Start()
     {
-        if (!_isInitialized)
-        {
-            PlayerData.Initialize();
-            SoundManager.Initialize();
-            _isInitialized = true;
-        }
+
+        PlayerData.Initialize();
 
     }
 

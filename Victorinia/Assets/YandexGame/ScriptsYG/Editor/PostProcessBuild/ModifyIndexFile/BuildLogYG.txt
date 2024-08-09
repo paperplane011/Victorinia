@@ -1,2 +1,2 @@
-Build path: D:/Unity/Release/PluginYG/PluginYG
-Build number: 138
+Build path: D:/deving gaming/Builds/Victorinia/Victorinia 0.9 dev
+Build number: 10

@@ -13,5 +13,17 @@ MonoBehaviour:
   m_Name: Russian Hard
   m_EditorClassIdentifier: 
   _thisQuestionListDifficulty: 2
-  _thisQuestionList: []
+  _thisQuestionList:
+  - {fileID: 11400000, guid: 35af53c206ee0674c84f6ea455381738, type: 2}
+  - {fileID: 11400000, guid: 5f7b30960f314fc4486791c172f80e55, type: 2}
+  - {fileID: 11400000, guid: 053ede48916a1b94faf768a8bc836a75, type: 2}
+  - {fileID: 11400000, guid: beec5a3bbc7a6f740ad9fe0ca060ff11, type: 2}
+  - {fileID: 11400000, guid: 46a2e38fe06231a4d8dda4cc28db52b5, type: 2}
+  - {fileID: 11400000, guid: 217bda5e4bed74447b8b63658dd041b7, type: 2}
+  - {fileID: 11400000, guid: a1cc4ba63352c0a49a64c1e77ca05184, type: 2}
+  - {fileID: 11400000, guid: ff971e27bb9fb6c49b83027e90714382, type: 2}
+  - {fileID: 11400000, guid: 7efdb432541c1284bbf4e9828ef76d34, type: 2}
+  - {fileID: 11400000, guid: 41ca6c8295f5cdd42abf1c009b9e07a5, type: 2}
+  - {fileID: 11400000, guid: e11509358657f6043b6dabee33d680f1, type: 2}
+  - {fileID: 11400000, guid: 29df6f766d006d44da0c521f9d694212, type: 2}
   TagToFill: Russian

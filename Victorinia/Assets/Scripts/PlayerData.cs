@@ -12,21 +12,22 @@ public static class PlayerData
 
     public static int Money { get { return _money; } }
 
-    
+
 
     public static void Initialize()
     {
+
         InitializeData();
+
     }
 
 
     private static void InitializeData()
     {
 
-        if (!YandexGame.savesData.IsInitialized)
+        if (YandexGame.savesData.TopicSaveJSONList == null || YandexGame.savesData.TopicSaveJSONList.Count == 0)
         {
             InitializeFromGameAssets();
-            YandexGame.savesData.IsInitialized = true;
             YandexGame.SaveProgress();
             Debug.Log("from game assets");
         }
@@ -40,6 +41,7 @@ public static class PlayerData
 
         PlayerEventBus.OnMoneyChanged?.Invoke(_money, 0);
         PlayerEventBus.OnUpdateTopicViewVisuals?.Invoke();
+
         SaveDictionaryToSavesYG();
 
     }
@@ -65,7 +67,7 @@ public static class PlayerData
     private static void FillDictionary()
     {
         _idToTopicSaveDictionary = new();
-        _idToTopicSaveDictionary.Clear();
+        //_idToTopicSaveDictionary.Clear();
 
         foreach (string topicSaveJSON in _topicSaveJSONList)
         {
@@ -74,11 +76,13 @@ public static class PlayerData
         }
 
 
+
+
     }
 
     public static void ResetProgress()
     {
-        
+
         YandexGame.ResetSaveProgress();
         YandexGame.SaveProgress();
         InitializeData();
@@ -93,14 +97,14 @@ public static class PlayerData
             newSaveList.Add(JsonUtility.ToJson(elem.Value));
         }
 
-        YandexGame.savesData.TopicSaveJSONList = newSaveList;
+        YandexGame.savesData.TopicSaveJSONList = new List<string>(newSaveList);
         YandexGame.SaveProgress();
     }
 
 
     public static void ShowInfo()
     {
-        foreach(var elem in _idToTopicSaveDictionary)
+        foreach (var elem in _idToTopicSaveDictionary)
         {
             Debug.Log(elem.Key + ":\nEasy completed: " + PlayerData.IsTopicDifficultyCompleted(elem.Key, QuestionDifficulty.Easy) + "\nNormal completed: " + PlayerData.IsTopicDifficultyCompleted(elem.Key, QuestionDifficulty.Normal) + "\nHard completed: " + PlayerData.IsTopicDifficultyCompleted(elem.Key, QuestionDifficulty.Hard));
         }
@@ -128,17 +132,17 @@ public static class PlayerData
         }
     }
 
-    
+
 
 
     public static void UnlockDifficulty(int topicID, QuestionDifficulty questionDifficulty) // changes topic
     {
         TopicSave topicSave = _idToTopicSaveDictionary[topicID];
-        
 
-        foreach(var elem in topicSave.QuestionDifficultyToLockedStatusArray)
+
+        foreach (var elem in topicSave.QuestionDifficultyToLockedStatusArray)
         {
-            if(elem.QuestionDifficulty == questionDifficulty)
+            if (elem.QuestionDifficulty == questionDifficulty)
             {
                 elem.BoolValue = false;
             }
@@ -171,9 +175,9 @@ public static class PlayerData
     {
         TopicSave topicSave = _idToTopicSaveDictionary[topicID];
 
-        foreach(var elem in topicSave.QuestionDifficultyToCompletedStatusArray)
+        foreach (var elem in topicSave.QuestionDifficultyToCompletedStatusArray)
         {
-            if(elem.QuestionDifficulty == questionDifficulty)
+            if (elem.QuestionDifficulty == questionDifficulty)
             {
                 elem.BoolValue = true;
             }
@@ -203,8 +207,8 @@ public static class PlayerData
         TopicSave topicSave = _idToTopicSaveDictionary[topicID];
 
         int num = 0;
-        
-        for(int i=0; i< Topic.MAX_NUM_OF_DIFFICULTIES; i++)
+
+        for (int i = 0; i < Topic.MAX_NUM_OF_DIFFICULTIES; i++)
         {
             if (topicSave.QuestionDifficultyToCompletedStatusArray[i].BoolValue)
             {
@@ -217,6 +221,8 @@ public static class PlayerData
 
     public static bool IsTopicDifficultyLocked(int topicID, QuestionDifficulty questionDifficulty)
     {
+        if (_idToTopicSaveDictionary == null) return false;
+
         TopicSave topicSave = _idToTopicSaveDictionary[topicID];
 
         foreach (var elem in topicSave.QuestionDifficultyToLockedStatusArray)

@@ -13,7 +13,7 @@ public class QuestionList : ScriptableObject
 
 
     public QuestionDifficulty ThisQuestionListDifficulty { get { return _thisQuestionListDifficulty; } }
-    public string TagToFill;
+    [SerializeField] public string TagToFill;
     public List<Question> ThisQuestionList { get { return _thisQuestionList; } }
 
 

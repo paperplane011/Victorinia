@@ -13,5 +13,17 @@ MonoBehaviour:
   m_Name: GeographyEasy
   m_EditorClassIdentifier: 
   _thisQuestionListDifficulty: 0
-  _thisQuestionList: []
+  _thisQuestionList:
+  - {fileID: 11400000, guid: 321564ff359dfff4895d97fa253cb9c6, type: 2}
+  - {fileID: 11400000, guid: c58c3d5efc3507e4aaba6a53bd71830f, type: 2}
+  - {fileID: 11400000, guid: cfc4253d9345a974abb2b161fb4ca281, type: 2}
+  - {fileID: 11400000, guid: b691cad5fccc3114c8af776880cc1205, type: 2}
+  - {fileID: 11400000, guid: 0df47809800b5b64ebc3ff23064377f3, type: 2}
+  - {fileID: 11400000, guid: 0bc5599c29a6c354192bad25f729c474, type: 2}
+  - {fileID: 11400000, guid: 1f4b518964a774443af2116d8a969db6, type: 2}
+  - {fileID: 11400000, guid: e7ef860d48c72b040a9d22b2862c0010, type: 2}
+  - {fileID: 11400000, guid: 870dc1e903676544c9cafffbd63bc3d2, type: 2}
+  - {fileID: 11400000, guid: 2868e426d17dd864ebeb7a8ac1e83971, type: 2}
+  - {fileID: 11400000, guid: 11930e9372cd7b246a3f6b343a9429ca, type: 2}
+  - {fileID: 11400000, guid: 09a3911521e946e4ba5bae18fafcbb59, type: 2}
   TagToFill: Geography

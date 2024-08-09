@@ -78,6 +78,7 @@ public class TopicInspector : Editor
 
 
         serializedObject.ApplyModifiedProperties();
+        EditorUtility.SetDirty(target);
     }
 
 

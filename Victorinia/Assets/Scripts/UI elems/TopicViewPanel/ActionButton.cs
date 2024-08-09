@@ -94,6 +94,8 @@ public class ActionButton : MonoBehaviour
 
     public void UpdateButtonBasedOnDifficulty(QuestionDifficulty questionDifficulty)
     {
+        if (_topic == null) return;
+
         if (_topic.IsDifficultyLocked(questionDifficulty))
         {
             SetBuyButton(questionDifficulty);

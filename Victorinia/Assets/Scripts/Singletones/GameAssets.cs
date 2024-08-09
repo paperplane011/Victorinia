@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class GameAssets : MonoBehaviour
 {
-    #region SINGLETONE
+   
     private static GameAssets _instance;
     public static GameAssets Instance
     {
@@ -10,13 +10,20 @@ public class GameAssets : MonoBehaviour
         {
             if (_instance == null)
             {
-                _instance = (Instantiate(Resources.Load("GameAssets")) as GameObject).GetComponent<GameAssets>();
+                Debug.Log("_instance == null");
+                _instance = GameObject.FindGameObjectWithTag("GameAssets").GetComponent<GameAssets>();
             }
+
+            Debug.Log("_instance exist");
             return _instance;
 
         }
     }
-    #endregion 
+
+    public void Awake()
+    {
+        Debug.Log("!!!! GAME ASSETS INSTANTIATED !!!!");
+    }
 
 
     public const string TOPIC_VIEW_TAG = "TopicView";

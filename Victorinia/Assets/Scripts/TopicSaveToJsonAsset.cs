@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using UnityEditor;
 #endif
 using UnityEngine;
+using static UnityEngine.GraphicsBuffer;
 
 
 [CreateAssetMenu(menuName = "TopicSaveToJsonAsset")]
@@ -11,7 +12,7 @@ public class TopicSaveToJsonAsset : ScriptableObject
 {
 
 
-    private List<string> _topicSaveJSONList; // initial data
+    [SerializeField] private List<string> _topicSaveJSONList; // initial data
 
     public List<string> TopicSaveJSONList { get { return _topicSaveJSONList; } }
 
@@ -45,6 +46,7 @@ public class TopicSaveToJsonAsset : ScriptableObject
             i++;
 
             _topicSaveJSONList.Add(JsonUtility.ToJson(topic.ToTopicSave()));
+            
         }
     }
 

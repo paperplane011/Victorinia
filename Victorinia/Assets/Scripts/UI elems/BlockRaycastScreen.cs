@@ -1,5 +1,4 @@
 using System;
-using UnityEditor.SceneManagement;
 using UnityEngine;
 
 [RequireComponent(typeof(CanvasGroup))]

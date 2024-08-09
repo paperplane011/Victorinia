@@ -30,14 +30,15 @@ public class QuestionListInspector : Editor
         EditorGUILayout.PropertyField(_thisQuestionListDifficulty);
         EditorGUILayout.PropertyField(_tagToFill);
 
-        EditorGUI.BeginDisabledGroup(true);
+        
 
         EditorGUILayout.PropertyField(_thisQuestionList);
       
-        EditorGUI.EndDisabledGroup();
+        
 
 
         serializedObject.ApplyModifiedProperties();
+        EditorUtility.SetDirty(target);
     }
 
 

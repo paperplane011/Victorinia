@@ -71,6 +71,7 @@ public class QuestionInspector : Editor
         QuestionPreview();
 
         serializedObject.ApplyModifiedProperties();
+        EditorUtility.SetDirty(target);
     }
 
 

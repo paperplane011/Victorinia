@@ -1,11 +1,12 @@
 using System;
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class QuestionCreator : MonoBehaviour
 {
 
-    private QuestionList _currentQuestionList;
+    private List<Question> _currentQuestionList;
 
 
     private Topic _currentTopic;
@@ -61,7 +62,15 @@ public class QuestionCreator : MonoBehaviour
 
     private void GameStartBehaviour(Topic topic, QuestionDifficulty questionDifficulty)
     {
-        _currentQuestionList = Instantiate(topic.GetQuestionListForDifficulty(questionDifficulty)); // copying obj
+        //if (topic == null) Debug.Log("TOPIC IS NULL");
+        //if (topic.GetQuestionListForDifficulty(questionDifficulty).ThisQuestionList.Count == 0) Debug.Log("Question list is empty :(");
+
+        //if (topic.GetQuestionListForDifficulty(questionDifficulty) == null) Debug.Log("No question list");
+
+        _currentQuestionList = new();
+        _currentQuestionList.AddRange(topic.GetQuestionListForDifficulty(questionDifficulty).ThisQuestionList); // copying obj
+        
+        //Debug.Log("current question list count: " + _currentQuestionList.Count);
 
         _currentTopic = topic;
         _currentQuestionDifficulty = questionDifficulty;
@@ -92,10 +101,10 @@ public class QuestionCreator : MonoBehaviour
         if (_currentQuestionList == null) return;
 
         // Get question
-        int randomQuestionIndex = UnityEngine.Random.Range(0, _currentQuestionList.ThisQuestionList.Count);
-        Question randomQuestion = _currentQuestionList.ThisQuestionList[randomQuestionIndex];
+        int randomQuestionIndex = UnityEngine.Random.Range(0, _currentQuestionList.Count);
+        Question randomQuestion = _currentQuestionList[randomQuestionIndex];
         // Remove used question
-        _currentQuestionList.ThisQuestionList.RemoveAt(randomQuestionIndex);
+        _currentQuestionList.RemoveAt(randomQuestionIndex);
 
         // Set question text
         _questionTextComp.text = randomQuestion.QuestionText;
@@ -128,7 +137,7 @@ public class QuestionCreator : MonoBehaviour
             
             yield return new WaitForSeconds(0.4f);
 
-            if (_currentQuestionList.ThisQuestionList.Count == 0) // win behaviour
+            if (_currentQuestionList.Count == 0) // win behaviour
             {
                 PlayerData.SetRewardToZero(_currentTopic.ID, _currentQuestionDifficulty);
                 PlayerData.SetDifficultyAsCompleted(_currentTopic.ID, _currentQuestionDifficulty);
