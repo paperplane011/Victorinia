@@ -1,2 +1,2 @@
-Build path: D:/deving gaming/Builds/Victorinia/Victorinia 0.9 dev
-Build number: 10
+Build path: D:/deving gaming/Builds/Victorinia/Victorinia 1.0 (disk size, med code strip)
+Build number: 12
