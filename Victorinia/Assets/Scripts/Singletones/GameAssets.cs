@@ -10,11 +10,11 @@ public class GameAssets : MonoBehaviour
         {
             if (_instance == null)
             {
-                Debug.Log("_instance == null");
+                
                 _instance = GameObject.FindGameObjectWithTag("GameAssets").GetComponent<GameAssets>();
             }
 
-            Debug.Log("_instance exist");
+          
             return _instance;
 
         }
@@ -22,7 +22,7 @@ public class GameAssets : MonoBehaviour
 
     public void Awake()
     {
-        Debug.Log("!!!! GAME ASSETS INSTANTIATED !!!!");
+       
     }
 
 

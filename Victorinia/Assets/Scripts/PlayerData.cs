@@ -29,12 +29,12 @@ public static class PlayerData
         {
             InitializeFromGameAssets();
             YandexGame.SaveProgress();
-            Debug.Log("from game assets");
+            
         }
         else
         {
             InitializeFromSavesYG();
-            Debug.Log("from yg");
+            
         }
 
         FillDictionary();

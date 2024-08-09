@@ -73,7 +73,7 @@ public static class PlayerEventBus
                 break;
 
             default:
-                Debug.LogWarning($"{eventType} can't be raised via button. Or add event to player events invoker");
+                
                 break;
         }
     }
