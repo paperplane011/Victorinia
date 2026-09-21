@@ -1,4 +1,4 @@
-# Отличник? Докажи!
+## Отличник? Докажи!
 
 **«Отличник? Докажи!»** — браузерная викторина на Unity, посвящённая проверке знаний по школьной программе.
 
@@ -14,6 +14,7 @@ https://github.com/user-attachments/assets/8502b9de-2eb0-42de-ac7f-dc94f4fe42bf
   <img width="250" alt="image" src="https://github.com/user-attachments/assets/2c57125f-8e22-4a0b-9890-0acfba351594" />
   <img width="250" alt="image(1)" src="https://github.com/user-attachments/assets/b2e8be6b-fd5e-4a5e-9fbc-6c1ebbbdb65b" />
 </p>
+
 ## Особенности
 
 * Викторина на знание школьной программы
